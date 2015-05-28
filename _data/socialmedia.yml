@@ -1,0 +1,19 @@
+- name: Twitter
+  url: http://twitter.com/xantier
+  class: icon-twitter
+  title: ""
+
+- name: Facebook
+  url: http://www.facebook.com/jussi.hallila
+  class: icon-facebook
+  title: ""
+
+- name: GitHub
+  url: http://github.com/Xantier
+  class: icon-github
+  title: ""
+
+# - name: Xing
+#   url: https://www.xing.com/profile/Moritzmo_Sauer
+#   class: icon-xing
+#   title: Xing Profil
