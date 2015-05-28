@@ -7,7 +7,8 @@
 layout: frontpage
 title: "Nothing Here Yet"
 header:
-   image_fullwidth: "header_unsplash_5.jpg"
-   caption: caption
-   caption_url: https://jussi.hallila.com
+    image:  "header_unsplash_2-970x.jpg"
+    background-color:  "#fabb00"
+    caption: Not Samurais
+    caption_url: https://jussi.hallila.com/
 ---
