@@ -5,7 +5,7 @@
 # this work, you have to use › layout: frontpage
 #
 layout: frontpage
-title: "Nothing Here Yet"
+title: "We are not samurais"
 header:
     image:  "header_unsplash_2-970x.jpg"
     background-color:  "#fabb00"
