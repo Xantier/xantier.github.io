@@ -31,7 +31,7 @@ Backend Architecture:
 
 
 * Data Flow
-  ![Backend data flow]({{ site.ulrl }}/assets/img/sFcwlc1Osiy__F3W1zS1jzw.png)
+  ![Backend data flow]({{ site.url }}/assets/img/sFcwlc1Osiy__F3W1zS1jzw.png)
 
 
 Frontend Architecture:
@@ -61,12 +61,15 @@ Lot's of words, not that much actual info, let's take a look how the architectur
 Future architecture:
 
 Backend:
+
 * In most parts pretty much the same as original
 * New things in most cases:
   * RESTified Controllers
   * Flattened models communicating on the front/back threshold
 
+
 Frontend:
+
 * Node.js as a middleman server
 * Progressively enhanced instant loading web application
 * Universal / Isomorphic JavaScript
@@ -75,10 +78,12 @@ Frontend:
 
 
 During this I think it might be good to go through some DevX enhancements that we will gain during this process.
+
   * Test driven development cycle for frontend resources
   * Instant feedback cycle when developing
   * Compiled CSS and JavaScript
   * Transpiled languages and their interoperability with traditional web app
   * Frontend Continuous Integration & Continuous Deployment process
+
 
   Until next time, when we really get to the meatier bits.
