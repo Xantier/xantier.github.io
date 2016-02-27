@@ -31,7 +31,7 @@ Backend Architecture:
 
 
 * Data Flow
-  ![Backend data flow]({{ site.url }}/assets/img/sFcwlc1Osiy__F3W1zS1jzw.png)
+  * ![Backend data flow]({{ site.url }}/assets/img/sFcwlc1Osiy__F3W1zS1jzw.png)
 
 
 Frontend Architecture:
@@ -46,7 +46,8 @@ Frontend Architecture:
   * HTML containing JavaScript to enhance the experience
 
 * Data Flow
-  ![Frontend data flow]({{ site.url }}/assets/img/sSvtDSaB20KSs5kjvxxOqmg.png)
+
+  * ![Frontend data flow]({{ site.url }}/assets/img/sSvtDSaB20KSs5kjvxxOqmg.png)
 
 
 If we think about this from a viewpoint of back/front threshold, the architecture seems like a nice and clear solution for individual websites that don't do much dynamic stuff, ie. stuff other than displaying images and text. It might even be good for simple CRUD applications that don't need dynamicity or good (or even decent) user experience. Our goal here is not to build those kind of applications, we want to make something different, something that gives our users a better experience as well as our developers a better tools and processes to build the application.
