@@ -55,15 +55,62 @@ The normal way to do this is to jump into a SPA world head-on and flip your cont
 
 Another way to tackle this issue came to my attention from rise of React and isomorphic JS applications. When creating an isomorphic application you use the same Javascript codebase to handle both server and client rendering. For this to work properly and for the data to keep up to date on both sides of the application, you need to be able to pass the data back and forth between your backend and frontend. The initial passing from back to front was done via the server rendered HTML and grabbed by the frontend application from there.
 
-Even though we can't go fully isomorphic with our Java backend, we are able to make use of variables in our expression language. Because of this we naturallu also have the option to pass data to the frontend application seamlessly on our initial render.
+Even though we can't go fully isomorphic with our Java backend, we are able to make use of variables in our expression language. Because of this we naturally also have the option to pass data to the frontend application seamlessly on our initial render.
 
+Let's see how this could work:
 
-/***
+First our controller. Simple enough solution, we are still returning a model with our view. This time though we transform our model into a JSON string. First we create a Jackson ObjectMapper who we will use to serialize our Pizza object. We will also just in case escape the string, to do that we use Apache Commons library's StringEscapeUtils.
 
-How to do this?
-Controller passing decoded JSON and view
-JSP variables and undecoding
-Rehydrating in JS.
-Deleting data from view.
+{% highlight java %}
 
-***/
+@Controller
+@RequestMapping("/pizza")
+public class PizzaController{
+
+  public String getPizzaView(){
+    Pizza pizza = new Pizza("BaconAndKebab");
+
+    ObjectMapper objectMapper = new ObjectMapper();
+    String json = null;
+    try {
+        json = objectMapper.writeValueAsString(pizza);
+    } catch (JsonProcessingException e) {
+        logger.info("Unable to convert object to json.", e);
+    }
+    return new ModelAndView("views/pizza", "pizza", StringEscapeUtils.escapeJson(json));
+  }
+}
+{% endhighlight %}
+
+On frontend side we need to catch that serialized string and somehow map that into a JS variable. Let's take a look how that could work:
+
+{% highlight jsp %}
+
+<head>
+<title>Rehydrate!</title>
+</head>
+<script>
+  ___pizza___ = JSON.parse(unescape('${pizza}'));
+</script>
+<body>
+<div id="content">
+  <!-- Content will be rendered here by JS-->
+</div>
+</body>
+</html>
+
+{% endhighlight %}
+
+Nicely done. Now we have a global JS object called ___pizza___ that contains our wanted data. Last step to make our client a bit cleaner is to remove the global object and save to a model.
+
+{% highlight javascript %}
+
+var data = window.___pizza___;
+delete window.___pizza___;
+saveToModel(data);
+
+{% endhighlight %}
+
+That's pretty much it. We have injected a dump of data to the DOM and prevented the need to add a spinner to the page. Now that data is in our model and ready to be used in our modern frontend application.
+
+Next time we'll take a look at how we are able to do that.
