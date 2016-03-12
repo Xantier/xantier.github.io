@@ -90,7 +90,7 @@ On frontend side we need to catch that serialized string and somehow map that in
 <title>Rehydrate!</title>
 </head>
 <script>
-  ___pizza___ = JSON.parse(unescape('${pizza}'));
+  ___pizza___ = JSON.parse('${pizza}');
 </script>
 <body>
 <div id="content">
