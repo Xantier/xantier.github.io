@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Java webapps and modern frontend: Querying The World With ORM
+title: Java webapps and modern frontend - Querying The World With ORM
 teaser:
 tags:
   - Java
@@ -10,7 +10,7 @@ permalink:
 header: no
 ---
 
-# Reducing the load on your boundaries
+## Reducing the load on your boundaries
 
 Like we know, ORMs are OK on some things but a big mistake on others.
 One thing that we used to do in our data analytics world was always try to lessen the payload coming from the database to our client. We went through variations of different rowmapping techniques and pure JDBC queries. When I jumped into a code base using Spring Data JPA, I quickly grew a longing for all the techniques that weren't available easily with @Query annotation.

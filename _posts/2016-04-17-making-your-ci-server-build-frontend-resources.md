@@ -10,8 +10,6 @@ permalink:
 header: no
 ---
 
-# Making Jenkins build your frontend resources
-
 In Java world Maven or Cradle is often king and that makes often difficult to include other things into your build process painlessly. If we think about a modern frontend development where Node.JS based build tool is used separately from backend processes it is sometimes hard to think of a good way to make the connection between these two separate things. When it comes to CI servers, Jenkins is as good a choice as anything else and having its background heavily living in the Java world it plays well with Java build tools. Now that Node.js is already mainstream the support for that infrastructure is as well very mature to be included in Jenkins. Today we won't be touching web development worlds Travis, Codeship, CircleCI or Go CD, we'll go with self hosted and trusty old Hudson/Jenkins.
 
 An "old style" Jenkins job is one where we would usually have a build step running our maven commands, running tests through it, maybe creating and releasing artifact out of it. This would mostly be handled via maven or cradle. Because the ecosystem on that side is very good and more often than not has plugins for each situation it might be intriguing to try to push your frontend builds through that channel as well. If you decide to go that road, [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) is a brilliant option to bake them in. Today I will display another approach where we use purer way to access our frontend build process.

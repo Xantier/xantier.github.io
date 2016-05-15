@@ -10,8 +10,6 @@ permalink:
 header: no
 ---
 
-# Fixing Internet Explorer for Your React ES6 Application
-
 ## Polyfilling missing features from IE JS interpreter
 
 Sometimes we have the luxury to work with other than nicely working evergreen browsers. That means that if we ride the wave of modern frontend application we usually need to make some detours while developing. At times Internet Explorer will work nicely with most features of current Javascript but more often than not there might need to do some trickery to keep those browser features up to date. A good place to check when a polyfill is needed is to check [kangax's compatibility table.](https://kangax.github.io/compat-table/es6/)

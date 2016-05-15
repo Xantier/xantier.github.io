@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Java webapps and modern frontend: How Should We Structure Our Frontend Code In JVM Webapp
+title: Java webapps and modern frontend - How Should We Structure Our Frontend Code In JVM Webapp
 teaser:
 tags:
   - Java
@@ -9,8 +9,6 @@ tags:
 permalink:
 header: no
 ---
-
-# How Should We Structure Our Frontend Code In JVM Webapp
 
 If we think about our Maven/Cradle driven JVM webapp we usually have a very
 strict structure when it comes to frontend resources. The standard folder lies somewhere in src/main/webapp. This guy, especially in spring driven application, usually has some folders to JSPs, some folders to Javascript and some folders for your CSS & images. More specifically your server rendered views usually end up being in WEB-INF folder within /webapp.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Series intro: Java webapps and modern frontend
+title: Series intro - Java webapps and modern frontend
 teaser:
 tags:
   - Java
@@ -9,8 +9,6 @@ tags:
 permalink:
 header: no
 ---
-
-# Java webapps and modern frontend
 
 Something I've been playing with in my head quite a bit has been the transition of moving from old Java + Spring MVC + JSP/Thymeleaf/whatever style web sites to modern progressively enhanced web apps using more modern technologies. I want to touch few of the points that I've found useful during my journey doing that.
 

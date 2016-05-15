@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Java webapps and modern frontend: Using Your First Dehydrated Data Dump
+title: Java webapps and modern frontend - Using Your First Dehydrated Data Dump
 teaser:
 tags:
   - Java

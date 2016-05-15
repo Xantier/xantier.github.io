@@ -1,14 +1,12 @@
 ---
 layout: page
-title: Modern frontend: Configuring Eslint and Gulp
+title: Modern frontend - Configuring Eslint and Gulp
 teaser:
 tags:
   - Modern Frontend
 permalink:
 header: no
 ---
-
-# Configuring Eslint and Gulp
 
 ## Modifying your workflow to give faster feedback
 

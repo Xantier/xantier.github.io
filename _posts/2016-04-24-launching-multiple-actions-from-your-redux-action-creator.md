@@ -10,8 +10,6 @@ permalink:
 header: no
 ---
 
-# Launching Multiple Actions From Your Redux Action Creator
-
 At times we stumble upon the need to launch multiple actions at the same time from your Redux action creators. Today we'll take a look at two techniques how we can achieve this.
 
 I tend to separate action creators into two different types. We have async actions and sync actions. Syncs are simple action creators that only gather the needed data and invoke the correct reducers function. Asynchoronous ones might make some action, like calling the backend for additional data, and launch the reducers after this additional action is finished. Let's take a look how these two different methods look like.
