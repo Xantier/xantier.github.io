@@ -10,6 +10,8 @@ permalink:
 header: no
 ---
 
+# Introducing Build Process For Your Frontend Resources
+
 Previously we took a look at how to structure our frontend application and noticed that a buildfile is one of the essential building blocks on the frontend of a modern webapp. Today we'll take a peek into processes around the buildfile and how that affects our development, build and release processes.
 
 ## Development

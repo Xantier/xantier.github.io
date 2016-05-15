@@ -10,6 +10,8 @@ permalink:
 header: no
 ---
 
+# From JSP to Javascript dehydration
+
 This is the second post on the series explaining a journey from fully server rendered web page towards modern frontend application. The introduction to the series can be found from [here]({% post_url 2016-02-21-java-webapps-and-modern-web %})
 
 Or how I learned to hate spinners and embrace server rendered data.
