@@ -21,7 +21,7 @@ it contains a folder that is exposed to the browser and multiple folders that co
 Let's take a look how it looks and see what files and folders our application
 would contain:
 
-```
+{% highlight javascript %}
 app
     / dist
     / stylesheet
@@ -31,7 +31,7 @@ app
     .babelrc
     .eslintrc
     build.js
-```
+{% endhighlight %}
 
 OK, looks straightforward enough.
 

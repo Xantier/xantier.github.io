@@ -38,7 +38,7 @@ I will create these inline, naturally if you are reusing your `@Rule`s you will 
 
 First.
 
-```
+{% highlight java %}
 @Rule
 public TestRule myRule = new TestRule() {
     @Override
@@ -52,11 +52,11 @@ private void setupResourceFor(String methodName){
   Config configReadFromJson = readJson(JSON_LOCATION).get(methodName)
   createTemporaryFolderAndCopyFileToCorrectLocation(configReadFromJson);
 }
-```
+{% endhighlight %}
 
 Second.
 
-```
+{% highlight java %}
 @Rule
 public TestWatcher myTestWatcher = new TestWatcher() {
     @Override
@@ -84,10 +84,10 @@ public TestWatcher myTestWatcher = new TestWatcher() {
         System.out.println("Cool beans, all done with " + description.getMethodName());
     }
 };
-```
+{% endhighlight %}
 
 Third. This is kind of a funny example that I hacked together in order to be able to try to get our QA department more involved in creating test cases. Instead of making them write Java code, let's trick them into setting up test data in to an Excel sheet and configure test case to be run using that excel sheet.
-```
+{% highlight java %}
 /**
  * Reading the config value from current iteration of our test case list
  * Modifying test case parameters to point to the correct setup and expected DB files.
@@ -108,10 +108,10 @@ public MethodRule dbPropRule = new MethodRule() {
     }
 };
 
-```
+{% endhighlight %}
 
 Fourth.
-```
+{% highlight java %}
 @Rule
 public TestRule myRule = new TestRule() {
     @Override
@@ -126,11 +126,11 @@ private void loadDatabaseAndInsertValues(String methodName){
   createDbSchema(configReadFromJson.getSchema());
   insertValues(configReadFromJson.getInsertStatements());
 }
-```
+{% endhighlight %}
 
 Fifth. This is closely related to example number three. Here we are reading a JSON file from the resources folder and creating a repeating statement that runs the test case as many time as we have setups. This combined with changing configs at runtime helps externalizing your setups in e2e cases for example.
 
-```
+{% highlight java %}
 /**
  * Reading test data JSON file to a list of configurations.
  * Creating new statement to run the test case as many times as there are configs.
@@ -158,6 +158,6 @@ public static TestRule repeatRule = new TestRule() {
         }
     }
 };
-```
+{% endhighlight %}
 
 That's everything for now. Do you know any other good use cases for JUnit `@Rule`s?
