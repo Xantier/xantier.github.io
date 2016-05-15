@@ -1,3 +1,15 @@
+---
+layout: page
+title: Using Rules to Help Your JUnit Testcases
+teaser:
+tags:
+  - Java
+  - JUnit
+  - TDD
+permalink:
+header: no
+---
+
 Everyone in the Java world is aware of writing tests and the importance of them. Most developers are also aware of JUnit library, which is usually without fail baked in to your maven project (naturally I'm assuming here that TestNG people don't exist, sorry about that). We have some brilliant helper libraries like Mockito, Hamcrest and PowerMock to help us in our journey to test nirvana.
 
 Today I want to write about one thing that I've found to be overlooked in various codebases. [That is JUnit's baked in Rules functionality.](https://github.com/junit-team/junit/wiki/Rules)

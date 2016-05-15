@@ -1,3 +1,15 @@
+---
+layout: page
+title: Java webapps and modern frontend: Incorporating Tests To Your Frontend Build Process
+teaser:
+tags:
+  - Java
+  - Spring
+  - Modern Frontend
+permalink:
+header: no
+---
+
 # Incorporating tests to your frontend build process
 
 Last week we went through the basics of introducing build process to your frontend  resources. Now I believe it's time to discuss about much overlooked aspect of frontend development in enterprisy organizations.
