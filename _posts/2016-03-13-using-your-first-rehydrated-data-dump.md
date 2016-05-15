@@ -10,7 +10,7 @@ permalink:
 header: no
 ---
 
-## Jumping from rehydration to dynamic web app
+# Jumping from rehydration to dynamic web app
 
 Previously we figured out how to inject some data from out Spring controllers directly to the server HTML page and transform that to a Javascript variable. This time we'll take a look at some patterns that could be helpful to manage multiple data sources in our app.
 
