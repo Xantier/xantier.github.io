@@ -33,12 +33,14 @@ On servers tab double click servers to configure it:
    * Select previously setup server.
    * Set up environment variables on run config if applicable:
 * See property environment variables of the project from web.xml or other location where those are set up in your project eg.
+
 { highlight xml }
  <context-param>
   <param-name>myEnvParam</param-name>
   <param-value>MyProperties</param-value>
 </context-param>
 { endhighlight }
+
 * setup value to point to your properties file location --> ~/props/myApp.properties. Or alternatively set up system wide env variable.
 
 Start debugging and enjoy hot swapping.
@@ -51,6 +53,7 @@ Start debugging and enjoy hot swapping.
 * On deployment tab add your war file to be deployed (set application contect to be the same as before)
 * Set up environment variables on run config if applicable:
 * See property environment variables of the project from web.xml or other location where those are set up in your project eg.
+
 { highlight xml }
  <context-param>
   <param-name>myEnvParam</param-name>
