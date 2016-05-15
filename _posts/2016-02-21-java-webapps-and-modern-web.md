@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Series intro - Java webapps and modern frontend
+title: Java webapps and modern frontend
 teaser:
 tags:
   - Java
