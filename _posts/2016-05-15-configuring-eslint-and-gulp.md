@@ -10,6 +10,8 @@ header: no
 
 # Configuring Eslint and Gulp
 
+## Modifying your workflow to give faster feedback
+
 Eslint is one of my favourite tools that has been introduced in recent years to the JS community. Having my background in stricter languages I tend to have some level of longing to automatic helpers when developing for the frontend. The freedom that is introduced when jumping into dynamic languages is liberating and for hacking something working is very easy and quick to do. The development work flow is also simple enough, you modify your files and restart the server / hit F5 on your browser. The result is immediately visible, happy days.
 
 As usual, there are of course tradeoffs that come with it. You might be familiar with messages like ```undefined is not a function```, ```missing ) after argument list```, ```Object expected``` when you hit F12 and open the console in your browser. After a while alt+tab to browser, hitting F5, opening the console and seeing what went wrong gets somewhat labourious and you might want every helper there is to give you some feedback when you are writing code instead. One of the tools that can help you with syntax, code style and to some extent best practices is [ESlint](http://eslint.org/).
@@ -61,4 +63,4 @@ gulp.task('watch-lint', function() {
 
 There we go. No single command ```gulp watch-lint``` will start the watcher and harass us every time we write bad Javascript code.
 
-One thing worth noting is that IntelliJ has a brilliant support for ESLint that will help keep your Javascript development cycle  within the IDE itself. 
+One thing worth noting is that IntelliJ has a brilliant support for ESLint that will help keep your Javascript development cycle  within the IDE itself.
