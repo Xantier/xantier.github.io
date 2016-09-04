@@ -69,11 +69,11 @@ side applications
   * Awards: Nokia Siemens Networks scholarship (2007)
 
 #### Exchange studies abroad
-* **Shanghai University**, Computer Sciences, 9/2009 – 12/2009
-* **Missouri State University**, Information Technology, 1/2008 – 6/2008
+* *Shanghai University*, Computer Sciences, 9/2009 – 12/2009
+* *Missouri State University*, Information Technology, 1/2008 – 6/2008
 
 #### Skills and competencies
-###### Programming:
+##### Programming:
 * *JVM*: **Java**, Spring, Hibernate, Kotlin, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
 * *Javascript*: **JQuery, Node.js, React**, Ajax, Jade, Grunt, Gulp, Angular
 * *Databases*: **MySQL**, **Oracle**, **DB2**, MongoDB, RethinkDB
@@ -81,7 +81,7 @@ side applications
 * *Methodologies*: **Scrum**, Kanban
 * *Other*: **IntelliJ, Jenkins, Ansible,** Ubuntu, Red Hat, Glassfish, Tomcat, WID, WPS
 
-###### Language proficiency
+##### Language proficiency
 * *Mother tongue:* Finnish
 * *Other languages:* Fluent English, written and spoken. Basic
     skills in Swedish and Dutch.
