@@ -73,6 +73,7 @@ side applications
 * *Missouri State University*, Information Technology, 1/2008 – 6/2008
 
 #### Skills and competencies
+
 ##### Programming:
 * *JVM*: **Java**, Spring, Hibernate, Kotlin, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
 * *Javascript*: **JQuery, Node.js, React**, Ajax, Jade, Grunt, Gulp, Angular
