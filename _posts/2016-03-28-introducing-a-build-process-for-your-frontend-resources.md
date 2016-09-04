@@ -1,3 +1,15 @@
+---
+layout: page
+title: Java webapps and modern frontend - Introducing Build Process For Your Frontend Resources
+teaser:
+tags:
+  - Java
+  - Spring
+  - Modern Frontend
+permalink:
+header: no
+---
+
 Previously we took a look at how to structure our frontend application and noticed that a buildfile is one of the essential building blocks on the frontend of a modern webapp. Today we'll take a peek into processes around the buildfile and how that affects our development, build and release processes.
 
 ## Development
@@ -28,8 +40,8 @@ Let's start with the easiest one: package.json
 
 At this point in time you should be familar with package.json. It's the heart of a node.js application. It contains all the info about the application like licenses, repository urls, maintainers, dependencies and scripts to run some stuff in the application. We are interested in the scripts part of this.
 
-```
-/** snip **/
+{% highlight javascript %}
+/* snip */
 "scripts": {
   "start": "node app/run.js",
   "build": "webpack --config webpack.production.config.js",
@@ -37,8 +49,8 @@ At this point in time you should be familar with package.json. It's the heart of
   "test-cov": "./node_modules/.bin/babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha -- -R spec './test/**/*.js'",
   "lint": "./node_modules/.bin/eslint -c .eslintrc -o ./reports/eslint.xml -f checkstyle app/**/*"
 },
-/** snip **/
-```
+/* snip */
+{% endhighlight %}
 
 These are usually my scripts in my package.json file.
 1. start: Runs the application in dev mode by starting a dev server and autoreloads + watching changes on the app.
@@ -47,9 +59,9 @@ These are usually my scripts in my package.json file.
 4. test-cov: Same as test but this time creates a coverage report as well
 5. lint: Runs static analysis on the code and inspects the structure of the code base as well as style and formatting of the code
 
-Straightforward enough. Without going any deeper on other things, this time we'll take a look at the ```start``` script only. It uses node.js to run a file called run. OK, that's simple. What does our run.js contain?
+Straightforward enough. Without going any deeper on other things, this time we'll take a look at the `start` script only. It uses node.js to run a file called run. OK, that's simple. What does our run.js contain?
 
-```
+{% highlight javascript %}
 /**
  * A Babel wrapper so we can use ES6 on our server configuration file
  * and subsequent files.
@@ -64,12 +76,13 @@ require('babel-core/register')();
 var devServer = require('./development-server');
 devServer.run();
 /* eslint-enable */
-```
+{% endhighlight %}
 
 Hmm. Nothing really, it is just introducing a compile process to our config files and passing the buck to our development-server. What's in there then?
 
-``` development-server.js
+{% highlight javascript %}
 /**
+ * development-server.js
  * Because we have registered a babel-hook to our application
  * we are able to use ES6 imports in our development server
  * configuration file.
@@ -149,12 +162,12 @@ export function run() {
   });
 }
 /* eslint-enable */
-```
+{% endhighlight %}
 
 
 OK. Now we are getting somewhere. It seems to import a webpack, webpack configuration and webpack dev server and then run the webpack dev-server with our imported config. Last piece of the puzzle is our webpack config file. It looks like this:
 
-```
+{% highlight javascript %}
 /**
  * Development config file for webpack
  * Creates two bundles:
@@ -244,7 +257,7 @@ module.exports = {
     new Webpack.NoErrorsPlugin()
   ]
 };
-```
+{% endhighlight %}
 
 Cool beans. That's all the configurations needed to introduce a proper frontend workflow with compile, hot reloading and development server. Now if we want to develop we will open our terminal, navigate to the folder where our package.json is located and type in ```npm start```. This will fire up our development server and start serving our compiled and bundled application in port 3000. Developer happiness achieved.
 
@@ -252,7 +265,7 @@ Cool beans. That's all the configurations needed to introduce a proper frontend 
 
 Next step is to introduce this build process to our Continuous Integration system. Because naturally we have set up Jenkins to run our maven/cradle project already it is a good idea to follow that path and introduce frontend building via that route as well. We can do this multiple ways but the easiest path is to introduce a maven plugin called "frontend-maven-plugin". With this guy we can install node.js, all needed dependencies and build, compile, bundle and transfer our bundled application to the correct location. Below we have our maven config for this:
 
-```
+{% highlight xml %}
 <plugin>
     <groupId>com.github.eirslett</groupId>
     <artifactId>frontend-maven-plugin</artifactId>
@@ -292,12 +305,12 @@ Next step is to introduce this build process to our Continuous Integration syste
         </execution>
     </executions>
 </plugin>
-```
+{% endhighlight %}
 
 That's pretty much it. Now we just configure our CI server to run this maven goal as well. The plugin will contact it's node.js who will do all the heavy lifting. Instead of running the development configuration of our webpack it will run production config which contains few tweaks ti produce our final bundled product. The production.config.js looks like this:
 
 
-```
+{% highlight javascript %}
 /**
  * Production config file for webpack
  * Creates two bundles:
@@ -380,6 +393,6 @@ module.exports = {
     new Webpack.NoErrorsPlugin()
   ]
 };
-```
+{% endhighlight %}
 
-To do this manually we can naturally run it with our own node.js installation. The command for running it would be ```build``` from our package.json. I think that's enough for today. Something to ponder about would probably be the remaining step on this process, namely tests and how to run them with a compile process.
+To do this manually we can naturally run it with our own node.js installation. The command for running it would be `build` from our package.json. I think that's enough for today. Something to ponder about would probably be the remaining step on this process, namely tests and how to run them with a compile process.

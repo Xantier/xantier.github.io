@@ -1,4 +1,14 @@
-# How should we structure our frontend code in JVM webapp?
+---
+layout: page
+title: Java webapps and modern frontend - How Should We Structure Our Frontend Code In JVM Webapp
+teaser:
+tags:
+  - Java
+  - Spring
+  - Modern Frontend
+permalink:
+header: no
+---
 
 If we think about our Maven/Cradle driven JVM webapp we usually have a very
 strict structure when it comes to frontend resources. The standard folder lies somewhere in src/main/webapp. This guy, especially in spring driven application, usually has some folders to JSPs, some folders to Javascript and some folders for your CSS & images. More specifically your server rendered views usually end up being in WEB-INF folder within /webapp.
@@ -11,7 +21,7 @@ it contains a folder that is exposed to the browser and multiple folders that co
 Let's take a look how it looks and see what files and folders our application
 would contain:
 
-```
+{% highlight javascript %}
 app
     / dist
     / stylesheet
@@ -21,7 +31,7 @@ app
     .babelrc
     .eslintrc
     build.js
-```
+{% endhighlight %}
 
 OK, looks straightforward enough.
 

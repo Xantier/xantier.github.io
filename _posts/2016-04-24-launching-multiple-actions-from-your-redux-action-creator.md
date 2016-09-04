@@ -10,8 +10,6 @@ permalink:
 header: no
 ---
 
-# Launching Multiple Actions From Your Redux Action Creator
-
 At times we stumble upon the need to launch multiple actions at the same time from your Redux action creators. Today we'll take a look at two techniques how we can achieve this.
 
 I tend to separate action creators into two different types. We have async actions and sync actions. Syncs are simple action creators that only gather the needed data and invoke the correct reducers function. Asynchoronous ones might make some action, like calling the backend for additional data, and launch the reducers after this additional action is finished. Let's take a look how these two different methods look like.
@@ -30,13 +28,14 @@ Redux has a very good documentation explaining the possibility to plug-in middle
 
 To set up your thunk you wrap your store creation on the top level of the application to a partially applied function called ```applyMiddleware```. With this guy you get the opportunity to add middlewares into the redux loop. And example code would look like the following:
 
-```
+{% highlight javascript %}
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import { initialState } from './stateContainer';
 
 const store = applyMiddleware(thunk)(createStore)(mainReducer, initialState());
-```
+{% endhighlight %}
+
 Most of the fields are self-explanatory:
 * On the first function call we assign our redux-thunk into the store
 * Second function call creates the store itself using createStore from redux-thunk
@@ -46,18 +45,18 @@ With this little configuration we gain the opportunity to return a function from
 
 * Synchronous action creator:
 
-```
+{% highlight javascript %}
 export function updateThing(value) {
   dispatch({
     type: UPDATE_THING,
     value: value
   });
 }
-```
+{% endhighlight %}
 
 * Asynchoronous action creator:
 
-```
+{% highlight javascript %}
 import superagent from 'superagent';
 const fetchUrl = '/hello/world/1'
 
@@ -76,6 +75,6 @@ export function fetchData() {
       });
   };
 }
-```
+{% endhighlight %}
 
 And in it's simplicity, that's the way to apply middleware to your redux loop and launch multiple actions from a single action creator.
