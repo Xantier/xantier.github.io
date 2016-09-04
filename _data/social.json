@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "fa-facebook",
+    "link": "http://www.facebook.com/jussi.hallila"
+  },
+  {
+    "icon": "fa-twitter",
+    "link": "http://twitter.com/xantier"
+  },
+  {
+    "icon": "fa-linkedin",
+    "link": "www.linkedin.com/in/jussihallila"
+  },
+  {
+    "icon": "fa-stack-exchange",
+    "link": "http://stackoverflow.com/users/1407960/xantier"
+  },
+  {
+    "icon": "fa-github",
+    "link": "http://github.com/Xantier"
+  }
+]

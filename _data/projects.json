@@ -1,0 +1,9 @@
+[
+	{
+		"name": "NERD stack",
+		"image": "glasses.jpg",
+		"url": "https://github.com/Xantier/nerd-stack",
+		"date": "Jan 2014",
+		"tags": ["React","node.js", "javascript", "seed application"]
+	}
+]
