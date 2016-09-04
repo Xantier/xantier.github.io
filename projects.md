@@ -4,4 +4,4 @@ title: Projects
 permalink: /projects/
 ---
 
-Few of my projects.
+Nothing much here at the moment, efforts in the corporate world is taking most of my time
