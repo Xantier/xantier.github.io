@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Launching Multiple Actions From Your Redux Action Creator
 teaser:
 tags:

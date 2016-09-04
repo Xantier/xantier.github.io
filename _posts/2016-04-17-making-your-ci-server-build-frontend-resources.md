@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Making Your CI Server Build Frontend Resources
 teaser:
 tags:

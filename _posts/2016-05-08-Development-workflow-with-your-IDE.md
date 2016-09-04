@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Faster development workflow with your IDE
 teaser:
 tags:

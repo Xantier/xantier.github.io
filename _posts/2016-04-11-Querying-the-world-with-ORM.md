@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Java webapps and modern frontend - Querying The World With ORM
 teaser:
 tags:

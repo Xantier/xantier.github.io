@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Java webapps and modern frontend - How Should We Structure Our Frontend Code In JVM Webapp
 teaser:
 tags:

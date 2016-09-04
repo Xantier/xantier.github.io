@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Modern frontend - Configuring Eslint and Gulp
 teaser:
 tags:

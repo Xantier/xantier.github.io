@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Using Rules to Help Your JUnit Testcases
 teaser:
 tags:

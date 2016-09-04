@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Java webapps and modern frontend - From JSP to Javascript dehydration
 teaser:
 tags:

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Fixing Internet Explorer for Your React ES6 Application
 teaser:
 tags:

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Entity Inheritance and Spring Data JPA DAOs
 teaser:
 tags:
