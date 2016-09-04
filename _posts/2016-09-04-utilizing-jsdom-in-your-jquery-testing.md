@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Utilizing JSdom in your JQuery testing
 teaser:
 tags:
