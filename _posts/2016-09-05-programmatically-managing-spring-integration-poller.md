@@ -164,7 +164,7 @@ These two important items are configured in our XML:
 <!-- Channel and gateway to programmatically be able to control channel adapter -->
 <int:channel id="controlChannel"/>
 <int:control-bus input-channel="controlChannel"/>
-<int:gateway id="controlBusGateway" service-interface="com.hallila.ControlBusGateway" default-request-channel="controlChannel"/>
+<int:gateway id="controlBusGateway" service-interface="com.hallila.jussi.ControlBusGateway" default-request-channel="controlChannel"/>
 
 {% endhighlight %}
 
