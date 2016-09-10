@@ -13,7 +13,7 @@ Lately I've been making the transition towards Kotlin due to the likability fact
 
 For our purposes JSON and YAML files are used as configuration formats. These don't in the end differ too much from each other so the process of handling them is the same for both of them. For ingesting them we will use Jackson from FasterXML which is probably familiar to most Java developers who have ever seen JSON. Below is a simple function that reads a yaml file from the filesystem and binds individual properties from it to Google Guice constants to be ready for dependency injection.
 
-{% highlight kotlin linenos=table %}
+```kotlin
 private fun bindProperties(file) {
   val yaml = Yaml()
   fun prefixKeys(key: String, value: Map<*, *>): Map<String, *> {
@@ -32,12 +32,12 @@ private fun bindProperties(file) {
       }
   })
 }
-{% endhighlight %}
+```
 
 
 With this function we'll read a YAML file like the following:
 
-{% highlight yaml linenos=table %}
+```yaml
 version: 1.0
 released: 2016-09-10
 
@@ -45,7 +45,7 @@ database:
   jdbcUrl: jdbc:postgresql://localhost:5432/hallila
   username: postgres
   password: postgres
-{% endhighlight %}
+```
 
 Let's go through this line by line.
 First we'll introduce a private function that takes in our configuration file location. The we introduce an immutable object Yaml from package `com.fasterxml.jackson.dataformat.yaml.snakeyaml`. Since functions are first class citizens we create a small helper function inside our main one. This guy prefixes our property keys with dots if they happen to be nested properties. This is the case for example in our database properties. We want the output from this to be `database.jdbcUrl` instead of a flat `jdbcUrl`.
