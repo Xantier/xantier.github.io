@@ -34,6 +34,7 @@ public class Pizza{
 ```
 
 Your Spring controller:
+
 ```java
 @Controller
 @RequestMapping("/pizza")
@@ -47,6 +48,7 @@ public class PizzaController{
 
 
 And finally, your view:
+
 ```jsp
 <head>
 <title>Rehydrate!</title>
@@ -97,7 +99,6 @@ public class PizzaController{
 On frontend side we need to catch that serialized string and somehow map that into a JS variable. Let's take a look how that could work:
 
 ```jsp
-
 <head>
 <title>Rehydrate!</title>
 </head>
@@ -116,11 +117,9 @@ On frontend side we need to catch that serialized string and somehow map that in
 Nicely done. Now we have a global JS object called ___pizza___ that contains our wanted data. Last step to make our client a bit cleaner is to remove the global object and save to a model.
 
 ```javascript
-
 var data = window.___pizza___;
 delete window.___pizza___;
 saveToModel(data);
-
 ```
 
 That's pretty much it. We have injected a dump of data to the DOM and prevented the need to add a spinner to the page. Now that data is in our model and ready to be used in our modern frontend application.

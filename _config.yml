@@ -28,7 +28,7 @@ highlighter: rouge
 markdown: kramdown
 
 kramdown:
-  input:          GFM
+  input: GFM
   syntax_highlighter: rouge
   # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
   # span, block element options fall back to global
