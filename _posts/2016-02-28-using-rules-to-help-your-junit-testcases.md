@@ -87,6 +87,7 @@ public TestWatcher myTestWatcher = new TestWatcher() {
 ```
 
 Third. This is kind of a funny example that I hacked together in order to be able to try to get our QA department more involved in creating test cases. Instead of making them write Java code, let's trick them into setting up test data in to an Excel sheet and configure test case to be run using that excel sheet.
+
 ```java
 /**
  * Reading the config value from current iteration of our test case list
@@ -111,6 +112,7 @@ public MethodRule dbPropRule = new MethodRule() {
 ```
 
 Fourth.
+
 ```java
 @Rule
 public TestRule myRule = new TestRule() {
