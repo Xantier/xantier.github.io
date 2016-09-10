@@ -54,18 +54,18 @@ There are few different approaches that we can take on this. I will list one for
 2. Frontend solution: Adding cache buster to your request
   * Cache buster is a request parameter on your XHR request that differentiates your current request from the previous one. Using this the browser is tricked to think that it is requesting completely different dataset than previously when it tried to do the GET request to the same url
   * Append a random date to your GET url. With superagent for example:
-    ```javascript
-    superagent.get('/things')
-    .query({ query: 'somequery' })
-    .query({ cachebuster: Date.now().toString() })
-    .end(function(err, res){
-       // handle response
-    });
-    ```
+  * ```javascript
+  superagent.get('/things')
+  .query({ query: 'somequery' })
+  .query({ cachebuster: Date.now().toString() })
+  .end(function(err, res){
+     // handle response
+  });
+  ```
 
   * Simple solution to implement if your XHRs go through a single service
   * Another frontend solution is to add headers to your request that tell we don't want caching to happen (this might or might not work for IE every time.):
-    ```javascript
+  * ```javascript
     /* snip (superagent) */
     .set('X-Requested-With', 'XMLHttpRequest')
     .set('Expires', '-1')
@@ -77,7 +77,7 @@ There are few different approaches that we can take on this. I will list one for
 3. Backend solution (Spring): Adding interceptor to add caching information to headers
   * Similar to frontend solution but this time we tell on the response from server how caching should happen
   * This can be done easily in XML configuration in your webapp context (don't cache calls to '/api' path, exclude '/static', etc. however your paths are configured):
-    ```xml
+  * ```xml
     /* snip */
     <mvc:interceptor>
       <mvc:mapping path="/api/**"/>
