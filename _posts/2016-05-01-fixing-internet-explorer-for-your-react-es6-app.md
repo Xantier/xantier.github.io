@@ -74,7 +74,7 @@ There are few different approaches that we can take on this. I will list one for
         .set('If-Modified-Since', 'Thu, 13 Feb 1985 13:40:01 GMT')
         .set('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=-1,private')
         /* snip */
-        ````
+        ```
 
 3. Backend solution (Spring): Adding interceptor to add caching information to headers
     1. Similar to frontend solution but this time we tell on the response from server how caching should happen
@@ -85,7 +85,7 @@ There are few different approaches that we can take on this. I will list one for
         <mvc:interceptor>
           <mvc:mapping path="/api/**"/>
           <mvc:exclude-mapping path="/static/**"/>
-          <bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+          <bean id="webContentInterceptor"     class="org.springframework.web.servlet.mvc.WebContentInterceptor">
               <property name="cacheSeconds" value="0"/>
               <property name="useExpiresHeader" value="true"/>
               <property name="useCacheControlHeader" value="true"/>
