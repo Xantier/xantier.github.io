@@ -49,7 +49,7 @@ public class PizzaController{
 
 And finally, your view:
 
-```jsp
+```html
 <head>
 <title>Rehydrate!</title>
 </head>
