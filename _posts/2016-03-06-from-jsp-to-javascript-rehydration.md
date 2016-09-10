@@ -98,7 +98,7 @@ public class PizzaController{
 
 On frontend side we need to catch that serialized string and somehow map that into a JS variable. Let's take a look how that could work:
 
-```jsp
+```html
 <head>
 <title>Rehydrate!</title>
 </head>
