@@ -78,7 +78,6 @@ In the olden days most of the data was stored in the DOM which made it very hard
 For now let's see how this store would look like in our very simple application:
 
 ```javascript
-
 let data = [];
 
 function add(newData){

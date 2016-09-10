@@ -43,6 +43,7 @@ How do we create our Spring Data repos for these guys?
 Option 2 is actually possible to do with some intelligent typing on those interfaces. We need  to create a few of them but in the end it allows us to use the Magic on these fellows as well:
 
 First a read only base repository that contains our common queries:
+
 ```java
 @NoRepositoryBean //Read-Only
 public interface BaseParentDAO<EntityType extends Parent> extends CrudRepository<EntityType, Long> {
@@ -53,6 +54,7 @@ public interface BaseParentDAO<EntityType extends Parent> extends CrudRepository
 ```
 
 Then we can create one to query all items, both Type1Entity and Type2Entity:
+
 ```java
 public interface ParentDAO extends BaseParentDAO<Parent>, CrudRepository<Parent, Long> {
     // Everything from base inherited
@@ -60,6 +62,7 @@ public interface ParentDAO extends BaseParentDAO<Parent>, CrudRepository<Parent,
 ```
 
 And repos for our children as well:
+
 ```java
 public interface Type1EntityDAO extends BaseParentDAO<Type1Entity>, CrudRepository<Type1Entity, Long> {
     // Everything from base inherited

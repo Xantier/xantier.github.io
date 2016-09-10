@@ -21,18 +21,23 @@ Consider a situation where you want a id and name from an object. Let's look at 
 
 1. Retrieve the full object (and all non-lazy objects within it), retrieve Id and name from the object and save them to a DTO.
 Query sent to DB is somewhat similar to:
+
 ```sql
 SELECT [every column from this table and related] FROM TABLE JOIN [every related TABLE]
 ```
+
 Massive query, lot's of data moving across places.
 
 2. Retrieve fields that you want from the object and automagically respond with the correct type.
 JPQL has a magic trick built in that maps fields automatically to a DTO (might be stringly typed, so be careful).
 Instead of writing your query like:
+
 ```java
 @Query("select e from EntityObject e")
 ```
+
 you can write:
+
 ```java
 @Query("SELECT new com.hallila.dto.MyDto(e.id, e.name) from EntityObject e")
 ```

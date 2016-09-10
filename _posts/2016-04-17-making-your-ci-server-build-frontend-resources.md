@@ -25,6 +25,7 @@ To get started we need to naturally have Node.js installed on CI server. This is
 On your job configuration, before running your maven commands, add a conditional step. For type you should select Script Condition and that let's you have free reign over what condition to input. For our purposes we wanted to restrict our frontend resources building only to cases where there actually was some changes to them. We would check if the build was meant to be released and checked all the changes between last release tag on latest commit. If there were any changes, we would launch the frontend build. All this would go through Node.JS so for us that meant using NPM scripts to actually do the magic. Behind those NPM scripts where various webpack configurations and Mocha/Babel/Istanbul settings. For those settings you should check previous post on how to set them up on your project: [Introducing A Build Process For Your Frontend Resources]({% post_url 2016-03-28-introducing-a-build-process-for-your-frontend-resources %}).
 
 Long story short, here is the conditional sh we used to determine if we should launch our CI build for frontend stuff:
+
 ```sh
 if ${IS_M2RELEASEBUILD} && git diff --name-only $(git rev-list -n 1 $( git describe --abbrev=0 --tags ))..HEAD projectname-web/src/main/webapp/app/ | grep /src/; then
     exit 0

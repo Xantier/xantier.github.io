@@ -21,6 +21,7 @@ First of all you want to have a good config file for your eslint. I recommend pi
 By placing this `.eslintrc` in to some folder in your project you are one step closer to Javascript development nirvana. There are few ways to run this file and get the needed feedback in your dev process. The easiest way is to install a ESlint CLI which you can run and see the results. An example command to lint your JS files would be similar to this:
 
 (Assuming you have Node.js installed and you have run `npm i eslint` to install ESlint itself.[Note that if you are using my ESlint config file you might need to install addition plugins like eslint-plugin-react as well])
+
 ```javascript
 eslint -c src/.eslintrc 'src/**/*.js' --ignore-pattern 'src/vendor/*'
 ```

@@ -12,7 +12,6 @@ When testing your javascript components it is sometimes essential to mock out th
 One library that I've found useful for this kind of mocking is [Proxyquire](https://github.com/thlorenz/proxyquire). If you click the link you will see that the library is well documented on their Github page and is easy enough to set up in your tests.
 Below is a snippet of how we are using this tool in our mocha driven tests:
 
-
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';

@@ -26,6 +26,7 @@ First we install the package itself with npm:
 * `npm install core-js`
 
 And then we add it to the bundled vendor artifact on our webpack configuration:
+
 ```javascript
 /* snip */
 entry: {
@@ -61,6 +62,7 @@ There are few different approaches that we can take on this. I will list one for
        // handle response
     });
     ```
+
   * Simple solution to implement if your XHRs go through a single service
   * Another frontend solution is to add headers to your request that tell we don't want caching to happen (this might or might not work for IE every time.):
 
