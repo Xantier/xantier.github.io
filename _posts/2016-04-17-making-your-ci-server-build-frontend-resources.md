@@ -27,7 +27,7 @@ On your job configuration, before running your maven commands, add a conditional
 Long story short, here is the conditional sh we used to determine if we should launch our CI build for frontend stuff:
 
 
-```
+```shell
 if ${IS_M2RELEASEBUILD} && git diff --name-only $(git rev-list -n 1 $( git describe --abbrev=0 --tags ))..HEAD projectname-web/src/main/webapp/app/ | grep /src/; then
     exit 0
 elif git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}..HEAD projectname-web/src/main/webapp/app/ | grep /src/; then
