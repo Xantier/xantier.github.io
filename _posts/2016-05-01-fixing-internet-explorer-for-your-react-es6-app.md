@@ -48,12 +48,12 @@ IE retrieves the first the content for the first time very nicely by requesting 
 There are few different approaches that we can take on this. I will list one for backend, one for frontend and one that would introduce change on both sides. `
 
 1. Boundary solution: Changing your GET to be a POST
-    1. The hackiest solution. POST requests are never cached in any of the browsers and will work every time
-    2. Changing requests from GET doesn't really play well with standards and also introduces a very minor performance hit :(
+    - The hackiest solution. POST requests are never cached in any of the browsers and will work every time
+    - Changing requests from GET doesn't really play well with standards and also introduces a very minor performance hit :(
 
 2. Frontend solution: Adding cache buster to your request
-    1. Cache buster is a request parameter on your XHR request that differentiates your current request from the previous one. Using this the browser is tricked to think that it is requesting completely different dataset than previously when it tried to do the GET request to the same url
-    2. Append a random date to your GET url. With superagent for example:
+    - Cache buster is a request parameter on your XHR request that differentiates your current request from the previous one. Using this the browser is tricked to think that it is requesting completely different dataset than previously when it tried to do the GET request to the same url
+    - Append a random date to your GET url. With superagent for example:
 
     ```javascript
     superagent.get('/things')
@@ -64,8 +64,8 @@ There are few different approaches that we can take on this. I will list one for
     });
     ```
 
-    3. Simple solution to implement if your XHRs go through a single service
-    4. Another frontend solution is to add headers to your request that tell we don't want caching to happen (this might or might not work for IE every time.):
+    - Simple solution to implement if your XHRs go through a single service
+    - Another frontend solution is to add headers to your request that tell we don't want caching to happen (this might or might not work for IE every time.):
 
     ```javascript
     /* snip (superagent) */
@@ -77,8 +77,8 @@ There are few different approaches that we can take on this. I will list one for
     ```
 
 3. Backend solution (Spring): Adding interceptor to add caching information to headers
-    1. Similar to frontend solution but this time we tell on the response from server how caching should happen
-    2. This can be done easily in XML configuration in your webapp context (dont cache calls to `/api` path, exclude `/static`, etc. however your paths are configured):
+    - Similar to frontend solution but this time we tell on the response from server how caching should happen
+    - This can be done easily in XML configuration in your webapp context (dont cache calls to `/api` path, exclude `/static`, etc. however your paths are configured):
 
     ```xml
     /* snip */
