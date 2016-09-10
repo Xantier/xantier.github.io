@@ -26,14 +26,14 @@ First we install the package itself with npm:
 * `npm install core-js`
 
 And then we add it to the bundled vendor artifact on our webpack configuration:
-{% highlight javascript %}
+```javascript
 /* snip */
 entry: {
   bundle: './app/index.js',
   vendor: ['core-js', 'react']
 },
 /* snip */
-{% endhighlight %}
+```
 
 Now we have polyfills for needed prototype methods in our application and we can sleep more easily when thinking about users with their Internet Explorer surfing habits.
 
@@ -53,31 +53,31 @@ There are few different approaches that we can take on this. I will list one for
   * Cache buster is a request parameter on your XHR request that differentiates your current request from the previous one. Using this the browser is tricked to think that it is requesting completely different dataset than previously when it tried to do the GET request to the same url
   * Append a random date to your GET url. With superagent for example:
 
-    {% highlight javascript %}
+    ```javascript
     superagent.get('/things')
     .query({ query: 'somequery' })
     .query({ cachebuster: Date.now().toString() })
     .end(function(err, res){
        // handle response
     });
-    {% endhighlight %}
+    ```
   * Simple solution to implement if your XHRs go through a single service
   * Another frontend solution is to add headers to your request that tell we don't want caching to happen (this might or might not work for IE every time.):
 
-    {% highlight javascript %}
+    ```javascript
     /* snip (superagent) */
     .set('X-Requested-With', 'XMLHttpRequest')
     .set('Expires', '-1')
     .set('If-Modified-Since', 'Thu, 13 Feb 1985 13:40:01 GMT')
     .set('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=-1,private')
     /* snip */
-    {% endhighlight %}
+    ```
 
 3. Backend solution (Spring): Adding interceptor to add caching information to headers
   * Similar to frontend solution but this time we tell on the response from server how caching should happen
   * This can be done easily in XML configuration in your webapp context (don't cache calls to '/api' path, exclude '/static', etc. however your paths are configured):
 
-  {% highlight xml %}
+  ```xml
   /* snip */
     <mvc:interceptor>
         <mvc:mapping path="/api/**"/>
@@ -90,7 +90,7 @@ There are few different approaches that we can take on this. I will list one for
         </bean>
     </mvc:interceptor>
   /* snip */
-  {% endhighlight %}
+  ```
 
 I tend to think that cache busting on the frontend is the most reliable of these methods so I would go towards that if there is a chance to do it.
 

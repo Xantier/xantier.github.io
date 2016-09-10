@@ -25,7 +25,7 @@ To get started we need to naturally have Node.js installed on CI server. This is
 On your job configuration, before running your maven commands, add a conditional step. For type you should select Script Condition and that let's you have free reign over what condition to input. For our purposes we wanted to restrict our frontend resources building only to cases where there actually was some changes to them. We would check if the build was meant to be released and checked all the changes between last release tag on latest commit. If there were any changes, we would launch the frontend build. All this would go through Node.JS so for us that meant using NPM scripts to actually do the magic. Behind those NPM scripts where various webpack configurations and Mocha/Babel/Istanbul settings. For those settings you should check previous post on how to set them up on your project: [Introducing A Build Process For Your Frontend Resources]({% post_url 2016-03-28-introducing-a-build-process-for-your-frontend-resources %}).
 
 Long story short, here is the conditional sh we used to determine if we should launch our CI build for frontend stuff:
-{% highlight sh %}
+```sh
 if ${IS_M2RELEASEBUILD} && git diff --name-only $(git rev-list -n 1 $( git describe --abbrev=0 --tags ))..HEAD projectname-web/src/main/webapp/app/ | grep /src/; then
     exit 0
 elif git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}..HEAD projectname-web/src/main/webapp/app/ | grep /src/; then
@@ -33,18 +33,18 @@ elif git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}..HEAD projectname-we
 else
     exit 1
 fi
-{% endhighlight %}
+```
 
 Some sh and git fu right there. What we simply do in the first if clause that if the build is parameterized as a maven release build we will check git diff in our static folder between the latest tagged commit and HEAD. If any of those changes have happened in the src folder, we will exit with code 0. The second if checks cases where we are not running a release build. In these cases we will only check the difference between previous successfully built commit and HEAD.
 
 With this we can determine whether to actually run our frontend steps. Again we fall back to trusty sh script and use that to execute our Node.JS steps. In our case those steps look more or less like this:
 
-{% highlight javascript %}
+```javascript
 cd projectname-web/src/main/webapp/app
 npm install
 npm run test-cov
 npm run build
-{% endhighlight %}
+```
 
 Simple as that; installing dependencies, running tests and (in case of release builds) bundling, minifying, busting cache and copying compiled frontend resources to correct places.
 
@@ -54,7 +54,7 @@ New version of Jenkins finally brought up a good integration to pipelining your 
 
 Alright, that's fine and dandy, but how does a Jenkins file look like? Here is our file that checks our source from git, runs unit and integration tests, build frontend resources and creates (and optionally releases) a docker container for the project.
 
-{% highlight groovy %}
+```groovy
 #!groovy
 
 node {
@@ -111,7 +111,7 @@ node {
         sh "${mvnHome}/bin/mvn -f projectname-docker/pom.xml docker:push"
     }
 }
-{% endhighlight %}
+```
 
 Pretty self explanatory. We have a bunch of stages to make things look nice on [Pipeline Stage View](https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Stage+View+Plugin). As you can see almost every call is to "sh", once again. Old habits die hard. Anywhoo, let's take a closer look. The stages on this Jenkinsfile are:
 1. Retrieving source code from Git repo. Note how we didn't define a branch here, this will retrieve changes from all branches and build them if a Jenkinsfile is present. This way we can easily build a [Multibranch Pipeline](https://jenkins.io/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/)

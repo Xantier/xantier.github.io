@@ -21,9 +21,9 @@ First of all you want to have a good config file for your eslint. I recommend pi
 By placing this `.eslintrc` in to some folder in your project you are one step closer to Javascript development nirvana. There are few ways to run this file and get the needed feedback in your dev process. The easiest way is to install a ESlint CLI which you can run and see the results. An example command to lint your JS files would be similar to this:
 
 (Assuming you have Node.js installed and you have run `npm i eslint` to install ESlint itself.[Note that if you are using my ESlint config file you might need to install addition plugins like eslint-plugin-react as well])
-{% highlight javascript %}
+```javascript
 eslint -c src/.eslintrc 'src/**/*.js' --ignore-pattern 'src/vendor/*'
-{% endhighlight %}
+```
 
 With this we run ESlint against all files ending .js in our `src` folder, excluding everything in the `vendor` folder. The config file we use is in that same `src` folder and it's called .eslintrc. We get immediate feedback from the linter to the console. Very nice.
 
@@ -31,15 +31,15 @@ This is all fine and dandy but we can take it one step further. Now we have to a
 
 The configuration for Gulp to run eslint is very very simple. First we create a gulpfile.js to the root folder of our application. We need to use npm to install few dependencies to be able to run eslint via gulp:
 
-{% highlight javascript %}
+```sh
 npm install gulp-eslint
 npm install eslint
 npm install eslint-plugin-react
-{% endhighlight %}
+```
 
 Then we need to configure our gulpfile to use this one plugin.
 
-{% highlight javascript %}
+```javascript
 var eslint = require('gulp-eslint');
 
 // Run Javascript linter
@@ -49,15 +49,15 @@ gulp.task('lint', function () {
       .pipe(eslint.format())
       .pipe(eslint.failOnError());
 });
-{% endhighlight %}
+```
 
 Now we have gulp set up to run our linting nicely. If we run `gulp lint` we'll see the linting result. Next step is to make it run continuously every time we make a change to source file.
 
-{% highlight javascript %}
+```javascript
 gulp.task('watch-lint', function() {
   gulp.watch('app/**/*.js', ['lint']);
 });
-{% endhighlight %}
+```
 
 There we go. No single command `gulp watch-lint` will start the watcher and harass us every time we write bad Javascript code.
 

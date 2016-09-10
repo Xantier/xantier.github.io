@@ -24,16 +24,17 @@ In Java world we usually let our server handle this rehydration directly to HTML
 
 
 Your object:
-{% highlight java %}
+
+```java
 public class Pizza{
   private final String type;
 
   /* constructor & getter omitted */
 }
-{% endhighlight %}
+```
 
 Your Spring controller:
-{% highlight java %}
+```java
 @Controller
 @RequestMapping("/pizza")
 public class PizzaController{
@@ -42,11 +43,11 @@ public class PizzaController{
     return new ModelAndView("views/pizza", "pizza", new Pizza("BaconAndKebab"));
   }
 }
-{% endhighlight %}
+```
 
 
 And finally, your view:
-{% highlight jsp %}
+```jsp
 <head>
 <title>Rehydrate!</title>
 </head>
@@ -56,7 +57,7 @@ And finally, your view:
   </p>
 </body>
 </html>
-{% endhighlight %}
+```
 
 Here Spring/JSP does magic for you and rehydrates the type String from your POJO to the rendered HTML. Simple enough and similar variables are available on other view/template engines as well.
 
@@ -73,8 +74,7 @@ Let's see how this could work:
 
 First our controller. Simple enough solution, we are still returning a model with our view. This time though we transform our model into a JSON string. First we create a Jackson ObjectMapper who we will use to serialize our Pizza object. We will also just in case escape the string, to do that we use Apache Commons library's StringEscapeUtils.
 
-{% highlight java %}
-
+```java
 @Controller
 @RequestMapping("/pizza")
 public class PizzaController{
@@ -92,11 +92,11 @@ public class PizzaController{
     return new ModelAndView("views/pizza", "pizza", StringEscapeUtils.escapeJson(json));
   }
 }
-{% endhighlight %}
+```
 
 On frontend side we need to catch that serialized string and somehow map that into a JS variable. Let's take a look how that could work:
 
-{% highlight jsp %}
+```jsp
 
 <head>
 <title>Rehydrate!</title>
@@ -111,17 +111,17 @@ On frontend side we need to catch that serialized string and somehow map that in
 </body>
 </html>
 
-{% endhighlight %}
+```
 
 Nicely done. Now we have a global JS object called ___pizza___ that contains our wanted data. Last step to make our client a bit cleaner is to remove the global object and save to a model.
 
-{% highlight javascript %}
+```javascript
 
 var data = window.___pizza___;
 delete window.___pizza___;
 saveToModel(data);
 
-{% endhighlight %}
+```
 
 That's pretty much it. We have injected a dump of data to the DOM and prevented the need to add a spinner to the page. Now that data is in our model and ready to be used in our modern frontend application.
 

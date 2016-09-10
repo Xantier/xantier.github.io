@@ -18,7 +18,7 @@ Let's take a look:
 
 Backend Architecture:
 
-* Maven/Gradle (Ant [lol])
+* Maven/Gradle
 * Multimodule Spring Monolith
   * Data/Model/DAO/Repository/et cetera
   * Services

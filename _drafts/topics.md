@@ -1,5 +1,4 @@
 Kotlin fuel
-Reading yml with kotlin
 Ratpack with external RX / Handling observables in ratpack
 Ansible setup
 Jenkins pipeline

@@ -13,7 +13,7 @@ Something I stumbled upon over my latest story that might be of use in the futur
 
 When we have the perfect storm of entities inheriting with a discriminator column:
 
-{% highlight java %}
+```java
 @Entity
 @Table(name = "T_TABLE")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -34,7 +34,7 @@ public class Type1Entity extends Parent {
 public class Type2Entity extends Parent {
 /**snip**/
 }
-{% endhighlight %}
+```
 
 How do we create our Spring Data repos for these guys?
 1. Creating repository classes, managing things manually
@@ -43,24 +43,24 @@ How do we create our Spring Data repos for these guys?
 Option 2 is actually possible to do with some intelligent typing on those interfaces. We need  to create a few of them but in the end it allows us to use the Magic on these fellows as well:
 
 First a read only base repository that contains our common queries:
-{% highlight java %}
+```java
 @NoRepositoryBean //Read-Only
 public interface BaseParentDAO<EntityType extends Parent> extends CrudRepository<EntityType, Long> {
 
     @Query("select e from #{#entityName} e") // #{#entityName} will be magically replaced by type arguments in children
     List<EntityType> findThemAll();
 }
-{% endhighlight %}
+```
 
 Then we can create one to query all items, both Type1Entity and Type2Entity:
-{% highlight java %}
+```java
 public interface ParentDAO extends BaseParentDAO<Parent>, CrudRepository<Parent, Long> {
     // Everything from base inherited
 }
-{% endhighlight %}
+```
 
 And repos for our children as well:
-{% highlight java %}
+```java
 public interface Type1EntityDAO extends BaseParentDAO<Type1Entity>, CrudRepository<Type1Entity, Long> {
     // Everything from base inherited
 }
@@ -68,7 +68,7 @@ public interface Type1EntityDAO extends BaseParentDAO<Type1Entity>, CrudReposito
 public interface Type2EntityDAO extends BaseParentDAO<Type2Entity>, CrudRepository<Type2Entity, Long> {
     // Everything from base inherited
 }
-{% endhighlight %}
+```
 
 And that is all we need.
 

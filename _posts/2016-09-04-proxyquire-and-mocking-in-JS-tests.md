@@ -13,7 +13,7 @@ One library that I've found useful for this kind of mocking is [Proxyquire](http
 Below is a snippet of how we are using this tool in our mocha driven tests:
 
 
-{% highlight javascript %}
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
@@ -54,7 +54,7 @@ describe('System Under Test', () => {
     expect(component.refs.display.text).to.not.contain('SOFTCODED');     
   });
 });
-{% endhighlight %}
+```
 
 Here we are testing a React component called SystemUnderTestComponent. If you take a closer look in the describe function you will see that we are initializing that guy in there instead of importing it as a standard module. This option gives us the opportunity to mock dependencies that our Sut component has acquired.
 

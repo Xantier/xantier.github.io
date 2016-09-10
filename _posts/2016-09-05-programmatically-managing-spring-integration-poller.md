@@ -16,7 +16,7 @@ We had the need to transfer a considerable amount of objects from one service to
 
 For our purposes we used a JDBC inbound-channel-adapter to query our code.
 
-{% highlight xml linenos=table %}
+```xml
 <int-jdbc:inbound-channel-adapter
         id="transferItemsInboundJdbcChannelAdapter"
         auto-startup="false"
@@ -37,7 +37,7 @@ For our purposes we used a JDBC inbound-channel-adapter to query our code.
         </int:advice-chain>
     </int:poller>
 </int-jdbc:inbound-channel-adapter>
-{% endhighlight %}
+```
 
 Lots of XML, better put your sunglasses on before your eyes start to bleed.
 If we go through this guy we'll see familiar Spring Integration faces all over the place. Let's pick all the easiest berries first:
@@ -46,20 +46,20 @@ Then we will turn off auto-startup, because we want to kick this off programmati
 After that we reference our datasource so our JDBC knows where to connect to.
 Next we bind our channel-adapter to a channel that we have created:
 
-{% highlight xml linenos=table %}
+```xml
 <int:channel id="transferItemsInboundJdbcChannel">
     <int:interceptors>
         <int:wire-tap channel="logger"/>
     </int:interceptors>
 </int:channel>
 <int:logging-channel-adapter id="logger" log-full-message="true"/>
-{% endhighlight %}
+```
 
 It has a logger wiretapped in there. Only because without that Spring Integration is impossible to debug.
 
 In the main config after the channel definition we have our queries. We also have a standard row mapper that maps our query results to POJOs. The first query is our select statement which is run every `${item.transfer.poller.jdbc.fixed.delay}` milliseconds and it queries `${item.transfer.jdbc.max.rows}` rows at a time. It gets it only parameter, `identifier`, from our parameter source class nicely named as `transferItemsSelectSqlParameterSource` in our Spring Integration configuration XML:
 
-{% highlight java linenos=table %}
+```java
 public class TransferItemsParameterSource extends AbstractSqlParameterSource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TransferItemsParameterSource.class);
@@ -91,13 +91,13 @@ public class TransferItemsParameterSource extends AbstractSqlParameterSource {
         return IDENTIFIER_PARAM_NAME.equals(paramName);
     }
 }
-{% endhighlight %}
+```
 
 Spring Integration checks from this class what the set parameter is. We set the identifier before we kick off this poller so it is available to be used.
 
 The other parameter source is simpler, it transfers queried `ID` value to the update step of our channel-adapter. That is configured using Spring provided `ExpressionEvaluatingSqlParameterSourceFactory` class. Naturally the config is in XML:
 
-{% highlight xml linenos=table %}
+```xml
 <!-- Parameter source for update query. Take value from select query and maps it to a param -->
 <bean id="updateParameterSourceFactory"
       class="org.springframework.integration.jdbc.ExpressionEvaluatingSqlParameterSourceFactory">
@@ -107,11 +107,11 @@ The other parameter source is simpler, it transfers queried `ID` value to the up
         </map>
     </property>
 </bean>
-{% endhighlight %}
+```
 
 Everything we've touched so far is only scaffolding around the actual meat, our poller. Let's take a closer look at that:
 
-{% highlight xml linenos=table %}
+```xml
 <int:poller id="jdbcPoller" fixed-delay="${item.transfer.poller.jdbc.fixed.delay}">
     <int:advice-chain>
         <bean class="com.hallila.jussi.TransferItemAdvice">
@@ -120,11 +120,11 @@ Everything we've touched so far is only scaffolding around the actual meat, our 
         </bean>
     </int:advice-chain>
 </int:poller>
-{% endhighlight %}
+```
 
 It is of type poller and has an `advice-chain` element within it. This advice chain contains a single class `TransferItemAdvice` that takes two constructor arguments. The class looks like this:
 
-{% highlight java linenos=table %}
+```java
 public class TransferItemAdvice implements AfterReturningAdvice {
     private static final String ADAPTER = "@transferItemsInboundJdbcChannelAdapter";
     private MessageChannel controlChannel;
@@ -147,33 +147,33 @@ public class TransferItemAdvice implements AfterReturningAdvice {
         }
     }
 }
-{% endhighlight %}
+```
 
 This advice implements Spring's AfterReturningAdvice and it's only method, `afterReturning`. It also has two fields a `MessageChannel` and a `ControlBusGateway`. The actual magic happens via these two objects. The first one, control channel had the ability to send messages to our channel-adapter. ControlBusGateway is our own gateway interface that provides us the ability to take a peek into the internals of our channel-adapter. The interface has one method, that returns a boolean and is aptly named `controlBusBooleanMethod`. Therefore making the interface look like this:
 
-{% highlight java linenos=table %}
+```java
 public interface ControlBusGateway {
     boolean controlBusBooleanMethod(String command);
 }
-{% endhighlight %}
+```
 
 
 These two important items are configured in our XML:
 
-{% highlight xml linenos=table %}
+```xml
 <!-- Channel and gateway to programmatically be able to control channel adapter -->
 <int:channel id="controlChannel"/>
 <int:control-bus input-channel="controlChannel"/>
 <int:gateway id="controlBusGateway" service-interface="com.hallila.jussi.ControlBusGateway" default-request-channel="controlChannel"/>
 
-{% endhighlight %}
+```
 
 And the actual stopping of our channel-adapter happens in the overridden afterReturning method. Spring Integration JDBC poller has a hidden feature where it returns a Boolean object after querying the database. If this boolean is true, it has found some rows when polling, if it is false that means that it has exhausted the query and zero rows were found. If you take a closer look at our queries you'll see that we SELECT only items that have a ITEM_TRANSFERRED flag of 0 and we update that same flag to be 1 when it has been queried by our poller.
 
 
 Now that is all fine and dandy but didn't really reveal to us how we start this polling operation from our services. That is actually a very simple operation. Again we turn to our `controlChannel` and `ControlBusGateway`. We can simply `@Autowire` these two items to our service that kicks off the whole job. In this service we also set up our parameter source.
 
-{% highlight java linenos=table %}
+```java
 @Service
 public class ItemTransferringServiceImpl implements ItemTransferringService {
 
@@ -202,7 +202,7 @@ public class ItemTransferringServiceImpl implements ItemTransferringService {
         return false;
     }
 }
-{% endhighlight %}
+```
 
 
 

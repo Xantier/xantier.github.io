@@ -34,12 +34,12 @@ On servers tab double click servers to configure it:
    * Set up environment variables on run config if applicable:
 * See property environment variables of the project from web.xml or other location where those are set up in your project eg.
 
-{% highlight xml %}
+```xml
  <context-param>
   <param-name>myEnvParam</param-name>
   <param-value>MyProperties</param-value>
 </context-param>
-{% endhighlight %}
+```
 
 * setup value to point to your properties file location --> ~/props/myApp.properties. Or alternatively set up system wide env variable.
 
@@ -54,12 +54,12 @@ Start debugging and enjoy hot swapping.
 * Set up environment variables on run config if applicable:
 * See property environment variables of the project from web.xml or other location where those are set up in your project eg.
 
-{% highlight xml %}
+```xml
  <context-param>
   <param-name>myEnvParam</param-name>
   <param-value>MyProperties</param-value>
 </context-param>
-{% endhighlight %}
+```
 
 * setup value to point to your properties file location --> ~/props/myApp.properties. Or alternatively set up system wide env variable.
 

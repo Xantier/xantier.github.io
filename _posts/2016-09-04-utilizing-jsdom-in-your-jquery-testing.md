@@ -14,7 +14,7 @@ We have a big old codebase written in JQuery that we are currently chipping away
 
 This is a big jump forward and helps testability immensely. We tend to structure our IIFEs with a init method that works as a constructor. That constructor sometimes takes in params (in the form of JSP injected Java POJOs) but in reality it's main job is to initialize all our JQuery bindings and make them available to the browser. This init is usually called at the end of our JSP page after JQuery itself has been loaded. Now this is already testable. So lets take a look how that works in reality.
 
-{% highlight javascript linenos=table %}
+```javascript
 import {expect} from 'chai';
 import jsdom from 'jsdom';
 import fs from 'fs';
@@ -50,7 +50,7 @@ describe('Edit message page', () => {
   });
   // Testcases
 });
-{% endhighlight %}
+```
 
 Import lines on this snippet are after the imports. First we bind our JSdom virtual console to our actual console. This makes console.log based debugging so much easier since we will be seeing the console output in our expected place. The line after that creates our JSdom instance with default settings, apart from our console manipulation. In the end this is all all we need to spin up a usable dom.
 
@@ -60,7 +60,7 @@ Next we load our needed javascript files from the filesystem and initialize few 
 
 Lines `appendCommonScripts` and `appendScript` are few helper methods which can be seen below. After our needed scripts are appended we can insert our HTML mock view to the body of our virtual dom.
 
-{% highlight javascript linenos=table %}
+```javascript
 function appendScript(script) {
   const scriptEl = window.document.createElement('script');
   scriptEl.innerHTML = script;
@@ -75,13 +75,13 @@ function appendCommonScripts() {
   appendScript(lodash);
   appendScript(jqueryUI);
 }
-{% endhighlight %}
+```
 
 This helper loads needed files from the filesystem and appends them to the virtual dom we have created. JSdom handles all the rest for us.
 
 After these steps JSdom is running smoothly and serving us with sweet two line HTML view. This view then contains few Jquery libraries, lodash and most importantly our system under test. With this setup we can write pure javascript and see how JQuery handles our frontend events:
 
-{% highlight javascript linenos=table %}
+```javascript
 it('should populate example text area with content written in messageInput text area', () => {
   const expexted = 'adfadsfdafdsdfsfads';
   const content = $('#messageInput');
@@ -98,7 +98,7 @@ it('should replace placeholder with a dummy value', () => {
   const actual = $('#messagePreview').text();
   expect(actual).to.be.equal('should swap 666 to the number of the beast');
 });
-{% endhighlight %}
+```
 
 In these test cases we are asserting that when we write a message to the `messageInput` text area that content is copied over to the `messagePreview ` text area. In the system under test this is bound to a `keyup` event by JQuery so we send that event to our SUT to trigger the action. The second test is similar but asserts that in case our `messageInput` has a placeholder value in the content that is swapped to match our actual value. This is utilizing JQuery in adding and retrieving our needed data but naturally you can use whatever you want in your testcases.
 

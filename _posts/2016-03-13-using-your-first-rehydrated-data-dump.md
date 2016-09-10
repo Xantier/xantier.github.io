@@ -28,7 +28,7 @@ The initial state was discussed earlier in the [previous post about rehydration]
 
 Previously our controller looked like this:
 
-{% highlight java %}
+```java
 @Controller
 @RequestMapping("/pizza")
 public class PizzaController{
@@ -37,11 +37,11 @@ public class PizzaController{
     // Returning view and pizza baked in
   }
 }
-{% endhighlight %}
+```
 
 This time we will add a method with a responsebody to serve additional data.
 
-{% highlight java %}
+```java
 @RequestMapping("/morePizzas")
 @ResponseBody
 public List<Pizza> getMorePizzas(){
@@ -51,11 +51,11 @@ public List<Pizza> getMorePizzas(){
     return returnable;
   }
 }
-{% endhighlight %}
+```
 
 Excellent now we have the ability to make an XHR call to retrieve the additional data. Let's see a tiny implementation how that could be done.
 
-{% highlight javascript %}
+```javascript
 
 if(window.fetch) {
   fetch('/pizza/morePizzas', {method: 'GET'})
@@ -69,7 +69,7 @@ if(window.fetch) {
     // use some other XHR provider
 }
 
-{% endhighlight %}
+```
 
 Simple stuff really. The interesting part comes from our call to datastore.add() function where we pass in our retrieving collection of pizzas. This datastore will be the heart of our modern frontend application. It will contain all state for the individual user and will act as link between our different sources of data.
 
@@ -77,7 +77,7 @@ In the olden days most of the data was stored in the DOM which made it very hard
 
 For now let's see how this store would look like in our very simple application:
 
-{% highlight javascript %}
+```javascript
 
 let data = [];
 
@@ -89,7 +89,7 @@ function get(){
   return data;
 }
 
-{% endhighlight %}
+```
 
 Essentially a getter and a setter handling our one single array of all data. Add function takes in an array and pushes all elements to our global data store. Modifications of the data store will change the structure a little bit by introducing some injected logic to our store but we will leave insight of that to a later date.
 
