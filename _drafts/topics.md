@@ -11,3 +11,4 @@ Incorporating Bitbucket approvals to your Jenkins pipeline
 Multiple mains for you gradle build
 Hacking Spring Batch to record validation errors
 RX pipelines and error handling from upstream providers
+Angular & JSdom and mocking injected services
