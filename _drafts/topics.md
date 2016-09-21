@@ -18,3 +18,5 @@ Builder patter DSL
 Branching strategy and QA 
 Hubot, setting up and getting started
 hubot, Whosoff integration.
+Software craftsmanship 
+Politics or not? 
