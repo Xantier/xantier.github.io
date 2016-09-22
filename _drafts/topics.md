@@ -14,7 +14,6 @@ RX pipelines and error handling from upstream providers
 polyglotism
 Globalizing your Jenkins pipeline scripts
 Setting up flyway to your Spring project
-Builder patter DSL
 Branching strategy and QA 
 Hubot, setting up and getting started
 hubot, Whosoff integration.
