@@ -17,3 +17,6 @@ Setting up flyway to your Spring project
 Branching strategy and QA 
 Hubot, setting up and getting started
 hubot, Whosoff integration.
+Software craftsmanship 
+Politics or not? 
+Book reviews 
