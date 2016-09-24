@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Book Reviews
+permalink: /books/
 ---
 <div class="well">
     <div class="list-group">
