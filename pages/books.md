@@ -11,7 +11,7 @@ permalink: /books/
           <i class="fa fa-gavel"></i>
         </div>
         <div class="row-content">
-          <div class="least-content">{{ book.date | date_to_string }}</div>
+          <div class="least-content">{{ book.rating }}</div>
           <h4 class="list-group-item-heading"><a href="{{ book.url | prepend: site.baseurl }}">{{ book.title }}</a></h4>
 
           <p class="list-group-item-text">{{ book.content | strip_html | truncatewords: 20 }}</p>
