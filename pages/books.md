@@ -4,16 +4,16 @@ title: Book Reviews
 ---
 <div class="well">
     <div class="list-group">
-      {% for post in paginator.posts %}
+      {% for book in paginator.books %}
       <div class="list-group-item">
         <div class="row-action-primary">
           <i class="fa fa-sticky-note"></i>
         </div>
         <div class="row-content">
-          <div class="least-content">{{ post.date | date_to_string }}</div>
-          <h4 class="list-group-item-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h4>
+          <div class="least-content">{{ book.date | date_to_string }}</div>
+          <h4 class="list-group-item-heading"><a href="{{ book.url | prepend: site.baseurl }}">{{ book.title }}</a></h4>
 
-          <p class="list-group-item-text">{{ post.content | strip_html | truncatewords: 20 }}</p>
+          <p class="list-group-item-text">{{ book.content | strip_html | truncatewords: 20 }}</p>
         </div>
       </div>
       <div class="list-group-separator"></div>

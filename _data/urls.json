@@ -8,8 +8,7 @@
   {
     "text": "Book reviews",
     "url": "/books",
-    "icon": "fa-book",
-    "layout": "post"
+    "icon": "fa-book"
   },
   {
     "text": "About",
