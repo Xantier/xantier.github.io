@@ -1,10 +1,9 @@
 ---
 layout: post
-title: -
+title: todo
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-
