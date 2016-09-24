@@ -14,9 +14,8 @@ RX pipelines and error handling from upstream providers
 polyglotism
 Globalizing your Jenkins pipeline scripts
 Setting up flyway to your Spring project
-Branching strategy and QA 
+Branching strategy and QA
 Hubot, setting up and getting started
-hubot, Whosoff integration.
 Software craftsmanship 
-Politics or not? 
-Book reviews -> books subsection on the site for reviews 
+Politics or not?
+Book reviews -> books subsection on the site for reviews

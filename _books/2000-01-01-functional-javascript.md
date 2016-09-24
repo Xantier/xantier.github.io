@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Functional Javascript
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

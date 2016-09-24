@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Javascript Allonge
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

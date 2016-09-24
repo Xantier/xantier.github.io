@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Effective Javascript
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

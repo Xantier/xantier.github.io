@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Functional Thinking
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

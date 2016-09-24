@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Head First Object Oriented Analysis and Design
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

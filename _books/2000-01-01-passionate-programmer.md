@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Passionate Programmer
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

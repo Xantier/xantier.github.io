@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Programming in Scala
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

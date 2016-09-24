@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Servlets and Java Server Pages
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

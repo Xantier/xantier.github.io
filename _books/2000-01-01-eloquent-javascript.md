@@ -1,6 +1,6 @@
 ---
 layout: post
-title: todo
+title: Eloquent Javascript
 teaser:
 tags:
   - todo

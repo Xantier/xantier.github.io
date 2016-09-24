@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Learn You a Haskell for Great Good
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

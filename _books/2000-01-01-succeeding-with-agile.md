@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Succeeding with Agile
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

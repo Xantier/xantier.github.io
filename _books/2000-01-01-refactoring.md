@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Refactoring
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

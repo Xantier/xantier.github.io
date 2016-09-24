@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Professional Javascript for Web Developers
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

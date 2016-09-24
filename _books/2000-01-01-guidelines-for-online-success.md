@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Guidelines for Online Success
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

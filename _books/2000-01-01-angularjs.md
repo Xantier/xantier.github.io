@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Angular JS
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

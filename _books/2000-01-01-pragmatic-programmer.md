@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Pragmatic Programmer
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

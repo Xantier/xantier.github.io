@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Lean Startup
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

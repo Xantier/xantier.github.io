@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Clean Coder
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

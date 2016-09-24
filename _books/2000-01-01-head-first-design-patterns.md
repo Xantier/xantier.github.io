@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Head First Design Patterns
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

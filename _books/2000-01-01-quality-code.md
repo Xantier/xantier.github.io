@@ -1,10 +1,9 @@
 ---
 layout: post
-title: todo
+title: Quality Code
 teaser:
 tags:
   - todo
 permalink:
 header: no
 ---
-

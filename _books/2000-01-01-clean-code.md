@@ -1,6 +1,6 @@
 ---
 layout: post
-title: todo
+title: Clean Code
 teaser:
 tags:
   - todo
