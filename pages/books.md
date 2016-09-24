@@ -5,7 +5,7 @@ permalink: /books/
 ---
 <div class="well">
     <div class="list-group">
-      {% for book in paginator.books %}
+      {% for book in site.books %}
       <div class="list-group-item">
         <div class="row-action-primary">
           <i class="fa fa-sticky-note"></i>
