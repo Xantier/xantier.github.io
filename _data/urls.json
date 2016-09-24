@@ -6,6 +6,12 @@
     "layout": "post"
   },
   {
+    "text": "Book reviews",
+    "url": "/books",
+    "icon": "fa-book",
+    "layout": "post"
+  },
+  {
     "text": "About",
     "url": "/about/",
     "icon": "fa-comments"

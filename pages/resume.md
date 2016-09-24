@@ -14,10 +14,8 @@ permalink: /resume/
   * Restructuring application frontend architecture and introducing modern web development
 processes with React JS & Webpack and node.js ecosystem
   * Introducing the company to devops practices with Ansible, source controlled configurations (immutable infrastructure) and chatops via Hipchat and Hubot
-  * Taking ownership of build engineering by restructuring build processes
-  * Automating deployment pipeline with Jenkins
+  * Taking ownership of build engineering by restructuring build processes, automating deployment pipeline with Jenkins
   * Increasing code quality processes with introduction of static analysis tools, review processes, pull requests and branching strategy
-  * Implementing containerization with Docker and automating development, build and deployment processes with Ansible and continuous delivery pipelines
   * Managing development infrastructure and AWS EC2 instances containing development
 side applications
 
