@@ -17,6 +17,7 @@ share:
 
 collections:
     books:
+      output: true
       permalink: /books/:path/
 
 enableTags: true
