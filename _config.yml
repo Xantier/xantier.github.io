@@ -15,6 +15,9 @@ share:
   twitter_username: \Xantier
   fb_appid: 000000000000
 
+collections:
+    books:
+      permalink: /books/:path/
 
 enableTags: true
 tagarray: []
