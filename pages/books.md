@@ -12,9 +12,8 @@ permalink: /books/
         </div>
         <div class="row-content">
           <div class="least-content">Rating: {{ book.rating }}</div>
-          <h4 class="list-group-item-heading"><a href="{{ book.url | prepend: site.baseurl }}">{{ book.title }}</a></h4>
-
-          <p class="list-group-item-text">{{ book.content | strip_html | truncatewords: 20 }}</p>
+          <h4 class="list-group-item-heading">{{ book.title }}</h4>
+          <p class="list-group-item-text">{{ book.content | strip_html | truncatewords: 120 }}</p>
         </div>
       </div>
       <div class="list-group-separator"></div>
