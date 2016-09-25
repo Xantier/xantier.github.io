@@ -19,3 +19,6 @@ Hubot, setting up and getting started
 Software craftsmanship 
 Politics or not?
 Book reviews -> books subsection on the site for reviews
+code reviews, reasons behind them
+kats conf -> topics from there
+
