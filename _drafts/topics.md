@@ -26,3 +26,4 @@ moving fast and slow
 continuous delivery
 mentoring and why you and i need it
 Trampolining
+10 years of experience or 1 year of experience 10 times 
