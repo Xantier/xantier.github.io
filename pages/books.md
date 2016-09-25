@@ -14,7 +14,7 @@ permalink: /books/
           <div class="least-content">Rating: {{ book.rating }}</div>
           <h4 class="list-group-item-heading">{{ book.title }} - {{ book.author }}</h4>
           <p class="list-group-item-text">
-          <div class="least-content">Genre: {{ book.genre | array_to_sentence_string }}</div>
+          <div style="position: absolute; top: 25px; color: rgba(0,0,0,.54); font-size: 14px;">{{ book.genre | array_to_sentence_string }}</div>
           {{ book.content }}
           </p>
         </div>
