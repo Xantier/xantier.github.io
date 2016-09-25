@@ -5,7 +5,8 @@ rating: 5/5
 author: Joshua Bloch
 genre:
   - Java
-  - Patterns & Best Practices
+  - Patterns
+  - Best Practices
 permalink:
 header: no
 ---

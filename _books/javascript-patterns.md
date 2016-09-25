@@ -5,7 +5,8 @@ rating: 3/5
 author: Stoyan Stefanov
 genre:
   - Javascript
-  - Patterns & Best Practices
+  - Patterns
+  - Best Practices
 permalink:
 header: no
 ---

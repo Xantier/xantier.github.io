@@ -5,7 +5,8 @@ rating: 2/5
 author: David Herman
 genre:
   - Javascript
-  - Patterns & Best Practices
+  - Patterns
+  - Best Practices
 permalink:
 header: no
 ---

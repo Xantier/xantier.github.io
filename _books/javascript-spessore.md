@@ -5,7 +5,7 @@ rating: 3/5
 author: Reginald Brathwaite
 genre:
   - Javascript
-  - Object oriented programming
+  - Object Oriented Programming
 permalink:
 header: no
 ---

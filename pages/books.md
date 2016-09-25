@@ -12,7 +12,7 @@ permalink: /books/
         </div>
         <div class="row-content">
           <div class="least-content">Rating: {{ book.rating }}</div>
-          <h4 class="list-group-item-heading">{{ book.title }} - {{ book.author }}</h4>
+          <h3 class="list-group-item-heading">{{ book.title }} - {{ book.author }}</h3>
           <p class="list-group-item-text">
           <div style="position: absolute; top: 25px; color: rgba(0,0,0,.54); font-size: 14px;">{{ book.genre | array_to_sentence_string }}</div>
           {{ book.content }}

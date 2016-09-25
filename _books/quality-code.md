@@ -6,7 +6,7 @@ author: Stephen Vance
 genre:
   - Software Engineering
   - TDD
-  - Patterns & Best Practices
+  - Best Practices
 permalink:
 header: no
 ---

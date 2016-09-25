@@ -5,7 +5,8 @@ rating: 3/5
 author: Joshua Kerievsky
 genre:
   - Software Engineering
-  - Design Patterns / Refactoring
+  - Design Patterns
+  - Refactoring
 permalink:
 header: no
 ---
