@@ -2,7 +2,7 @@
 layout: post
 title: Javascript Allonge
 rating: 4/5
-author: Reginald "Raganwald" Brathwaite
+author: Reginald Brathwaite
 genre:
   - Javascript
   - Functional Programming
