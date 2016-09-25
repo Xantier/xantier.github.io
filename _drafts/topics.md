@@ -5,6 +5,7 @@ Jenkins pipeline
 Dockerizing your maven project
 Ansible & docker
 Ansible sane project structure
+Ansible deploying to Tomcat
 Polyglot programmer
 SSH tunnels and maven + db setup
 Incorporating Bitbucket approvals to your Jenkins pipeline
@@ -21,4 +22,7 @@ Politics or not?
 Book reviews -> books subsection on the site for reviews
 code reviews, reasons behind them
 kats conf -> topics from there
-
+moving fast and slow
+continuous delivery
+mentoring and why you and i need it
+Trampolining
