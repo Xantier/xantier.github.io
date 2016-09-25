@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Clean Coder
+title: Soft Skills: The Software Developer's Life Manual
 rating: 5/5
-author: Robert C. "Uncle Bob" Martin
+author: John Sonmez
 genre:
   - Career
   - Professionalism

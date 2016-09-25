@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Haskell Programming from First Principles
-rating: x/5/5
-teaser:
-tags:
-  - todo
+rating: 5/5
+author: Christopher Allen / Julie Moronuki
+genre:
+  - Haskell
+  - Functional Programming
 permalink:
 header: no
 ---

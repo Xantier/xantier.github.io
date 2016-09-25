@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Functional Javascript
+title: Functional Programming in Scala
 rating: 5/5
-teaser:
-tags:
-  - todo
+author: Paul Chiusano / Rúnar Bjarnason
+genre:
+  - Scala
+  - Functional Programming
 permalink:
 header: no
 ---

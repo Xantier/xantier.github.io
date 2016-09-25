@@ -2,9 +2,10 @@
 layout: post
 title: Passionate Programmer
 rating: 5/5
-teaser:
-tags:
-  - todo
+author: Chad Fowler
+genre:
+  - Career
+  - Professionalism
 permalink:
 header: no
 ---

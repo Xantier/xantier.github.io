@@ -2,9 +2,10 @@
 layout: post
 title: Algorithms unlocked
 rating: 2/5
-teaser:
-tags:
-  - todo
+author: Thomas Cormen
+genre:
+  - Software Engineering
+  - Algorithms
 permalink:
 header: no
 ---

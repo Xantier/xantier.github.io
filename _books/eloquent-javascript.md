@@ -2,9 +2,9 @@
 layout: post
 title: Eloquent Javascript
 rating: 4/5
-teaser:
-tags:
-  - todo
+author: Martijn Haverbecke
+genre:
+  - JavaScript
 permalink:
 header: no
 ---

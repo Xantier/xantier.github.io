@@ -2,9 +2,10 @@
 layout: post
 title: Service Design Patterns
 rating: 2/5
-teaser:
-tags:
-  - todo
+author: Robert Daigneau
+genre:
+  - Web Services
+  - Patterns
 permalink:
 header: no
 ---

@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Effective Javascript
-rating: 3/5
-teaser:
-tags:
-  - todo
+rating: 2/5
+author: David Herman
+genre:
+  - Javascript
+  - Patterns & Best Practices
 permalink:
 header: no
 ---

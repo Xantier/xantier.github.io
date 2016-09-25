@@ -2,9 +2,10 @@
 layout: post
 title: Learn You a Haskell for Great Good
 rating: 4/5
-teaser:
-tags:
-  - todo
+author: Miran Lipovaca
+genre:
+  - Haskell
+  - Functional Programming
 permalink:
 header: no
 ---

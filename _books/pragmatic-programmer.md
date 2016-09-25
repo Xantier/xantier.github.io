@@ -2,9 +2,11 @@
 layout: post
 title: Pragmatic Programmer
 rating: 5/5
-teaser:
-tags:
-  - todo
+author: Andrew Hunt
+genre:
+  - Software Engineering
+  - Code Quality
+  - Software Craftsmanship
 permalink:
 header: no
 ---

@@ -1,11 +1,10 @@
 ---
 layout: post
-title: Quality Code
+title: Javascript Patterns
 rating: 3/5
-author: Stephen Vance
+author: Stoyan Stefanov
 genre:
-  - Software Engineering
-  - TDD
+  - Javascript
   - Patterns & Best Practices
 permalink:
 header: no

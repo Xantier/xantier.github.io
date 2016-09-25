@@ -2,9 +2,10 @@
 layout: post
 title: Category Theory
 rating: x/5
-teaser:
-tags:
-  - todo
+author: Bartosz Milewski
+genre:
+  - Mathematics
+  - Functional Programming
 permalink:
 header: no
 ---

@@ -2,9 +2,9 @@
 layout: post
 title: Java for Programmers
 rating: 2/5
-teaser:
-tags:
-  - todo
+author: P. Deitel / H. Deitel
+genre:
+  - Java
 permalink:
 header: no
 ---

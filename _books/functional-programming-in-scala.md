@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript Allonge
-rating: 4/5
-author: Reginald "Raganwald" Brathwaite
+title: Functional Javascript
+rating: 5/5
+author: Michael Fogus
 genre:
   - Javascript
   - Functional Programming

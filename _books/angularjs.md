@@ -2,9 +2,10 @@
 layout: post
 title: Angular JS
 rating: 2/5
-teaser:
-tags:
-  - todo
+author: Brad Green / Shyam Seshadri
+genre:
+  - Javascript
+  - AngularJS
 permalink:
 header: no
 ---

@@ -2,9 +2,10 @@
 layout: post
 title: Effective Java
 rating: 5/5
-teaser:
-tags:
-  - todo
+author: Joshua Bloch
+genre:
+  - Java
+  - Patterns & Best Practices
 permalink:
 header: no
 ---
