@@ -23,6 +23,9 @@
               {% if page.date %}
                 <span class="time">{{ page.date | date_to_string }}</span>
               {% endif %}
+              {% if page.date %}
+                <span class="time">{{ page.subtitle }}</span>
+              {% endif %}
               {% if page.categories.size > 0 %}
                 <span class="categories">
                   &raquo;
