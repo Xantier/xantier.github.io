@@ -12,5 +12,13 @@
 		"url": "https://github.com/Xantier/hubot-dublin-luas",
 		"date": "Oct 2015",
 		"tags": ["node.js", "javascript", "hubot"]
+	},
+	{
+		"name": "Simple ticker application, exercises to calculate arbitrage opportunities in Bitcoin exchanges",
+		"image": "glasses.jpg",
+		"url": "https://github.com/Xantier/node-btc-ticker",
+		"date": "May 2015",
+		"tags": ["node.js", "javascript"]
 	}
+
 ]

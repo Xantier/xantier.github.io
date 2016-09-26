@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Book Reviews
+subtitle: "Ratings of the items on my library. Rated by how useful I have found these books during my career."
 permalink: /books/
 ---
 <div class="well">
