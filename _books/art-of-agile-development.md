@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+I love agile and feel frustrated most of the time when companies I work for fall into old patterns of heavyweight processes. Goes through corner stones of XP and all the useful practices that come with it. Was the initial spark for me to take a closer look to TDD. Luckily the book is not poisoned with consult talk on methodologies and keeps itself pure and on topic. Excellent, excellent book about agile development, can't recommend enough.

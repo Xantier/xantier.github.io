@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A basic short book on AngularJS. Goes through Controllers, Services and Directives as well as communication patterns with an API. The most helpful section on the book was in the beginning where an anatomy of an Angular application was explained. It might be good as a first resource on Angular but not much further. For me the book became too late and did not reveal much extra compared to articles and blog posts found on the internet before reading this.
