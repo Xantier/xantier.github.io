@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+Good mindset shifting book on functional programming. For me this title helped to understand the differences between imperative and functional styles of programming. The book goes through functional programming with Java and other JVM languages (Scala/Groovy). It is a good introductory book on functional paradigm for people coming from Java background. 
