@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+OO analysis and design side of head first series. For me the content didn't bring much new to the table since most of the things were very familiar from university years. I like the concept of head first series which makes the book easily approachable. This could be a good read for people not so familiar with the subject, for me it was a little bit of waste.

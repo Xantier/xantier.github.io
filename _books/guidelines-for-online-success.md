@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A book with a lot of images showing websites and how they have been designed. Some points touching what makes a good "guideline for success" but in the end the content is much more readily available online. Might be a good for landing pages or advertisements, for me not much use.
