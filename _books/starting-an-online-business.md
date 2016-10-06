@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A for dummies series book that goes through the basics of an online business. Might be a good one for people coming to the topic with no earlier experience. For me the book was too much 'for dummies' and I did not get too much out of it.
