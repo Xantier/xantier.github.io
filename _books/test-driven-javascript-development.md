@@ -10,3 +10,4 @@ genre:
 permalink:
 header: no
 ---
+A good introduction to test driven development with Javascript. Goes through the TDD process in JS and more importantly touches quite a bit of important aspects of the language itself. Unfortunately since Javascript is moving so fast the testing tools/libraries in this book are a bit out of date for current JS scene. Even with that it is a good read if you want to get a bit deeper insight on testing with Javascript.
