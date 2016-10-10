@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+After Clean Coder and Passionate Programmer there was a long time without a proper book about software development as a career and how to make most ot of your passion around your profession. Soft Skills is irght up there with those classics and might be even better. The book goes through all the needed skills a software developer needs to create a good career, inside and outside of the office. The book lines up everything from mental and physical health to money management and salesmanship as means to make the best thing possible out of your career. John Sonmez has crafted an excellent tutorial to everyone, not just software developers, how to, essentially, live your life. Excellent book.
