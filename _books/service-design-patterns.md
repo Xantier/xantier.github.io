@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+While buying this book I was balancing my decision between this and Enterprise Integration Patterns. In hindsight that would have probably been a better purchase for the that time period. This book goes through deisgn patterns around "heavier" style services in service oriented architecture. Works well as a reference book to skim through and see if a particular solution would fit the current use case. Now when focus is shifting towards microservices I will be opening the book every now and then to look for similarities and inspiration but all in all I believe there are better resources around the topic than this.

@@ -11,3 +11,5 @@ genre:
 permalink:
 header: no
 ---
+
+A short recap about scrum and how Henrik Kniberg's team has adopted that. These kind of books are always good to read because they give you a more hands-on understanding about the topic at hand. This book is no different and it lines out valuable insights on Scrum and some challenges that you might be expecting when adopting it. As a short read this is a very recommendable title.

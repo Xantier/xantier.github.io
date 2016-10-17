@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A classic. This is an excellent book to first skim through to get a superficial knowledge about the topic and then return to every time you see something that "doesn't feel right" in your code base. The book is a catalogue of code smells and solutions to how to get rid of them. Very beneficial to all Java programmers and mostly a must read to everyone who is working on legacy code (so everyone). Some of the pages are somewhat outdated due to modern IDEs giving you the one-click option to highlight a code smell and refactor to a better solution.
