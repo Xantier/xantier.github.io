@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A catalogue of visual dashboards and what makes them good on the eye. I bought this to help design information dashboards in a way that the important data could be easily grasped from them. In the end the book didn't see much usage. Few turned pages here and there to get some inspiration on design and that ended up being the full lifecycle of this title. Maybe a good buy if you are really struggling to find inspiration, in reality internet might be a better option.

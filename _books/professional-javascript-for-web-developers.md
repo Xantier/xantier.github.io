@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+The book that introduced proper Javascript to me. Goes through everything on the language starting from basic constructs and ending up in complex DOM manipulation cases. Nicholas Zakas definitely knows what he is talking about and has crafted the book in perfect order. The level of difficulty creeps up slowly and keeps the reader on their toes while handing in helpful snippets to show how good of a language Javascript, against all odds, can actually be. Definitely recommend.

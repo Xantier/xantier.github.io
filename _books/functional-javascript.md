@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+This book made me finally understand the beauty of functional programming and why we should seek to understand that. Goes through functional Javascript programming with Underscore. Touches all the important aspects of functional day-to-day programming and explains them very well and understandably. Since the language is moving fast the book is quickly becoming outdated but for now (Sept 2016) it is still definitely worth the read.

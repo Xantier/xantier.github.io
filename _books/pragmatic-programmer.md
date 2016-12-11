@@ -11,3 +11,4 @@ genre:
 permalink:
 header: no
 ---
+A classic. If you are only able to read one book about software development, it should probably be this one. Goes through all the important aspects around professionalism, software craftsmanship and code quality. Has a big, big influece on my view how I look at software development as an industry and career. Can't really recommend this book enough.

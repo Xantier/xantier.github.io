@@ -1,0 +1,23 @@
+
+In the first level there are two kinds of programmers in this profession. Ones who have a passion towards what they are doing and ones who don't. In this case when I talk about passion I'm specifically meaning the passion towards technology and all technical aspects of programming. Passionate people tend to want to learn more and more about it. They want to specialize into individual languages or techniques, subsystems or niches within their programming universe or the whole profession as a whole. The ones who are not so keen or passionate about the profession tend to focus on the business domain model a bit more.
+
+
+This division many times leads to managerial and techical tracks in offices. There are many companies nowadays that have the need for software developers. Many of these companies are driven by traditional business minds and tend to drive their companies this same way. Then we also have software companies that are usually driven by different kind of people.
+
+This kind of model makes a big difference in employee tracks in companies. The traditionally driven company does not usually have a strong technical track. The lack of track for technical people means that only way for promotions is usually a more managerial route. Thinking this way the ways to get forward in companies like these go on the basis of domain knowledge. The basis of domain knowledge also means that career advancement tends to go hand in hand with the years within the company.
+
+I believe the issues around this model can be drawn directly to software quality. If we follow a thinking chain where traditional companies have the tendency to overlook technical track and advancement on the technical ladder within the company that puts it into a disadvantage.
+
+Technical mindset employees are usually better producing quality product than their non passionate counterparts*. That is not a hard and fast truth but this disadvantage comes more clear when we think about employee happiness, especially technical employee happiness. The lack of technical track usually cuts the career of a technical employee within a company short, usually much shorter than their not passionate counterpart.
+
+Even though a good value is usually attaned to the business from a particular technical employee it is also usually always not as much as it would be in an optimal situation. Even when a top talent developer is hired it usually takes a significant amount of time before they are fluent in the codebase and their productivity levels reach similarly talented previous employee.
+
+This startup speed might not be the biggest hurdle though. A top talent developer eventually rises in to a position within its new team where he or she is respected by surrounding colleagues and technical decisions within the team flow through this technical, passionate developer. Because of this the startup ramp might not actually come only to the new technical developer. Over time the whole team might need to jump on their own startup ramps.
+
+Generally this is viewed as a good thing. New techniques and technologies are introduced to the team. Non-passionate developers might struggle with this. They have the knowledge to understand that a technical person is usually, more often than on the correct side of the equation and new ideas coming to the team are better for them individually.
+
+Depending on the team though, this might actually be a detremental effect. Especially if the team consist of highly "specialized" people who have good domain knowledge but lack general understanding of the technical aspects of the profession at large. A non-passionate developers startup ramp is usually much steeper than techical ones and usually in these cases there are also multiple ramps instead of only that one new hire.
+
+Many very good developers are working for themselves (or through an agency) either as a contractor or consultant. In general the talent pool of developers tend to be better on the contracting side of the equation, naturally excluding the big four or knwon thought leader companies in the world. The rise of these contractors, on the employee side come largely due to the fact that technical tracks are blocked within a company and the appetite for technical aspects of the profession is not fully satisfied. By jumping from a profession to another there are a lot of interesting opportunities and chances to draw information from new communities and ecosystems.
+
+*I'm omitting managerial and business driven issues from this equation for now (because that matches my narrative better), for safety net we can assume that technical people have good managers driving them to make the right business decision.

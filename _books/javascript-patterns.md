@@ -11,3 +11,4 @@ genre:
 permalink:
 header: no
 ---
+Javascript Patterns goes through a lot starting from basic object creations and functions to a GoF style design patterns. The first part of the book is somewhat basic and not bringing that much new to the table, at least for me. The second half brings in some interesting things and I like that the book touches DOM handling and proper practices to use your JS files in a browser environment. This is a good read, though a little bit all over the place and with a little bit too many skippable parts. 

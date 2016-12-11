@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+One of my career defining books. I really really enjoyed the teachings from this title. Goes through the softer side of software development in a succinct and fast paced form. Touches all the important topics on how you should manage and develop your career and what kind of moves you should make on the journey towards software craftsmanship. Gives you good guidelines and thinking points about behaviour in and outside of your $DAYJOB. One of my favourite books about career in the software industry. 

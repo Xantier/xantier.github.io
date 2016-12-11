@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+Probably a good book for it's time. For me this didn't really hit home since my development stack is not near J2EE and core servlets. Touches few interesting bits around JSP if that is something you want to use in your application to handle server side rendering but other than that, most of the content is outdated due to lighter weight Java Web development frameworks/

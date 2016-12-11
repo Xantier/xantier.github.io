@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+The entrypoint to design patterns. Witty and funny way of teaching about OO and design patterns. Goes through most used design patterns and show good variety of examples on use cases for these patterns. Makes the patterns easy to understand and grasp so the book reaches its goal wonderfully. This is *the* book to get in case you want to get a firmer knowledge of design patterns.

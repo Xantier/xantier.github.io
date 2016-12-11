@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+A big case study book on TDD. Most of the book consists of writing a good sized program using test driven development. The content in the book is top notch though it suffers a little bit because of the book form. This would be an excellent crash course to TDD if the book is read out loud by someone while coding along with the book. Very good book for people looking to take their TDD to the next level.

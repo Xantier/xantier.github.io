@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+Very introductory book about "new" aspects in HTML5. I bought the book to mostly have something to browse on while on an airplane. Since the topic is touching only an overview of HTML5 features the book is somewhat beginnery levelish. Few interesting tidbits around offline storage and proper usage of semantic tags were interesting. Other than those, most text was more or less skimmed through.

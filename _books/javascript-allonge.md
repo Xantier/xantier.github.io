@@ -10,3 +10,5 @@ genre:
 permalink:
 header: no
 ---
+
+The Javascript book that sparked me to the trip down the rabbit hole of functional programming. Very interesting concepts about functions in Javascript and usages of them I had not thought of. To me this is one of the best Javascript books out there that captures the current paradigm shift to more functional style of programming in this language. 
