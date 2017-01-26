@@ -14,7 +14,7 @@ header: no
 
 Lately I have been embarked upon a wonderful journey in the world of [Prometheus](https://prometheus.io/). Since our current monitoring solution at $DAYJOB was lagging behind of times quite a we needed a new solution to see what was going on in our application. The previous monitoring system relied heavily into our database and results of bash scripts running some DB queries periodically. The results of these were piped into Nagios which handled our alerting based on the query results.
 
-This approach has it pitfalls. The biggest being that there is no historical data available and it is not visible at all. I decided to mimic this approach to get a quick dashboard up and running to visualize the trends and how our data was behaving. For this I needed to create a Prometheus exporter and spin up a Prometheus client and a visualization dashboard which ended up being (Grafana)[http://grafana.org/].
+This approach has it pitfalls. The biggest being that there is no historical data available and it is not visible at all. I decided to mimic this approach to get a quick dashboard up and running to visualize the trends and how our data was behaving. For this I needed to create a Prometheus exporter and spin up a Prometheus client and a visualization dashboard which ended up being [Grafana](http://grafana.org/).
 
 Disclaimer.
 Because of the way Prometheus handles different metrics database is usually not the best of sources for metrics data. After a long time reading [documentation about Prometheus metric types](https://prometheus.io/docs/concepts/metric_types/) I still am not quite sure what is the best one to use for database queried data. Naturally the answer depends on the actual query but in my mind I was looking for something that lets me calculate the delta between previous count. This functionality is not available in Prometheus client libraries so it should be implemented manually on the client. For our demo purposes I opted to leave that out for now and get a prototype out there quickly instead.
@@ -188,4 +188,4 @@ As you can see we use `@Scheduled` to run this and get the interval value from a
 
 This simple client taught me quite a bit about Prometheus and how to set that up. In hindsight a better solution for data gathering would have been to calculate the delta of previous and current value instead of using absolute numbers. The added benefit of this would be much bigger possibilities to use Prometheus' query language which gives us lots more opportunities to graph and alert on our data. Maybe the next iteration of the client will do that instead.
 
-The source code for this application can be found from (my Github repo)[https://github.com/Xantier/prometheus-db-exporter]. As always, pull requests are more than welcome.
+The source code for this application can be found from [Github repo](https://github.com/Xantier/prometheus-db-exporter). As always, pull requests are more than welcome.
