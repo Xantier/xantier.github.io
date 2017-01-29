@@ -26,6 +26,12 @@
 		"url": "https://github.com/Xantier/prometheus-db-exporter",
 		"date": "Jan 2017",
 		"tags": ["Prometheus", "Kotlin", "Spring Boot"]
+	},
+	{
+		"name": "Boundary testing test runner utilizing Postman collections and Database assertions",
+		"image": "glasses.png",
+		"url": "https://github.com/Xantier/bound-ttr",
+		"date": "Jan 2017",
+		"tags": ["Functional Testing", "Node.js", "Postman", "Boundary Testing"]
 	}
-
 ]
