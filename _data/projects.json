@@ -19,6 +19,13 @@
 		"url": "https://github.com/Xantier/node-btc-ticker",
 		"date": "May 2015",
 		"tags": ["node.js", "javascript"]
+	},
+	{
+		"name": "SQL DB Query results Exporter for Prometheus monitoring tool. Made with Kotlin",
+		"image": "glasses.jpg",
+		"url": "https://github.com/Xantier/prometheus-db-exporter",
+		"date": "Jan 2017",
+		"tags": ["Prometheus", "Kotlin", "Spring Boot"]
 	}
 
 ]
