@@ -1,37 +1,38 @@
 [
 	{
 		"name": "NERD stack",
-		"image": "glasses.png",
+		"image": "nerd-stack.jpg",
 		"url": "https://github.com/Xantier/nerd-stack",
 		"date": "Jan 2014",
 		"tags": ["React","node.js", "javascript", "seed application"]
 	},
-	{
-		"name": "Hubot scripts, Dublin LUAS",
-		"image": "glasses.png",
-		"url": "https://github.com/Xantier/hubot-dublin-luas",
-		"date": "Oct 2015",
-		"tags": ["node.js", "javascript", "hubot"]
-	},
-	{
-		"name": "Simple ticker application, exercises to calculate arbitrage opportunities in Bitcoin exchanges",
-		"image": "glasses.png",
-		"url": "https://github.com/Xantier/node-btc-ticker",
-		"date": "May 2015",
-		"tags": ["node.js", "javascript"]
-	},
+
 	{
 		"name": "SQL DB Query results Exporter for Prometheus monitoring tool. Made with Kotlin",
-		"image": "glasses.png",
+		"image": "prometheus-db-exporter.jpg",
 		"url": "https://github.com/Xantier/prometheus-db-exporter",
 		"date": "Jan 2017",
 		"tags": ["Prometheus", "Kotlin", "Spring Boot"]
 	},
 	{
 		"name": "Boundary testing test runner utilizing Postman collections and Database assertions",
-		"image": "glasses.png",
+		"image": "bound-ttr.jpg",
 		"url": "https://github.com/Xantier/bound-ttr",
 		"date": "Jan 2017",
 		"tags": ["Functional Testing", "Node.js", "Postman", "Boundary Testing"]
+	},
+	{
+		"name": "Hubot scripts, Dublin LUAS",
+		"image": "dublin-luas.jpg",
+		"url": "https://github.com/Xantier/hubot-dublin-luas",
+		"date": "Oct 2015",
+		"tags": ["node.js", "javascript", "hubot"]
+	},
+	{
+		"name": "Simple ticker application, exercises to calculate arbitrage opportunities in Bitcoin exchanges",
+		"image": "node-btc-ticker.jpg",
+		"url": "https://github.com/Xantier/node-btc-ticker",
+		"date": "May 2015",
+		"tags": ["node.js", "javascript"]
 	}
 ]
