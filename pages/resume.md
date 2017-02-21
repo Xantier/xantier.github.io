@@ -90,3 +90,8 @@ side applications
 * [https://github.com/Xantier/nerd-stack](https://github.com/Xantier/nerd-stack)
 * [https://github.com/Xantier/prometheus-db-exporter](https://github.com/Xantier/prometheus-db-exporter)
 * [https://github.com/Xantier/bound-ttr](https://github.com/Xantier/bound-ttr)
+
+#### Contact
+* Twitter: Xantier
+* Github: Xantier
+* LinkedIn: jussihallila
