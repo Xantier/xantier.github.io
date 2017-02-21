@@ -10,9 +10,10 @@ permalink: /resume/
 * Position: Software Engineer
 * Main Responsibilities:
   * Development of mobile marketing platform
+  * Leading the development efforts on core capabilities on the biggest product within the company
   * Implementing batch processing with Spring batch and messaging integrations with Spring Integration
   * Restructuring application frontend architecture and introducing modern web development
-processes with React JS & Webpack and node.js ecosystem
+processes with React JS & Webpack and Node.js ecosystem
   * Introducing the company to devops practices with Ansible, source controlled configurations (immutable infrastructure) and chatops via Hipchat and Hubot
   * Taking ownership of build engineering by restructuring build processes, automating deployment pipeline with Jenkins
   * Increasing code quality processes with introduction of static analysis tools, review processes, pull requests and branching strategy
@@ -73,12 +74,12 @@ side applications
 #### Skills and competencies
 
 ##### Programming:
-* *JVM*: **Java**, Spring, Hibernate, Kotlin, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
-* *Javascript*: **JQuery, Node.js, React**, Ajax, Jade, Grunt, Gulp, Angular
+* *JVM*: **Java**, **Spring**, Hibernate, Kotlin, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
+* *Javascript*: **JQuery, Node.js, React**, Jade, Grunt, Gulp, Angular
 * *Databases*: **MySQL**, **Oracle**, **DB2**, MongoDB, RethinkDB
 * *Version Control*: **Git**, SVN, RTC
 * *Methodologies*: **Scrum**, Kanban
-* *Other*: **IntelliJ, Jenkins, Ansible,** Ubuntu, Red Hat, Glassfish, Tomcat, WID, WPS
+* *Other*: **IntelliJ, Jenkins, Ansible,**, Haskell, Ubuntu, Red Hat, Glassfish, Tomcat, WID, WPS
 
 ##### Language proficiency
 * *Mother tongue:* Finnish
@@ -87,3 +88,5 @@ side applications
 
 ##### Open source projects
 * [https://github.com/Xantier/nerd-stack](https://github.com/Xantier/nerd-stack)
+* [https://github.com/Xantier/prometheus-db-exporter](https://github.com/Xantier/prometheus-db-exporter)
+* [https://github.com/Xantier/bound-ttr](https://github.com/Xantier/bound-ttr)
