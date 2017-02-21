@@ -1,9 +1,3 @@
----
-layout: page
-title: Resume
-permalink: /resume/
----
-
 ## Work
 
 #### 8/2015 – Brandtone, Dublin, Ireland
@@ -92,6 +86,7 @@ side applications
 * [https://github.com/Xantier/bound-ttr](https://github.com/Xantier/bound-ttr)
 
 #### Contact
+* Web: http://jussi.hallila.com
 * Twitter: Xantier
 * Github: Xantier
 * LinkedIn: jussihallila
