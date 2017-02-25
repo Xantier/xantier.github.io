@@ -1,7 +1,9 @@
+# Jussi Hallila
+
 ## Work
 
 #### 8/2015 – Brandtone, Dublin, Ireland
-* Position: Software Engineer
+* Position: Senior Software Engineer
 * Main Responsibilities:
   * Development of mobile marketing platform
   * Leading the development efforts on core capabilities on the biggest product within the company
