@@ -1,3 +1,9 @@
+---
+layout: page
+title: Jussi Hallila
+permalink: /resume/
+---
+
 # Jussi Hallila
 
 ## Work
