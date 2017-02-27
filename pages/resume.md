@@ -6,7 +6,7 @@ permalink: /resume/
 
 # Jussi Hallila
 
-[Download](https://docs.google.com/document/d/1EZHUhAmV70VeXm_dEKQjNR9OkbpJQ3fBJ9x4aCT7eEU/edit?usp=sharing)
+[Download](https://docs.google.com/document/d/1EZHUhAmV70VeXm_dEKQjNR9OkbpJQ3fBJ9x4aCT7eEU/pub)
 
 ## Work
 
