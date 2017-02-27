@@ -6,7 +6,7 @@ permalink: /resume/
 
 # Jussi Hallila
 
-[Download](https://docs.google.com/document/d/1EZHUhAmV70VeXm_dEKQjNR9OkbpJQ3fBJ9x4aCT7eEU/pub)
+[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Senior_Software_Engineer.pdf)
 
 ## Work
 
