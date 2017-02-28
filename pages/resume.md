@@ -78,12 +78,12 @@ permalink: /resume/
 #### Skills and competencies
 
 ##### Programming:
-* *JVM*: **Java**, **Spring**, Hibernate, **Kotlin**, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
+* *JVM*: **Java**, **Spring**, Hibernate, **Kotlin**, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin, JMS
 * *Javascript*: **JQuery, Node.js, React**, **Mocha**, Jasmine, Jade, Grunt, Gulp, Angular
 * *Databases*: **MySQL**, PostgreSQL, **Oracle**, **DB2**, MongoDB, RethinkDB
 * *Version Control*: **Git**, SVN, RTC
 * *Methodologies*: **Scrum**, **Kanban**
-* *Other*: **IntelliJ, Jenkins, Ansible,**, Haskell, **Ubuntu**, Red Hat, Glassfish, Tomcat, WID, WPS
+* *Other*: **IntelliJ, Jenkins, Ansible,**, Haskell, **Ubuntu**, Red Hat, ActiveMQ, Glassfish, Tomcat, WID, WPS
 
 ##### Language proficiency
 * *Mother tongue:* Finnish
