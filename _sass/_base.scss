@@ -149,7 +149,11 @@ pre {
         padding-left: 0;
     }
 }
-
+@media (min-width: 1430px){
+  .container {
+    width: 1370px;
+  }
+}
 
 
 /**

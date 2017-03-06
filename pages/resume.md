@@ -1,32 +1,36 @@
 ---
 layout: page
-title: Resume
+title: Jussi Hallila
 permalink: /resume/
 ---
+
+# Jussi Hallila
+
+[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Senior_Software_Engineer.pdf)
 
 ## Work
 
 #### 8/2015 – Brandtone, Dublin, Ireland
-* Position: Software Engineer
+* Position: Senior Software Engineer
 * Main Responsibilities:
   * Development of mobile marketing platform
+  * Leading the development efforts on core capabilities on the biggest product within the company
   * Implementing batch processing with Spring batch and messaging integrations with Spring Integration
-  * Restructuring application frontend architecture and introducing modern web development
-processes with React JS & Webpack and node.js ecosystem
-  * Introducing the company to devops practices with Ansible, source controlled configurations (immutable infrastructure) and chatops via Hipchat and Hubot
+  * Developing automated testing framework and configuring infrastructure around automated testing
+  * Restructuring application frontend architecture and introducing modern web development processes with React JS & Webpack and Node.js ecosystem
+  * Introducing the company to DevOps practices with Ansible, source controlled configurations (immutable infrastructure) and chatops via Hipchat and Hubot
   * Taking ownership of build engineering by restructuring build processes, automating deployment pipeline with Jenkins
   * Increasing code quality processes with introduction of static analysis tools, review processes, pull requests and branching strategy
-  * Managing development infrastructure and AWS EC2 instances containing development
-side applications
+  * Managing development Red Hat servers and AWS infrastructure (EC2, S3, ELB) for development side applications
 
 #### 12/2014 – 8/2015 Liberty Information Technology, Dublin, Ireland
 * Position: Software Engineer
 * Main Responsibilities:
-  * Developing SOA web services
+  * Developing SOA web services to calculate insurance rates
   * Implementing process flows on IBM Websphere Integration Developer
-  * Implementing internal services with Java
+  * Implementing internal services with Java, Unit testing with TestNG
   * Testing web services with SoapUI
-  * Integrating existing services to new process flows.
+  * Integrating existing services to new process flows
   * BPEL development.
 
 #### 6/2014 – 11/2014 Unique Digital, Dublin, Ireland
@@ -35,27 +39,28 @@ side applications
 * Main Responsibilities:
   * Developing movie theater management systems
   * Constructing Vaadin views for cinema advertising software
-    * creating and modifying UI components, implementing
-    CSS changes
-  * Generating services to calculate business data.
-  * Constructing Jasper reports.
+  * Creating and modifying UI components, implementing CSS changes, implementing cross browser multimedia functionality
+  * Generating services to calculate business data
+  * Constructing Jasper reports to display business critical metrics
 
 #### 6/2011 – 6/2014 IBM, Dublin, Ireland
 * Position: Business Intelligence & Metrics Software Developer
 * Main Responsibilities:
-  * Building business intelligence solutions for IBM Delivery Centers
-  * Creating dashboards to visualize call center data
+  * Building business intelligence solutions for IBM Delivery Centers in EMEA and US
+  * Creating and maintaining JQuery based frontend framework to create custom visualizations and dashboards 
   * Designing and implementing data stores for easier data manipulation and ETLs to retrieve external data
-  * Creating automated reports with Spring and Hibernate
-  * Maintaining and configuring Linux web servers and continuous integration servers/jobs
+  * Creating Spring and Hibernate web application on top of DB2 data warehouse to generate and display automated reports on call center data
+  * Constructing SQL queries and building reports using BIRT
+  * Setting up continuous integration server and introducing automated testing processes using Jenkins
+  * Maintaining and configuring Red Hat Linux web servers 
   * Introducing and educating team to use Scrum
 
 #### 4/2009 – 9/2009 CERN, European Organization for Nuclear Research, Geneva, Switzerland
 * Position: Web developer / Database Administrator
 * Main responsibilities:
-  * Developed the user interface for electrical testing
-  * Designed and developed database for the LHC detector alignment in the TOTEM experiment.
-  * Made a PHP frontend on top of Zend framework and developed an Oracle DB for the experiment
+  * Designing and developing a database and a web frontend for the TOTEM experiment
+  * Developing user interface for electrical testing using PHP, Javascript and HTML
+  * Creating a PHP frontend on top of Zend framework and developing an Oracle database schemas for the LHC detector alignment metrics
 
 ## Education
 
@@ -73,12 +78,12 @@ side applications
 #### Skills and competencies
 
 ##### Programming:
-* *JVM*: **Java**, Spring, Hibernate, Kotlin, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin
-* *Javascript*: **JQuery, Node.js, React**, Ajax, Jade, Grunt, Gulp, Angular
-* *Databases*: **MySQL**, **Oracle**, **DB2**, MongoDB, RethinkDB
+* *JVM*: **Java**, **Spring**, Hibernate, **Kotlin**, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin, JMS
+* *Javascript*: **JQuery, Node.js, React**, **Mocha**, Jasmine, Jade, Grunt, Gulp, Angular
+* *Databases*: **MySQL**, PostgreSQL, **Oracle**, **DB2**, MongoDB, RethinkDB
 * *Version Control*: **Git**, SVN, RTC
-* *Methodologies*: **Scrum**, Kanban
-* *Other*: **IntelliJ, Jenkins, Ansible,** Ubuntu, Red Hat, Glassfish, Tomcat, WID, WPS
+* *Methodologies*: **Scrum**, **Kanban**
+* *Other*: **IntelliJ, Jenkins, Ansible,**, Haskell, **Ubuntu**, Red Hat, ActiveMQ, Glassfish, Tomcat, WID, WPS
 
 ##### Language proficiency
 * *Mother tongue:* Finnish
@@ -87,3 +92,11 @@ side applications
 
 ##### Open source projects
 * [https://github.com/Xantier/nerd-stack](https://github.com/Xantier/nerd-stack)
+* [https://github.com/Xantier/prometheus-db-exporter](https://github.com/Xantier/prometheus-db-exporter)
+* [https://github.com/Xantier/bound-ttr](https://github.com/Xantier/bound-ttr)
+
+#### Contact
+* Web: http://jussi.hallila.com
+* Email: [firstname]@[lastname].com
+* Twitter/Github/StackOverflow: Xantier
+* LinkedIn: https://www.linkedin.com/in/jussihallila/
