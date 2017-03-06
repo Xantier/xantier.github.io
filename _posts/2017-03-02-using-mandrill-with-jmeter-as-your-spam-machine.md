@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Mandrill with JMeter as you spam machine
+title: Using Mandrill with JMeter as your spam machine
 teaser:
 tags:
   - JMeter
@@ -21,11 +21,11 @@ Here is a bunch of images that we used to spam a ton of people with emails.
 
 JMeter scenario setup:
 
-![Simplified JMeter scenario]({{ site.url }}/assets/img/jmeter/jmeter.png)
+![Simplified JMeter scenario]({{ site.url }}/static/img/jmeter/jmeter.png)
 
 We wanted to use a CSV file as our datasource for the dynamic content in our message. We also wanted to send a message to all users that were present in the CSV file so we needed a looping mechanism to handle that. Here is a screenshot of the CSV Data Set config:
 
-![JMeter CSV Data Set Config]({{ site.url }}/assets/img/jmeter/csv-config.png)
+![JMeter CSV Data Set Config]({{ site.url }}/static/img/jmeter/csv-config.png)
 
 The file itself is extremely simple, containing only 2 comma separated fields, for example:
 
@@ -36,7 +36,7 @@ example@example.com,Ex Ample
 
 And here is the while loop with a simple "exists/doesn't exist" check:
 
-![JMeter While loop config]({{ site.url }}/assets/img/jmeter/while-loop.png)
+![JMeter While loop config]({{ site.url }}/static/img/jmeter/while-loop.png)
 
 The check is not necessarily even needed because our CSV data set config will take care of stopping our thread if it hits EOF. 
 
