@@ -6,7 +6,13 @@
 		"date": "Jan 2014",
 		"tags": ["React","node.js", "javascript", "seed application"]
 	},
-
+	{
+		"name": "Try-Catch - A Test utility to automate labourious API call + database checking tasks when doing manual testing",
+		"image": "nerd-stack.jpg",
+		"url": "https://github.com/Xantier/trycatch",
+		"date": "May 2017",
+		"tags": ["React","ratpack", "kotlin", "automated testing"]
+	},
 	{
 		"name": "SQL DB Query results Exporter for Prometheus monitoring tool. Made with Kotlin",
 		"image": "prometheus-db-exporter.jpg",
