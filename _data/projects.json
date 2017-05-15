@@ -1,38 +1,70 @@
 [
 	{
-		"name": "NERD stack",
+		"name": "Try-Catch - A Test utility to automate labourious API call + database checking tasks when doing manual testing",
+		"image": "try-catch.jpg",
+		"url": "https://github.com/Xantier/trycatch",
+		"date": "May 2017",
+		"tags": [
+			"React",
+			"ratpack",
+			"kotlin",
+			"automated testing"
+		]
+	},
+	{
+		"name": "NERD stack - Seed application for isomorphic Node.js and React development.",
 		"image": "nerd-stack.jpg",
 		"url": "https://github.com/Xantier/nerd-stack",
 		"date": "Jan 2014",
-		"tags": ["React","node.js", "javascript", "seed application"]
+		"tags": [
+			"React",
+			"node.js",
+			"javascript",
+			"seed application"
+		]
 	},
-
 	{
 		"name": "SQL DB Query results Exporter for Prometheus monitoring tool. Made with Kotlin",
 		"image": "prometheus-db-exporter.jpg",
 		"url": "https://github.com/Xantier/prometheus-db-exporter",
 		"date": "Jan 2017",
-		"tags": ["Prometheus", "Kotlin", "Spring Boot"]
+		"tags": [
+			"Prometheus",
+			"Kotlin",
+			"Spring Boot"
+		]
 	},
 	{
 		"name": "Boundary testing test runner utilizing Postman collections and Database assertions",
 		"image": "bound-ttr.jpg",
 		"url": "https://github.com/Xantier/bound-ttr",
 		"date": "Jan 2017",
-		"tags": ["Functional Testing", "Node.js", "Postman", "Boundary Testing"]
+		"tags": [
+			"Functional Testing",
+			"Node.js",
+			"Postman",
+			"Boundary Testing"
+		]
 	},
 	{
 		"name": "Hubot scripts, Dublin LUAS",
 		"image": "dublin-luas.jpg",
 		"url": "https://github.com/Xantier/hubot-dublin-luas",
 		"date": "Oct 2015",
-		"tags": ["node.js", "javascript", "hubot"]
+		"tags": [
+			"node.js",
+			"javascript",
+			"hubot"
+		]
 	},
 	{
 		"name": "Simple ticker application, exercises to calculate arbitrage opportunities in Bitcoin exchanges",
 		"image": "node-btc-ticker.jpg",
 		"url": "https://github.com/Xantier/node-btc-ticker",
 		"date": "May 2015",
-		"tags": ["node.js", "javascript"]
+		"tags": [
+			"node.js",
+			"javascript"
+		]
 	}
 ]

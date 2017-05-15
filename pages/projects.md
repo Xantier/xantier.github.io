@@ -4,4 +4,4 @@ title: Projects
 permalink: /projects/
 ---
 
-Nothing much here at the moment, efforts in the closed corporate world is taking most of my time
+Few open source projects with various languages.
