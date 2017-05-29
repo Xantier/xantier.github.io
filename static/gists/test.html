@@ -1,0 +1,7 @@
+<html>
+<head></head>
+<body>
+
+<div class="good-exp-rating-pixel"> <ul class="dr-breakout"> <li><a href="#" onclick="callAjax(1)">1</a></li> <li><a href="#" onclick="callAjax(2)">2</a></li> <li><a href="#" onclick="callAjax(3)">3</a></li> <li><a href="#" onclick="callAjax(4)">4</a></li> </ul> </div> <style> @media (min-width:700px){ .good-exp-rating-pixel.dr-breakout{ display:inline;background:transparent;box-shadow:none;border:none;position:relative;margin:0;}.good-exp-rating-pixel.dr-breakout li{ display:inline;}.good-exp-rating-pixel.dr-breakout li a{ display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border-radius:4px;color:#fff;background-color:#507281;}}</style> <script>function callAjax(e){var t=new XMLHttpRequest;t.open("POST","https://feedbaas/api/rate",!0),t.setRequestHeader("Content-type","application/json"),t.onreadystatechange=function(){t.readyState==XMLHttpRequest.DONE&&200==t.status&&console.log(t.responseText)};var a={tenant:666,value:e};t.send(JSON.stringify(a))}</script>
+</body>
+</html>
