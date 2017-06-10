@@ -1,7 +1,126 @@
-<html>
-<head></head>
-<body>
+<div class="good-exp-rating-pixel">
+    <ul class="dr-breakout">
+        <li><a href="#" onClick="callAjax(1)">1</a></li>
+        <li><a href="#" onClick="callAjax(2)">2</a></li>
+        <li><a href="#" onClick="callAjax(3)">3</a></li>
+        <li><a href="#" onClick="callAjax(4)">4</a></li>
+        <li><a href="#" onClick="callAjax(5)">5</a></li>
+    </ul>
+</div>
 
-<div class="good-exp-rating-pixel"> <ul class="dr-breakout"> <li><a href="#" onclick="callAjax(1)">1</a></li> <li><a href="#" onclick="callAjax(2)">2</a></li> <li><a href="#" onclick="callAjax(3)">3</a></li> <li><a href="#" onclick="callAjax(4)">4</a></li> </ul> </div> <style> @media (min-width:700px){ .good-exp-rating-pixel.dr-breakout{ display:inline;background:transparent;box-shadow:none;border:none;position:relative;margin:0;}.good-exp-rating-pixel.dr-breakout li{ display:inline;}.good-exp-rating-pixel.dr-breakout li a{ display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border-radius:4px;color:#fff;background-color:#507281;}}</style> <script>function callAjax(e){var t=new XMLHttpRequest;t.open("POST","https://feedbaas.com/api/rate",!0),t.setRequestHeader("Content-type","application/json"),t.onreadystatechange=function(){t.readyState==XMLHttpRequest.DONE&&200==t.status&&console.log(t.responseText)};var a={tenant:1,value:e};t.send(JSON.stringify(a))}</script>
-</body>
-</html>
+<style>
+    @media (min-width: 700px) {
+        .good-exp-rating-pixel.dr-breakout {
+            display: inline;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            position: relative;
+            margin: 0;
+        }
+
+        .good-exp-rating-pixel.dr-breakout li {
+            display: inline;
+        }
+
+        .good-exp-rating-pixel.dr-breakout li a {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #507281;
+        }
+    }
+</style>
+
+<script>
+  var feedbaas_options = {
+    tenant: 666,
+    extraFields: {
+      'name': 'value'
+    }
+  };
+
+
+  (function () {
+    window.FEEDBAAS_PAGE_START = new Date().getTime();
+  })();
+
+  function guid() {
+    var cookie = getCookie('feedbaas');
+    if (cookie !== "") return cookie;
+    var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+    var date = new Date();
+    date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+    document.cookie = 'feedbaas =' + guid + '; expires=' + date.toGMTString() + '; path=/';
+    return guid;
+  }
+
+
+  function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+      c_start = document.cookie.indexOf(c_name + "=");
+      if (c_start != -1) {
+        c_start = c_start + c_name.length + 1;
+        c_end = document.cookie.indexOf(";", c_start);
+        if (c_end == -1) {
+          c_end = document.cookie.length;
+        }
+        return unescape(document.cookie.substring(c_start, c_end));
+      }
+    }
+    return "";
+  }
+
+  function callAjax(rating) {
+    var geo = getGeo();
+    var url = 'http://localhost:8080/api/rate';
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-type', 'application/json');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        console.log('successfullyRated');
+      }
+    };
+    feedbaas_options.currentUrl = window.location.href;
+    feedbaas_options.referrerUrl = document.referrer;
+    feedbaas_options.guid = guid();
+    feedbaas_options.timeSpent = new Date().getTime() - FEEDBAAS_PAGE_START;
+    feedbaas_options.value = rating;
+    feedbaas_options.get = geo;
+    xhr.send(JSON.stringify(feedbaas_options));
+  }
+
+  function getGeo() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+        return JSON.parse(xmlhttp.responseText);
+      }
+      return {};
+    };
+    xmlhttp.open("GET", "http://freegeoip.net/json/", true);
+    xmlhttp.send();
+  }
+
+
+</script>
