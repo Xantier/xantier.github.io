@@ -91,7 +91,6 @@
   }
 
   function callAjax(rating) {
-    var geo = getGeo();
     var url = 'https://www.feedbaas.com/api/rate';
     var xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
@@ -103,10 +102,11 @@
     };
     feedbaas_options.currentUrl = window.location.href;
     feedbaas_options.referrerUrl = document.referrer;
+    feedbaas_options.title = document.title;
     feedbaas_options.guid = guid();
     feedbaas_options.timeSpent = new Date().getTime() - FEEDBAAS_PAGE_START;
     feedbaas_options.value = rating;
-    feedbaas_options.get = geo;
+    feedbaas_options.get = getGeo();
     xhr.send(JSON.stringify(feedbaas_options));
   }
 
