@@ -76,7 +76,7 @@
 
 <script>
   var feedbaas_options = {
-    tenant: 1,
+    tenant: 666,
     extraFields: {
       'name': 'value'
     },
@@ -155,7 +155,7 @@
     feedbaas_options.guid = guid();
     feedbaas_options.timeSpent = new Date().getTime() - FEEDBAAS_PAGE_START;
     feedbaas_options.value = rating;
-    feedbaas_options.get = window.FEEDBAAS_GEO;
+    feedbaas_options.geo = window.FEEDBAAS_GEO;
 
     var date = new Date();
     date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
@@ -180,4 +180,3 @@
 
 
 </script>
-
