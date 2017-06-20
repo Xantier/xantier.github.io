@@ -1,64 +1,94 @@
-<div class="good-exp-rating-pixel">
-    <ul class="dr-breakout">
-        <li><a href="#" onClick="callAjax(1)">1</a></li>
-        <li><a href="#" onClick="callAjax(2)">2</a></li>
-        <li><a href="#" onClick="callAjax(3)">3</a></li>
-        <li><a href="#" onClick="callAjax(4)">4</a></li>
-        <li><a href="#" onClick="callAjax(5)">5</a></li>
-    </ul>
+<div id="feedbaas_container">
+    <a id="feedbaas_btn1">>:(</a>
+    <a id="feedbaas_btn2">:(</a>
+    <a id="feedbaas_btn3">:|</a>
+    <a id="feedbaas_btn4">:)</a>
+    <a id="feedbaas_btn5">:D</a>
 </div>
-
 <style>
-    @media (min-width: 700px) {
-        .good-exp-rating-pixel.dr-breakout {
-            display: inline;
-            background: transparent;
-            box-shadow: none;
-            border: none;
-            position: relative;
-            margin: 0;
-        }
+    #feedbaas_container {
+        display: block;
+        padding: 10px 10px 0;
+        background: hsl(49, 83%, 91%);
+        text-align: center;
+    }
 
-        .good-exp-rating-pixel.dr-breakout li {
-            display: inline;
-        }
+    #feedbaas_container a {
+        font-size: 1.1em;
+        padding: 24px 26px;
+        display: inline-block;
+        margin: 5px;
+        border-radius: 6px;
+        border: solid rgba(0, 0, 0, 0.2);
+        border-width: 1px 1px 5px;
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1), inset 0 0 3px rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        user-select: none;
+        transition: 0.4s ease;
+    }
 
-        .good-exp-rating-pixel.dr-breakout li a {
-            display: inline-block;
-            padding: 6px 12px;
-            margin-bottom: 0;
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.42857143;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            background-image: none;
-            border-radius: 4px;
-            color: #fff;
-            background-color: #507281;
-        }
+    #feedbaas_container a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.4);
+        border-bottom-width: 8px;
+    }
+
+    #feedbaas_container a:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.4);
+        border-bottom-width: 2px;
+        transition: 0.1s ease;
+    }
+
+    #feedbaas_container a:nth-child(1) {
+        background: #9a2204;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    #feedbaas_container a:nth-child(2) {
+        background: #a05203;
+    }
+
+    #feedbaas_container a:nth-child(3) {
+        background: #a68503;
+    }
+
+    #feedbaas_container a:nth-child(2) {
+        background: #8DC408;
+    }
+
+    #feedbaas_container a:nth-child(2) {
+        background: #42C90E;
     }
 </style>
 
 <script>
   var feedbaas_options = {
-    tenant: 1,
+    tenant: 666,
     extraFields: {
       'name': 'value'
+    },
+    buttons: {
+      1: 'Nope! nopenopenope!',
+      2: 'Somewhat of a clusterf*ck',
+      3: '6/10, 8/10 With Rice',
+      4: '13/10, good as h*ck',
+      5: '7/5, The perfect score'
     }
   };
 
 
   (function () {
-    window.FEEDBAAS_PAGE_START = new Date().getTime();
+    if (feedbaas_options) {
+      window.FEEDBAAS_PAGE_START = new Date().getTime();
+      getGeo();
+      if (feedbaas_options.buttons) {
+        for (var i = 1; i <= 5; i++) {
+          document.getElementById("feedbaas_btn" + i).innerHTML = feedbaas_options.buttons[i];
+        }
+      }
+    }
   })();
 
   function guid() {
@@ -106,7 +136,7 @@
     feedbaas_options.guid = guid();
     feedbaas_options.timeSpent = new Date().getTime() - FEEDBAAS_PAGE_START;
     feedbaas_options.value = rating;
-    feedbaas_options.get = getGeo();
+    feedbaas_options.get = window.FEEDBAAS_GEO;
     xhr.send(JSON.stringify(feedbaas_options));
   }
 
@@ -114,9 +144,11 @@
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
-        return JSON.parse(xmlhttp.responseText);
+        window.FEEDBAAS_GEO = JSON.parse(xmlhttp.responseText);
+      } else {
+        window.FEEDBAAS_GEO = {};
       }
-      return {};
+
     };
     xmlhttp.open("GET", "http://freegeoip.net/json/", true);
     xmlhttp.send();
@@ -124,3 +156,4 @@
 
 
 </script>
+
