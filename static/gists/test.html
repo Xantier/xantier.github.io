@@ -15,7 +15,7 @@
 
     #feedbaas_container a {
         font-size: 1.1em;
-        padding: 24px 26px;
+        padding: 12px 13px;
         display: inline-block;
         margin: 5px;
         border-radius: 6px;
@@ -25,6 +25,7 @@
         cursor: pointer;
         user-select: none;
         transition: 0.4s ease;
+        text-decoration: none;
     }
 
     #feedbaas_container a:hover {
@@ -33,11 +34,21 @@
         border-bottom-width: 8px;
     }
 
+    #feedbaas_container a:visited {
+        text-decoration: none;
+    }
+
     #feedbaas_container a:active {
         transform: translateY(4px);
         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.4);
         border-bottom-width: 2px;
         transition: 0.1s ease;
+    }
+
+    #feedbaas_container a.not-active {
+        pointer-events: none;
+        cursor: default;
+        background: #9d9d9d;
     }
 
     #feedbaas_container a:nth-child(1) {
@@ -54,18 +65,18 @@
         background: #a68503;
     }
 
-    #feedbaas_container a:nth-child(2) {
+    #feedbaas_container a:nth-child(4) {
         background: #8DC408;
     }
 
-    #feedbaas_container a:nth-child(2) {
+    #feedbaas_container a:nth-child(5) {
         background: #42C90E;
     }
 </style>
 
 <script>
   var feedbaas_options = {
-    tenant: 1,
+    tenant: 666,
     extraFields: {
       'name': 'value'
     },
@@ -86,6 +97,14 @@
       if (feedbaas_options.buttons) {
         for (var i = 1; i <= 5; i++) {
           document.getElementById("feedbaas_btn" + i).innerHTML = feedbaas_options.buttons[i];
+        }
+      }
+    }
+    var rating = getCookie('feedbaas_rating_' + document.title);
+    if(rating){
+      for (var i = 1; i <= 5; i++) {
+        if(rating != i){
+          document.getElementById("feedbaas_btn" + i).classList.add('not-active');
         }
       }
     }
@@ -131,12 +150,17 @@
       }
     };
     feedbaas_options.currentUrl = window.location.href;
-    feedbaas_options.referrerUrl = document.referrer;
-    feedbaas_options.title = document.title;
+    feedbaas_options.referrerUrl = document.referrer || "referrer";
+    feedbaas_options.title = document.title || "Page Title";
     feedbaas_options.guid = guid();
     feedbaas_options.timeSpent = new Date().getTime() - FEEDBAAS_PAGE_START;
     feedbaas_options.value = rating;
     feedbaas_options.get = window.FEEDBAAS_GEO;
+
+    var date = new Date();
+    date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+    document.cookie = 'feedbaas_rating_' + document.title + ' =' + rating + '; expires=' + date.toGMTString() + '; path=/';
+
     xhr.send(JSON.stringify(feedbaas_options));
   }
 
