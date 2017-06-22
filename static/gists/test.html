@@ -1,77 +1,159 @@
-<div id="feedbaas_container">
-    <a href="#" onClick="callAjax(1)" id="feedbaas_btn1">>:(</a>
-    <a href="#" onClick="callAjax(2)" id="feedbaas_btn2">:(</a>
-    <a href="#" onClick="callAjax(3)" id="feedbaas_btn3">:|</a>
-    <a href="#" onClick="callAjax(4)" id="feedbaas_btn4">:)</a>
-    <a href="#" onClick="callAjax(5)" id="feedbaas_btn5">:D</a>
+<div class="feedbaas-btn" id="feedbaas_container">
+    <div>
+        <span>
+            <a href="#" onClick="callAjax(1)" id="feedbaas_btn1">>:(</a>
+        </span>
+    </div>
+    <div>
+        <span>
+            <a href="#" onClick="callAjax(2)" id="feedbaas_btn2">:(</a>
+        </span>
+    </div>
+    <div>
+        <span>
+            <a href="#" onClick="callAjax(3)" id="feedbaas_btn3">>:|</a>
+        </span>
+    </div>
+    <div>
+        <span>
+            <a href="#" onClick="callAjax(4)" id="feedbaas_btn4">:)</a>
+        </span>
+    </div>
+    <div>
+        <span>
+            <a href="#" onClick="callAjax(5)" id="feedbaas_btn5">:D</a>
+        </span>
+    </div>
 </div>
+
 <style>
     #feedbaas_container {
-        display: block;
-        padding: 10px 10px 0;
-        background: hsl(49, 83%, 91%);
+        font-size: 35px;
         text-align: center;
     }
 
-    #feedbaas_container a {
-        font-size: 1.1em;
-        padding: 12px 13px;
+    #feedbaas_container div {
         display: inline-block;
+        position: relative;
+        float: left;
+        width: 60px;
+        height: 60px;
         margin: 5px;
-        border-radius: 6px;
-        border: solid rgba(0, 0, 0, 0.2);
-        border-width: 1px 1px 5px;
-        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1), inset 0 0 3px rgba(255, 255, 255, 0.3);
-        cursor: pointer;
-        user-select: none;
-        transition: 0.4s ease;
+    }
+
+    #feedbaas_container a {
+        font-family: "SSSocial";
+        font-style: normal;
+        font-weight: normal;
         text-decoration: none;
+        text-rendering: optimizeLegibility;
+        -moz-font-feature-settings: "liga=1";
+        -moz-font-feature-settings: "liga";
+        -ms-font-feature-settings: "liga" 1;
+        -o-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
     }
 
-    #feedbaas_container a:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.4);
-        border-bottom-width: 8px;
+    #feedbaas_container span a{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        box-shadow: 0 0 6px -2px #000, 0 0 45px -20px #000;
+        color: #fff;
+        line-height: 55px;
+        transform: perspective(300px) rotateY(0deg);
+        transition: transform 0.4s linear, background-color 0s linear 0.2s, color 0s linear 0.2s;
     }
 
-    #feedbaas_container a:visited {
-        text-decoration: none;
+    #feedbaas_container div:hover span a {
+        transform: perspective(300px) rotateY(180deg);
+        color: #eee;
+        transition: transform 0.2s linear, background-color 0s linear 0.1s, color 0s linear 0.1s;
     }
 
-    #feedbaas_container a:active {
-        transform: translateY(4px);
-        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), inset 0 0 5px rgba(255, 255, 255, 0.4);
-        border-bottom-width: 2px;
-        transition: 0.1s ease;
+    #feedbaas_container div:nth-child(1):hover a {
+        background-color: #9a2204;
+    }
+
+    #feedbaas_container div:nth-child(2):hover a {
+        background-color: #a05203;
+    }
+
+    #feedbaas_container div:nth-child(3):hover a {
+        background-color: #a68503;
+    }
+
+    #feedbaas_container div:nth-child(4):hover a {
+        background-color: #8DC408;
+    }
+
+    #feedbaas_container div:nth-child(5):hover a {
+        background-color: #42C90E;
+    }
+
+    #feedbaas_container div:nth-child(1) a.selected {
+        background-color: #9a2204;
+    }
+
+    #feedbaas_container div:nth-child(2) a.selected {
+        background-color: #a05203;
+    }
+
+    #feedbaas_container div:nth-child(3) a.selected {
+        background-color: #a68503;
+    }
+
+    #feedbaas_container div:nth-child(4) a.selected {
+        background-color: #8DC408;
+    }
+
+    #feedbaas_container div:nth-child(5) a.selected {
+        background-color: #42C90E;
     }
 
     #feedbaas_container a.not-active {
         pointer-events: none;
         cursor: default;
-        background: #9d9d9d;
     }
 
-    #feedbaas_container a:nth-child(1) {
-        background: #9a2204;
-        color: rgba(255, 255, 255, 0.95);
-        text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    #feedbaas_container a {
+        transition: transform 0s linear 0.2s, text-shadow 0s linear 0.2s;
+        display: block;
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-smoothing: antialiased;
     }
 
-    #feedbaas_container a:nth-child(2) {
-        background: #a05203;
+    #feedbaas_container div:hover a {
+        transition: transform 0s linear 0.1s, text-shadow 0s linear 0.1s;
+        transform: scale(-1, 1);
+        text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
     }
 
-    #feedbaas_container a:nth-child(3) {
-        background: #a68503;
+    #feedbaas_container a.selected {
+        text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
     }
 
-    #feedbaas_container a:nth-child(4) {
-        background: #8DC408;
+    @font-face {
+        font-family: "SSSocial";
+        src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.eot");
+        src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.woff") format("woff"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.ttf") format("truetype"), url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.svg#SSSocialRegular") format("svg");
+        font-weight: normal;
+        font-style: normal;
     }
 
-    #feedbaas_container a:nth-child(5) {
-        background: #42C90E;
+    /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+    html:hover [class^="feedbaas-"] {
+        -ms-zoom: 1;
     }
+
+    .feedbaas-btn,
+    [class^="feedbaas-"]:before, [class*="feedbaas-"]:before {
+
+    }
+
 </style>
 
 <script>
@@ -79,14 +161,14 @@
     tenant: 1,
     extraFields: {
       'name': 'value'
-    },
-    buttons: {
-      1: 'Nope! nopenopenope!',
-      2: 'Somewhat of a clusterf*ck',
-      3: '6/10, 8/10 With Rice',
-      4: '13/10, good as h*ck',
-      5: '7/5, The perfect score'
-    }
+    }/*,
+       buttons: {
+       1: 'Nope! nopenopenope!',
+       2: 'Somewhat of a clusterf*ck',
+       3: '6/10, 8/10 With Rice',
+       4: '13/10, good as h*ck',
+       5: '7/5, The perfect score'
+       }*/
   };
 
 
@@ -101,10 +183,12 @@
       }
     }
     var rating = getCookie('feedbaas_rating_' + document.title);
-    if(rating){
+    if (rating) {
       for (var i = 1; i <= 5; i++) {
-        if(rating != i){
+        if (rating != i) {
           document.getElementById("feedbaas_btn" + i).classList.add('not-active');
+        } else if (rating == i) {
+          document.getElementById("feedbaas_btn" + i).classList.add('selected');
         }
       }
     }
@@ -180,3 +264,4 @@
 
 
 </script>
+
