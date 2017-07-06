@@ -12,7 +12,7 @@ header: no
 > This article was originally published in [Codementor.io](https://www.codementor.io/jussihallila/introduction-to-kotlin-part-2-9oybmr9rb)
 
 
-In [**Introduction to Kotlin: Part 1**]({% post_url 2017-07-04-introduction-to-kotlin-part-1 %}), we covered basic syntax, and now we can start to look at the aspects that actually make Kotlin so loved. In this post, we will cover collections and lambdas, a few handy extension functions (`apply`, `let`, `run` & `with`), null safety, and we’ll touch a little bit on types. We'll cover a lot of ground in this post, so come prepared. If you want to jump straight to generics, delegates and extension functions, check out [**Introduction to Kotlin: Part 3**]({% post_url 2017-07-04-introduction-to-kotlin-part-3-9p0k7ivqj %}).
+In [**Introduction to Kotlin: Part 1**]({% post_url 2017-07-04-introduction-to-kotlin-part-1 %}), we covered basic syntax, and now we can start to look at the aspects that actually make Kotlin so loved. In this post, we will cover collections and lambdas, a few handy extension functions (`apply`, `let`, `run` & `with`), null safety, and we’ll touch a little bit on types. We'll cover a lot of ground in this post, so come prepared. If you want to jump straight to generics, delegates and extension functions, check out [**Introduction to Kotlin: Part 3**]({% post_url 2017-07-04-introduction-to-kotlin-part-3 %}).
  
  
 ## Kotlin Collections and Lambdas
@@ -302,7 +302,7 @@ We've now touched on collections, null safety, and type safety in Kotlin. This b
 
 [**Introduction to Kotlin Part 1**]({% post_url 2017-07-04-introduction-to-kotlin-part-1 %}), where we introduced syntax, variables, functions, and classes, can be found here. 
 
-There are still a few topics to discuss, namely generics and delegates, extension functions and functional style with higher order functions, as well as Kotlin's beautiful capability to create typesafe DSLs. Those will be covered in **[Part 3]({% post_url 2017-07-04-introduction-tokotlin-part-3 %})**. Now it is time to jump back into the IDE and continue coding away.
+There are still a few topics to discuss, namely generics and delegates, extension functions and functional style with higher order functions, as well as Kotlin's beautiful capability to create typesafe DSLs. Those will be covered in **[Part 3]({% post_url 2017-07-04-introduction-to-kotlin-part-3 %})**. Now it is time to jump back into the IDE and continue coding away.
  
 [^1]: Because regardless of all the helpers it is still a difficult topic.
  
