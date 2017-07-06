@@ -1,3 +1,6 @@
+
+
+
 For branching strategy we use a variation between Github Flow and Git Flow leaning heavily towards Github side. More information on https://guides.github.com/pdfs/githubflow-online.pdf
 The purpose of this branching strategy is to keep the master branch as clean as possible so that is always in a deployable state. In this branching strategy a feature is developed in its own branch all the way till the end and merged back to master only when it is ready to be released to production. The work done on the branch includes development, manual exploratory testing, possible modifications on the code, automated QA testing and code review. 
  
