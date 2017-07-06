@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title: Introduction to Kotlin - Generics, Delegates and Extension functions
 teaser:
