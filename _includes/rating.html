@@ -1,0 +1,390 @@
+<!-- The overlay -->
+<div id="feedbaas_overlay_content" class="feedbaas-rating-overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="feedbaas-closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="feedbaas-overlay-content">
+        <div class="feedbaas-btn" id="feedbaas_container">
+            <div>
+                <span>
+            <a href="javascript:;" onClick="FEEDBAAS.rate(1)" id="feedbaas_btn1">>:(</a>
+        </span>
+            </div>
+            <div>
+                <span>
+            <a href="javascript:;" onClick="FEEDBAAS.rate(2)" id="feedbaas_btn2">:(</a>
+        </span>
+            </div>
+            <div>
+                <span>
+            <a href="javascript:;" onClick="FEEDBAAS.rate(3)" id="feedbaas_btn3">:|</a>
+        </span>
+            </div>
+            <div>
+                <span>
+            <a href="javascript:;" onClick="FEEDBAAS.rate(4)" id="feedbaas_btn4">:)</a>
+        </span>
+            </div>
+            <div>
+                <span>
+            <a href="javascript:;" onClick="FEEDBAAS.rate(5)" id="feedbaas_btn5">:D</a>
+        </span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="feedbaas-corner-ribbon" onclick="openNav()">Give feedback</div>
+
+<style>
+    /**
+    * Feedbaas flips
+    **/
+    
+    #feedbaas_container {
+        font-size: 35px;
+        text-align: center;
+    }
+    
+    #feedbaas_container div {
+        display: inline-block;
+        position: relative;
+        float: left;
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+    }
+    
+    #feedbaas_container a {
+        text-align: center;
+        font-family: "SSSocial";
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        text-rendering: optimizeLegibility;
+        -moz-font-feature-settings: "liga=1";
+        -moz-font-feature-settings: "liga";
+        -ms-font-feature-settings: "liga" 1;
+        -o-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    #feedbaas_container span a {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        box-shadow: 0 0 6px -2px #000, 0 0 45px -20px #000;
+        color: #fff;
+        line-height: 55px;
+        transform: perspective(300px) rotateY(0deg);
+        transition: transform 0.4s linear, background-color 0s linear 0.2s, color 0s linear 0.2s;
+    }
+    
+    #feedbaas_container div:hover span a {
+        transform: perspective(300px) rotateY(180deg);
+        color: #eee;
+        transition: transform 0.2s linear, background-color 0s linear 0.1s, color 0s linear 0.1s;
+    }
+    
+    #feedbaas_container div:nth-child(1):hover a {
+        background-color: #9a2204;
+    }
+    
+    #feedbaas_container div:nth-child(2):hover a {
+        background-color: #a05203;
+    }
+    
+    #feedbaas_container div:nth-child(3):hover a {
+        background-color: #a68503;
+    }
+    
+    #feedbaas_container div:nth-child(4):hover a {
+        background-color: #8DC408;
+    }
+    
+    #feedbaas_container div:nth-child(5):hover a {
+        background-color: #42C90E;
+    }
+    
+    #feedbaas_container div:nth-child(1) a.selected {
+        background-color: #9a2204;
+    }
+    
+    #feedbaas_container div:nth-child(2) a.selected {
+        background-color: #a05203;
+    }
+    
+    #feedbaas_container div:nth-child(3) a.selected {
+        background-color: #a68503;
+    }
+    
+    #feedbaas_container div:nth-child(4) a.selected {
+        background-color: #8DC408;
+    }
+    
+    #feedbaas_container div:nth-child(5) a.selected {
+        background-color: #42C90E;
+    }
+    
+    #feedbaas_container a.not-active {
+        pointer-events: none;
+        cursor: default;
+    }
+    
+    #feedbaas_container a {
+        transition: transform 0s linear 0.2s, text-shadow 0s linear 0.2s;
+        display: block;
+        -webkit-font-smoothing: subpixel-antialiased;
+        font-smoothing: antialiased;
+    }
+    
+    #feedbaas_container div:hover a {
+        transition: transform 0s linear 0.1s, text-shadow 0s linear 0.1s;
+        transform: scale(-1, 1);
+        text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+    
+    #feedbaas_container a.selected {
+        text-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+    }
+    
+    @font-face {
+        font-family: "SSSocial";
+        src: url("{{ site.baseurl }}/static/fonts/ss-social-regular.eot");
+        src: url("{{ site.baseurl }}/static/fonts//ss-social-regular.eot?#iefix") format("embedded-opentype"),
+        url("{{ site.baseurl }}/static/fonts/ss-social-regular.woff") format("woff"),
+        url("{{ site.baseurl }}/static/fonts/ss-social-regular.ttf") format("truetype"),
+        url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2361/ss-social-regular.svg#SSSocialRegular") format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+    /* This triggers a redraw in IE to Fix IE8's :before content rendering. */
+    
+    html:hover [class^="feedbaas-"] {
+        -ms-zoom: 1;
+    }
+    
+    .feedbaas-btn,
+    [class^="feedbaas-"]:before,
+    [class*="feedbaas-"]:before {}
+    /**
+    * Ribbon
+    **/
+    
+    .feedbaas-corner-ribbon {
+        width: 200px;
+        background: #00bcfa;
+        position: fixed;
+        cursor: pointer;
+        text-align: center;
+        line-height: 50px;
+        letter-spacing: 1px;
+        color: #f0f0f0;
+        top: 25px;
+        right: -50px;
+        left: auto;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        box-shadow: 0 0 13px rgba(0, 0, 0, .3);
+    }
+    /* The Overlay (background) */
+    
+    .feedbaas-rating-overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */
+        height: 100px;
+        width: 0;
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        right: 0;
+        top: 0;
+        background-color: rgb(0, 0, 0);
+        /* Black fallback color */
+        background-color: rgba(0, 0, 0, 0.8);
+        /* Black w/opacity */
+        overflow-x: hidden;
+        /* Disable horizontal scroll */
+        transition: 0.5s;
+        /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+    }
+    /* Position the content inside the overlay */
+    
+    .feedbaas-overlay-content {
+        position: relative;
+        /*top: 25%; /* 25% from the top */
+        width: 350px;
+        /* 100% width */
+        text-align: center;
+        /* Centered text/links */
+        margin-top: 10px;
+        /* 30px top margin to avoid conflict with the close button on smaller screens */
+    }
+    /* The navigation links inside the overlay */
+    
+    .feedbaas-rating-overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        /* Display block instead of inline */
+        transition: 0.3s;
+        /* Transition effects on hover (color) */
+    }
+    /* When you mouse over the navigation links, change their color */
+    
+    .feedbaas-rating-overlay a:hover,
+    .feedbaas-rating-overlay a:focus {
+        color: #f1f1f1;
+    }
+    /* Position the close button (top right corner) */
+    
+    .feedbaas-rating-overlay .feedbaas-closebtn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 40px;
+    }
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+    
+    @media screen and (max-height: 450px) {
+        .feedbaas-rating-overlay a {
+            font-size: 20px
+        }
+        .feedbaas-rating-overlay .feedbaas-closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+</style>
+
+<script>
+    function openNav() {
+        document.getElementById("feedbaas_overlay_content").style.width = "450px";
+    }
+
+    function closeNav() {
+        document.getElementById("feedbaas_overlay_content").style.width = "0%";
+    }
+
+
+    var feedbaas_options = {
+        tenant: 1,
+        extraFields: {
+            'name': 'value'
+        }
+        /*,
+                 buttons: {
+                 1: 'Nope! nopenopenope!',
+                 2: 'Somewhat of a clusterf*ck',
+                 3: '6/10, 8/10 With Rice',
+                 4: '13/10, good as h*ck',
+                 5: '7/5, The perfect score'
+                 }*/
+    };
+
+
+    var FEEDBAAS = (function() {
+        var feedbaasGeo, feedbaasPageStart;
+        if (feedbaas_options) {
+            feedbaasPageStart = new Date().getTime();
+            feedbaasGeo = getGeo();
+            if (feedbaas_options.buttons) {
+                for (var i = 1; i <= 5; i++) {
+                    document.getElementById("feedbaas_btn" + i).innerHTML = feedbaas_options.buttons[i];
+                }
+            }
+        }
+        var rating = getCookie('feedbaas_rating_' + document.title.replace(' ', '-'));
+        if (rating) {
+            for (var i = 1; i <= 5; i++) {
+                if (rating == i) {
+                    document.getElementById("feedbaas_btn" + i).classList.add('selected');
+                }
+                document.getElementById("feedbaas_btn" + i).classList.add('not-active');
+            }
+        }
+
+        function guid() {
+            var cookie = getCookie('feedbaas');
+            if (cookie !== "") return cookie;
+            var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0,
+                    v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+            var date = new Date();
+            date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+            document.cookie = 'feedbaas =' + guid + '; expires=' + date.toGMTString() + '; path=/';
+            return guid;
+        }
+
+
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) {
+                        c_end = document.cookie.length;
+                    }
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        function rateFeedbaas(rating) {
+            document.getElementById("feedbaas_btn" + rating).classList.add('selected');
+            var url = 'https://www.feedbaas.com/api/rate';
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                    console.log('successfullyRated');
+                }
+            };
+            feedbaas_options.currentUrl = window.location.href;
+            feedbaas_options.referrerUrl = document.referrer || "referrer";
+            feedbaas_options.title = document.title || "Page Title";
+            feedbaas_options.guid = guid();
+            feedbaas_options.timeSpent = new Date().getTime() - feedbaasPageStart;
+            feedbaas_options.value = rating;
+            feedbaas_options.geo = feedbaasGeo;
+
+            var date = new Date();
+            date.setTime(date.getTime() + (10 * 365 * 24 * 60 * 60 * 1000));
+            document.cookie = 'feedbaas_rating_' + document.title.replace(' ', '-') + ' =' + rating + '; expires=' + date.toGMTString() + '; path=/';
+
+            xhr.send(JSON.stringify(feedbaas_options));
+        }
+
+        function getGeo() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == XMLHttpRequest.DONE && xmlhttp.status == 200) {
+                    return JSON.parse(xmlhttp.responseText);
+                } else {
+                    return {};
+                }
+
+            };
+            xmlhttp.open("GET", "http://freegeoip.net/json/", true);
+            xmlhttp.send();
+        }
+
+        return {
+            rate: rateFeedbaas
+        };
+
+    })();
+</script>

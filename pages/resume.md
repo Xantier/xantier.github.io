@@ -10,6 +10,9 @@ permalink: /resume/
 
 ## Work
 
+#### 4/2017 - VSWare, Dublin, Ireland
+* Position: Senior Software Engineer
+
 #### 8/2015 – Brandtone, Dublin, Ireland
 * Position: Senior Software Engineer
 * Main Responsibilities:
