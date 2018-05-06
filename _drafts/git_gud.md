@@ -18,7 +18,11 @@ I have divided software engineers career into 4 different stages that I consider
 
 ## Youngling
 
-Straight out of school. Starting eagerly and tackling tasks given to them. Depending on enthusiasm on the occupation moves fast or very fast, but regardless is moving forward at a fast pace. Discussions at work usually revolve around tasks, patterns used within the code base and syntactic issues of chosen language. Difficult aspects of programming at this point are design patterns, common best practices and in general trying to find a comfortable way to deliver needed tasks. The way out of this stage is to crank out as much code as possible, creating side projects, investigating technical literature and patterns of chosen language. Trying out those patterns, and usually ending up overusing them for the sake of training.
+I think of a youngling as someone whoe is coming straight out of education pipeline and working in their first job(s). They usually start eagerly and tackle tasks given to them with great energy. Depending on enthusiasm on the occupation a youngling moves very fast or very very fast, but regardless is moving forward at a fast pace. They have so much new information to sponge from the environment that at times it might seem too much or overwhelming. 
+
+Their discussions at work usually revolve around tasks, patterns used within the code base and syntactic issues of chosen language, framework or library. Difficult aspects of programming at this point are design patterns, common best practices and in general trying to find a comfortable way to deliver needed tasks. 
+
+The way out of this stage is to crank out as much code as possible, creating side projects, investigating technical literature and patterns of chosen language. Trying out those patterns, and usually ending up overusing them for the sake of training.
 
 Terminology:
 - Tasks
@@ -28,7 +32,11 @@ Terminology:
 
 ## Padawan
 
-After much of the syntactic issues have been overcome the next step is usually a stage of arrogancy. Capable of discussing code, understanding syntax and isolated strategies of abstraction. The amount of WTFs/minute as a code quality measure is usually the highest at this stage, regardless of the actual quality of the code. The rules and laws of a language, framework or pattern have been learned and because of that the it is easy to spot mistakes in other peoples' code. It is often "unfathomable" how bad code other people tend to write. Capable of discussing issues with the team, fleshing out pieces of features whther or not actually understanding the underlying ubsiness value for them.
+After much of the syntactic issues have been overcome the next step is usually a stage of arrogancy. A padawan is capable of discussing code, understanding syntax and isolated strategies of abstraction. The amount of WTFs/minute as a code quality measure is usually the highest at this stage, regardless of the actual quality of the code. The rules and laws of a language, framework or pattern have been learned and because of that the it is easy to spot mistakes in other peoples' code. It is often "unfathomable" how bad code other people tend to write. 
+
+A padawan discusses issues with the team, fleshing out pieces of features whether or not actually understanding the underlying business value for them. He provides possible solutions and offers a helping hand in desigining individual execution paths to tasks. At times a padawan gives some helpful tips to a youngling and helps them to climb to the next level. 
+
+A part of the trial-by-fire in this stage is a time slot dedicated to over engineer a feature, helpful library or similar. This is a good learning step on the path to climb out of this stage. An over-engineered solution might receive praises like "so genious that I can't really understand the code", which is a good indication of raw talent that a padawan might possess. Eventually understanding trade-offs of over engineering and how the sand below every business decision, and therefore the code base as well, shifts inevitably gives padawan a good understanding how simplicity and modifiability trumps 'a perfectly executed abstraction' more often than not. 
 
 Terminology:
 - Frameworks
@@ -60,7 +68,7 @@ Terminology:
 - Companies
 
 
-> "I think it's beautiful that most of the time developers both start out as and end up as scrappy hackers." -Andres Blixt
+> "I think it's beautiful that most of the time developers both start out as and end up as scrappy hackers." -Andreas Blixt
 
 
 # Dimensions
@@ -82,27 +90,31 @@ If we think about the skills a software developer will find useful on their jour
 
 
 
-Note that not being the best in all of these is needed to be a good programmer. Some decide to take a path to focus on more technical aspects and are happy on that path. They might value hard problem solving and algorithms, having a neverending drive to learn more about tech. Some might not be so interested in hard tech and want to focus on team values more. Their career paths might divert into [agile buzzword] people, dev management or business analyst roles. 
+Note that not being the best in all of these is needed to be a good programmer. Some decide to take a path to focus on more technical aspects and are happy on that path. They might value hard problem solving and algorithms, having a never ending drive to learn more about tech. Some might not be so interested in hard tech and want to focus on team values more. Their career paths might divert into [agile buzzword] people, dev management or business analyst roles. 
 
 The only thing that in my mind seems to keep on growing is maturity. That will naturally enhance both technical skills as well as team work.
 
-In the following sub sections we'll go through few observations that might be helpful for an individual to become better in these dimensions.
+In the following sub sections we'll go through few observations that might be helpful for an individual to become better in each of these dimensions.
 
 
 ## Tech - Matter
+
+Becoming technically better has a lot material written about it. We have the standard books around software engineering industry, our technical literature and an unfollowable amount of posts on the internet that tell us tips and tricks how to do things. A whole industry has been developed to advance people's technical skills, and for a good reason.
+
+Below I have listed few things that I believe have helped me throughout my career to become a better programmer technically.
 
 ### ABC - Always be coding 
 
 
 #### Aim for 60 hours per week
-Uncle Bob mentions in Clean Coder that everyone should be aiming to do 60 hours of coding per week. If you want to become technically very good that is probably a good advice. We should split that 60 hours to 40 hours of coding for work and 20 hours for ourselves. Work gives you structure, real business problems, and lots of edge cases to solve. Especially the ability to tackle real business problems is useful. If we think about edge cases we know that tackling those will give us appreciation of clean and simple design, something that is adaptable whenever the pointy haired boss decides to change the direction. The other 20 hours working for our own amusement should go towards side projects, trying out new tools, frameworks and languages, reading articles and reading tech literature.  Granted, 60 hours per week takes a lot of effort, in the end civilized world usually has good work life balance and 24 hour on call position are luckily isolated to workaholic americas so it might take some time to get use to that kind of schedule. 
+Uncle Bob mentions in Clean Coder that everyone should be aiming to do 60 hours of coding per week. If you want to become technically very good that is probably a good advice. We should split that 60 hours to 40 hours of coding for work and 20 hours for ourselves. Work gives you structure, real business problems, and lots of edge cases to solve. Especially the ability to tackle real business problems is useful. If we think about edge cases we know that tackling those will give us appreciation of clean and simple design, something that is adaptable whenever the pointy haired boss decides to change the direction. The other 20 hours working for our own amusement should go towards side projects, trying out new tools, frameworks and languages as well as reading articles and tech literature.  Granted, 60 hours per week takes a lot of effort and it might be difficult to squeeze that in into your life. Luckily we can usually be certain that in civilized world we usually have a good work life balance and 24 hour on call position are isolated to workaholic americas. That'll give us a clear separation between advancing ourselves at work and advancing ourselves for personal gain. 
 
-Luckily most of the tricky parts of tech are also learned early on in a career. This helps because time is of course very limited to all of us. It is important to understand that eventually there is somewhat of a glass ceiling when it comes to learning tech. There is simply too much to keep up with and sometimes viewpoints, career directions and our interests change when we grow older.
+We can also think that most of the tricky parts of tech are learned early on in a career. It is important to understand that eventually there is somewhat of a glass ceiling when it comes to learning tech. There is simply too much to keep up with and sometimes viewpoints, career directions and our interests change when we grow older.
 
 
 #### 1.01 > 0.99
 
-Another approach that I like to follow, especially on hectic months and years when 60 hours a week seems too much. This comes from a motivational poster. 
+There is an another approach that I like to follow, especially on hectic months and years when 60 hours a week just seems way too much. This comes from a motivational poster. 
 
 - 1.01^365 = 37.8
 - 0.99^365 = 0.03
@@ -115,21 +127,21 @@ In the end, a small effort everyday accumulates a lot over time. It doesn’t ta
 
 #### Physical tools and OS
 
-If you are using Mac (switch away immediately), learn to customize your tools, learn IntelliJ, learn keybindings, learn to automate tasks done regularly, get comfortable with your physical tools, find the correct screen sizes, keyboards, mice, desks, working positions that work for you. That way you can focus on the code itself. Talking about laziness, is a good quality, if you can harness it properly. I’ve often said it’s ridiculous that for example Java devs don’t pay for IntelliJ, which comes down to something like 100€ a year, their keyboard, a proper computer etc. when they spend 40 hours a week working with those. 
+If you are using Mac (switch away immediately), learn to customize your tools, get comfortable with your physical tools, find the correct screen sizes, keyboards, mice, desks, working positions that work for you. That way you can focus on the code itself.  
 
 #### IDE and debugger
+ learn IntelliJ, learn keybindings, I’ve often said it’s ridiculous that for example Java devs don’t pay for IntelliJ, which comes down to something like 100€ a year, their keyboard, a proper computer etc. when they spend 40 hours a week working with those. 
 
-
-#### Deployment targets
-
+#### Make yourself lazy to extra effort
+learn to automate tasks done regularly, Talking about laziness, is a good quality, if you can harness it properly.
 
 
 ### Learn to read code
 
-Read libraries, frameworks and code written by someone else, with a completely different signature than yours
+Read libraries, frameworks and code written by someone else, with a completely different signature than yours.
 The most important and overlooked thing is the ability to read code. Writing is easy, it is trivial to make things work with code. You can hack and slash, try things until they fit into place to achieve something that works. We rarely consider that most of our time in front of a screen is spent on reading code. Therefore it is very important to understand the data flows through the codebase, how an application is wired together. Whether it is back-and-forth flow from an API to DB and back or event sourcing driven architecture. This is why at the current climate strict Object oriented programming is not my preferred paradigm to follow code. Side effects hidden within objects makes it very very difficult to follow the data flow. Instead we should be moving towards less cognitive load on our code and simple transformations on simple and possibly shallow data structures.
 
-### Venture other languages and paradigms
+### Try out other languages and paradigms
 
 > "To learn a language is to have one more window from which to look at the world" 
 
@@ -225,7 +237,7 @@ Good engineering cultures are measured in ROFL-copters-per-minute. When talking 
 * Reginald Brathwaite
 
 ### Read These
-1. Dale Carnegie - How To Win Friends And Influece People
+1. Dale Carnegie - How To Win Friends And Influence People
 2. Clean Coder
 3. Passionate Programmer
 
@@ -245,8 +257,8 @@ We as programmers very often tend to come to a conclusion that everything done b
 
 
 
-### Trade-offs, there are always trade-offs 
-What I’ve figured out to ask myself always is that what are the tradeoffs on every decision made. There will always be trade offs, so in the end the actual important decision that we are making is to pick the smaller subset of those bad aspects. These trade offs come in many forms, whether it’s ease of hiring, making the function “correct” or shipping faster,  ease of training, actual technical superiority, or following the industry hivemind. It is never a black and white decision. Something being objectively "better" doesn't mean it's a good engineering decision to adopt it. We need to understand that Computer Science and Software Engineering are two different fields. Computer Science wants to find the perfect solution to a problem, Software Engineering the best working solution to a problem.
+#### Trade-offs, there are always trade-offs 
+What I’ve figured out to ask myself always is that what are the trade-offs on every decision made. There will always be trade offs, so in the end the actual important decision that we are making is to pick the smaller subset of those bad aspects. These trade offs come in many forms, whether it’s ease of hiring, making the function “correct” or shipping faster,  ease of training, actual technical superiority, or following the industry hivemind. It is never a black and white decision. Something being objectively "better" doesn't mean it's a good engineering decision to adopt it. We need to understand that Computer Science and Software Engineering are two different fields. Computer Science wants to find the perfect solution to a problem, Software Engineering the best working solution to a problem.
 
 
 
@@ -255,10 +267,10 @@ The best way to find a better solution to a hard programming problem is not in f
 
 ### Believe in yourself
 
-#### Know that imposter syndrome exists
+#### Know that impostor syndrome exists
 Of course at times we feel inferior on what we do. It could be that someone has luckboxed on to learning the exact solution you have been struggling with for months and that makes you feel down, or someone has shipped a nice shiny project on Github with 100% test coverage and beautifully crafted codebase. We need to remember that if someone post a code snippet into Twitter, that has probably been brewing on the background for months, Github released projects might be fresh repository cloned from a years old project. What we are usually missing are the actual steps anyone has reached their final solution. There is always multiple failed attempts behind every solution. I don’t write perfect code, far from it. I copy-paste shit from Stackoverflow without second thought, I write “fugly hacks” everywhere, sometimes because I can’t think of a better solution and I’m too tired with “this shit”, sometimes because I don’t actually have the needed knowledge to do better. Like when I’m writing CSS for example.
 
-#### Be courageouswhen diving into the code base
+#### Be courageous when diving into the code base
 Note that this is courageousness, not fearlessness. Fear is a good thing, it gives you that nagging voice to remember to actually compile, run and test your program before shipping it, everyone should be afraid of a large codebase, everyone should strong enough to work on it regardless of that fear. Courageousness comes a lot down to reading the code, reading the systems and understanding the overall structure. Whether it is a technical decision made about hard things or a business decision. Like mentioned earlier it is very important to commit, whether or not you are certain that the solution is 100% correct. On codebase side that’s why it is so important to understand what the patterns, architectural decisions and structures in a codebase are. When the data flow is understood it becomes much easier to be fearless when modifying code. The thought patterns on this usually change the further we go in our career. When we get older, more removed from the codebase there is often somewhat aversion towards new technologies. That might be because of fear of change, might be because we have seen a similar solution fail earlier already. Whatever it is, it is important to remember to move forward and not stand still only because of fear of the unknown. We have to remember that deciding to do nothing is a decision in itself as well, and if that decision is done because of fear, it will probably end up being wrong.
 
 
@@ -270,11 +282,11 @@ In the end, we will learn from those mistakes and come up with a solution to pre
 
 ### Think before you act
 
-#### Use commmon sense when developing
+#### Use common sense when developing
 
 If something looks like it might be wrong, discuss and try to find a better way to do it.
 
-Thinking about technical debt. There might be some of ti and we should try to handle it. At times there are patterns in the codebase that feel funky, that seem stupid or that are just plainly wrong. At times there are hacks that have been done for a reason, because some restrictions have been in place at the time of writing or because time constraints at the time have needed a good enough solution. These are not set in stone, if something like this comes up it is usually better to try to find the reasons behind decisions made in ancient times rather than blindly copying the approach and going with it. These kinds of things stack up on top of each other and the longer they go, they harder it is to make the correction to a better solution. Coming back to imposter syndrome, we all make mistakes and ugly hacks, before following those it is important to understand reason behind those hacks. Maybe the playing field has been leveled and a better path forward is available.
+Thinking about technical debt. There might be some of ti and we should try to handle it. At times there are patterns in the codebase that feel funky, that seem stupid or that are just plainly wrong. At times there are hacks that have been done for a reason, because some restrictions have been in place at the time of writing or because time constraints at the time have needed a good enough solution. These are not set in stone, if something like this comes up it is usually better to try to find the reasons behind decisions made in ancient times rather than blindly copying the approach and going with it. These kinds of things stack up on top of each other and the longer they go, they harder it is to make the correction to a better solution. Coming back to impostor syndrome, we all make mistakes and ugly hacks, before following those it is important to understand reason behind those hacks. Maybe the playing field has been leveled and a better path forward is available.
 
 #### Understand cost of abstractions and cost of over-engineering [draft]
 
