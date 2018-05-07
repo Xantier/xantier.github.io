@@ -11,7 +11,12 @@ permalink: /resume/
 ## Work
 
 #### 4/2017 - VSWare, Dublin, Ireland
-* Position: Senior Software Engineer
+* Position: Head of FE Engineering, Senior Software Engineer
+* Main Responsibilities:
+  * Development of School Administration platform
+  * Leading customer facing development and user experience, managing a team of 16 developers
+  * Architecting the frontend development with Vue.JS
+  * Revising frontend software development processes to match modern best practices 
 
 #### 8/2015 – Brandtone, Dublin, Ireland
 * Position: Senior Software Engineer
