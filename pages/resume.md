@@ -17,6 +17,7 @@ permalink: /resume/
   * Leading customer facing development and user experience, managing a team of 16 developers
   * Architecting the frontend development with Vue.JS
   * Revising frontend software development processes to match modern best practices 
+  * Overlooking front end development teams, resourcing and processes
 
 #### 8/2015 – Brandtone, Dublin, Ireland
 * Position: Senior Software Engineer
