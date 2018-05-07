@@ -12,6 +12,11 @@ header: no
 
 Recently I held a presentation at my day job to catalyze some discussion around careers, software engineering and spark developers in our company to think about the soft side of development. To do that I wanted take some time and reflect on my time as a software engineer. This post is an essay about stages on a software engineers career and dimensions of engineering competency that affects our aspirations to become a better developer based on the presentation I held earlier.
 
+
+{% raw %}
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTGyuZw3ucjo6EQ9KRZvytf7XNF9xNFlyC_wyMsmqbbam_-RUCS1Gljht9iC1vngqKNiZ7N__KiM2_B/embed?start=false&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+{% endraw %}
+
 We’ll start with engineers’s career stages which I have divided into 4 different levels that I consider people go through before either feeling comfortable enough in the chosen location or moving into different direction in their career or being forced into a more ‘non-technical’ role. May the fourth being so strongly in my mind at this time, I have named these levels after the stages on Jedi training. 
 
 # Stages
