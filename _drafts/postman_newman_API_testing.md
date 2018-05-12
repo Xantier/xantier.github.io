@@ -11,4 +11,4 @@ permalink:
 header: yes
 ---
 
-The wolrd is a big place and it is moving faster and faster.
+The world is a big place and it is moving faster and faster.
