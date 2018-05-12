@@ -20,8 +20,8 @@ We can also extend a similar pattern to the controller level. If we think about 
 
 The shape of the REST API would look something like this:
 
-GET  /endpoint:     () -> item[]
-POST /endpoint: (item) -> item
+* GET  /endpoint:     () -> item[]
+* POST /endpoint: (item) -> item
  -  GET    /endpoint/{id}:        () -> item
  -  PUT    /endpoint/{id}:    (item) -> item
  -  DELETE /endpoint/{id}:        () -> Boolean
