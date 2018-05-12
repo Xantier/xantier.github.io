@@ -22,10 +22,10 @@ The shape of the REST API would look something like this:
 
 * GET  /endpoint:     () -> item[]
 * POST /endpoint: (item) -> item
- -  GET    /endpoint/{id}:        () -> item
- -  PUT    /endpoint/{id}:    (item) -> item
- -  DELETE /endpoint/{id}:        () -> Boolean
- -  PATCH  /endpoint/{id}: (partial) -> item
+  -  GET    /endpoint/{id}:        () -> item
+  -  PUT    /endpoint/{id}:    (item) -> item
+  -  DELETE /endpoint/{id}:        () -> Boolean
+  -  PATCH  /endpoint/{id}: (partial) -> item
 
 
 In Spring we could define this shape by using an abstract base controller class that defines our individual endpoints. In the diagram mentioned above that would mean 6 different controller methods in the base controller class. 
