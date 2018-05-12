@@ -189,8 +189,8 @@ public interface RestService<T, U> {
     T patch(Integer id, U partial);
 
     T update(Integer id, T request);
-
-	DeletionResponseDTO delete(Integer id);
+    
+    DeletionResponseDTO delete(Integer id);
 }
 ```
 
