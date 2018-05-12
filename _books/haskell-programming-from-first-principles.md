@@ -2,7 +2,7 @@
 layout: post
 title: Haskell Programming from First Principles
 link: "http://www.haskellbook.com/"
-rating: x/5
+rating: 5/5
 author: Christopher Allen / Julie Moronuki
 genre:
   - Haskell
@@ -11,4 +11,4 @@ permalink:
 header: no
 ---
 
-Still under construction but nearly eady. The definitive guide to Haskell and intricasies of that language and functional aspects of programming. I am currently maybe 1/4 way through so final word is too difficult to say at this point. So far so good and definitely recommendable.
+Chris Allen is *the* person to go to when one wants to learn more about Haskell. This book starts from the basics and increases difficulty in a well structured, easily followable manner. Since the book really goes through things from First Principles, it also introduces a lot of ways to *unlearn* things. A quality that is definitely needed when one wants to venture into Haskell from C-based languages. Easily the best book on Haskell.
