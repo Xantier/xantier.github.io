@@ -15,7 +15,7 @@ permalink: /resume/
 * Main Responsibilities:
   * Consulting development teams on technical approaches, best practices, architectural guidelines and processes 
   * Creating roadmaps on application future technical tracks
-  * Directing transformation of application development to match modern best practices (JVM, processes, AWS, CI/CD)
+  * Directing transformation of application development to match modern best practices
 
 #### 4/2017 - 1/2019 VSWare, Dublin, Ireland
 * Position: Head of FE Engineering, Senior Software Engineer
