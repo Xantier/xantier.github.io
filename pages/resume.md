@@ -6,15 +6,22 @@ permalink: /resume/
 
 # Jussi Hallila
 
-[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Senior_Software_Engineer.pdf)
+[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Software_Lead_5_2019.pdf)
 
 ## Work
 
-#### 4/2017 - VSWare, Dublin, Ireland
+#### 1/2019 - VSWare, Dublin Ireland
+* Position: Software architect
+* Main Responsibilities:
+  * Consulting development teams on technical approaches, best practices, architectural guidelines and processes 
+  * Creating roadmaps on application future technical tracks
+  * Directing transformation of application development to match modern best practices (JVM, processes, AWS, CI/CD)
+
+#### 4/2017 - 1/2019 VSWare, Dublin, Ireland
 * Position: Head of FE Engineering, Senior Software Engineer
 * Main Responsibilities:
   * Development of School Administration platform
-  * Leading customer facing development and user experience, managing a team of 16 developers
+  * Leading customer facing development and user experience, managing a team of 18 developers
   * Architecting the frontend development with Vue.JS
   * Revising frontend software development processes to match modern best practices 
   * Overlooking front end development teams, resourcing and processes
