@@ -7,10 +7,9 @@ Let's take a look at few notable feabuges.
 Firebase.
 
 
-We often talk abou code comments and how they get outdated. Someone in the Slack channel mentioned how in his point of view, in case the comment is copied over from Jira or from a spec, the comment should overrule the actual implementation of the code.
+We often talk about code comments and how they get outdated. Someone in the Slack channel mentioned how in his point of view, in case the comment is copied over from Jira or from a spec, the comment should overrule the actual implementation of the code.
 
 This might make sense in code review scenarios when the code itself is still fresh. This doesn't hold water so well when the code is shipped and and is exposed to the customer already.
 
-sometimes the comment is cut and pasted from the original, incorrect spec
-or is like this: http://imgur.com/BcVPbbU
+sometimes the comment is cut and pasted from the original, incorrect spec or is like this: http://imgur.com/BcVPbbU
 
