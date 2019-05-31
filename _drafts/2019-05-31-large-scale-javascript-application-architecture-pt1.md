@@ -1,14 +1,25 @@
 Nowadays more and more business logic is moving towards the frontend and the amount of Javascript code is increasing rapidly. There are few approaches that people have suggested as a proper architecture to a modular, microservice like and domain scoped manner. In my current role as an architect of our user facing application I was faced with the problem of scaling our previous monolith to suit the needs of new 0.5-1 million users we acquired. Pushing scaling problems on the backend aside for now, we'll focus on the frontend and how to scale that to match a large team working on the same multi-hundred thousand line monolithic Javascript codebase.
 
-In our case the inherited application was a single page application using server side rendered JSP files that were enhanced using JQuery as the sole Javascript framework. Needless to say an architecture like that is fairly old style and contained a lot of both spaghetti code and global functions, variables and styles.
+This post is split into parts explaining the starting situation, how we started tackling the technical debt we were facing and finally what we ended up as our final large-scale frontend application architecture.
+
+In our case the inherited application was a single page application using server side rendered JSP files that were enhanced using JQuery as the sole Javascript framework. I don't think an application like this is very uncommon in the JVM world, whether it's JSPs, Thymeleaf or some other rendering logic pushing the final HTML to the browser. An architecture like that might be fairly old style and could easily contain a lot of both spaghetti code and global functions, variables and styles. That was the case for us as well.
 
 # Old architecture
+Our application had matured over the year and contained many shortcuts taken due to business reasons. The frontend was rendered on the backend. The routing was done on the frontend. The glue between these two techniques was an in-house built solution to request server rendered HTML from the server with an XHR request and attach that to a screen with Jquery's `.html()` method. The correct JSP file to be served (and rendered via an endpoint) was defined by request parameters on the URL, essentially defining the folder and filename of required JSP file. 
+
+Obvious issues aside, this solution actually had the building blocks of a modern web application best practices. The underlying HTML was provided using *server side rendering*, making it fast and reducing work browser needs to be doing to get to first paint. A lot of the critical data was served with the server rendered HTML, embedded into JSP files and rendered to the DOM the same time rest of file was returned. This data was *hydrated* by Javascript and embedded into dynamically built elements on the screen. If the solution would have used streaming HTML technique to serve the HTML, we could have easily (when viewed from 10 000 feet, or 3048 meters) been talking about a performant, progressively enhaned application using best practices to construct the view layer to a user. Same could not have been said about the underlying techniques or technologies used to reach that solution.
+
+Even though the solution was working and running in production nicely it did have some pitfalls. Javascript served was stuck on ES5 dictated by the browsers needed to be supported (IE9). JS bundles were served as a single blob increasing the needed download size every time new functionality was added to anywhere in the application. The DOM tree grew exorbitantly large due additional JSPs added as a HTML layer for modals, date pickers and other views that might or might not be needed to be rendered. The dynamic JS used to build pages was mostly global, built in a imperative manner and not composable. Changing bits of code could have broken functionality elsewhere, in a manner that was not visible until a proper testing was done for the *whole* application. CSS was mostly global, using underlying Bootstrap styles somewhere and somewhere globally overriding them. This lead to cascading failure of stylesheets where hacks were built on top of hacks to get even to the basic level functionality provided out of the box by Bootstrap.
+
+The world of hurt in developer experience wasn't that good to the company, which was bleeding frontend developers to greener pastures and hindering new functionality development massively.
+
 
 # Decision making
 multi-page SPA? SPA? Migration paths?
 
 # Intermediate Architecture
 ## Using JSP as source to HTML
+Both Vue and React offer ways to mount an application to be a part of existing DOM tree, occupying only a small area of the final rendered HTML. We decided to take a step by step approach to replace the old spaghetti code with newer, more manageable technologies. 
 
 # Second wave architecture
 ## Modules, module loading and separate App
@@ -18,6 +29,12 @@ multi-page SPA? SPA? Migration paths?
 ## Communication between modules
 ## Sharing modules and features
 ## Getting rid of globalized styles?
+
+# Future directions
+## Externalizing frontend from backend
+## Design System
+## Micro Frontends
+
 
 Frontend Application level architecture
 The architecture on the overall application level loosely follows micro-kernel architecture pattern. 
