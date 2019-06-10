@@ -11,7 +11,7 @@ Obvious issues aside, this solution actually had the building blocks of a modern
 
 Even though the solution was working and running in production nicely it did have some pitfalls. Javascript served was stuck on ES5 dictated by the browsers needed to be supported (IE9). JS bundles were served as a single blob increasing the needed download size every time new functionality was added to anywhere in the application. The DOM tree grew exorbitantly large due additional JSPs added as a HTML layer for modals, date pickers and other views that might or might not be needed to be rendered. The dynamic JS used to build pages was mostly global, built in a imperative manner and not composable. Changing bits of code could have broken functionality elsewhere, in a manner that was not visible until a proper testing was done for the *whole* application. CSS was mostly global, using underlying Bootstrap styles somewhere and somewhere globally overriding them. This lead to cascading failure of stylesheets where hacks were built on top of hacks to get even to the basic level functionality provided out of the box by Bootstrap.
 
-The world of hurt in developer experience wasn't that good to the company, which was bleeding frontend developers to greener pastures and hindering new functionality development massively.
+The world of hurt in developer experience wasn't that good for the company, which was bleeding frontend developers to greener pastures and hindering new functionality development massively.
 
 
 # Decision making
