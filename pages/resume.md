@@ -6,23 +6,24 @@ permalink: /resume/
 
 # Jussi Hallila
 
-[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Software_Lead_5_2019.pdf)
+[Download](http://jussi.hallila.com/static/resume/CV_Jussi_Hallila_Lead_Engineer_10_2020.pdf)
 
 ## Work
 
-#### 1/2019 - VSWare, Dublin Ireland
+#### 1/2019 - VSWare/Visma Labs IE, Dublin Ireland
 * Position: Software architect
 * Main Responsibilities:
-  * Consulting development teams on technical approaches, best practices, architectural guidelines and processes 
-  * Creating roadmaps on application future technical tracks
-  * Directing transformation of application development to match modern best practices
+  * Consulting development teams on technical approaches, best practices, architectural guidelines and processes
+  * Planning and introducing migration from monolithic architecture to modular monolith and microservices
+  * Moving workloads from VMs to containers, production builds and internal tooling (Jenkins, Selenium grid)
+  * Managing build pipelines for FE and BE
 
 #### 4/2017 - 1/2019 VSWare, Dublin, Ireland
 * Position: Head of FE Engineering, Senior Software Engineer
 * Main Responsibilities:
   * Development of School Administration platform
   * Leading customer facing development and user experience, managing a team of 18 developers
-  * Architecting the frontend development with Vue.JS
+  * Architecting and managing migration of FE app from legacy JQuery/JSP to modular Vue.js SPA with individually built/imported modules
   * Revising frontend software development processes to match modern best practices 
   * Overlooking front end development teams, resourcing and processes
 
@@ -91,15 +92,20 @@ permalink: /resume/
 * *Shanghai University*, Computer Sciences, 9/2009 – 12/2009
 * *Missouri State University*, Information Technology, 1/2008 – 6/2008
 
+#### Certifications
+* *AWS* Certified Solutions Architect Professional - 09/2019
+* *AWS* Certified Solutions Architect Associate - 09/2019
+
 #### Skills and competencies
 
 ##### Programming:
-* *JVM*: **Java**, **Spring**, Hibernate, **Kotlin**, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin, JMS
-* *Javascript*: **JQuery, Node.js, React**, **Mocha**, Jasmine, Jade, Grunt, Gulp, Angular
-* *Databases*: **MySQL**, PostgreSQL, **Oracle**, **DB2**, MongoDB, RethinkDB
+* *JVM*: **Java**, **Spring**, Play, Hibernate, **Kotlin**, Scala, JSP, Maven, Gradle, Groovy, JUnit, Vaadin, JMS
+* *Javascript*: **JQuery, Node.js, React**, Webpack, Mocha, Jasmine, Jade, Grunt, Gulp, Angular
+* *Databases*: **MySQL**, **PostgreSQL**, **Oracle**, **DB2**, MongoDB, RethinkDB
 * *Version Control*: **Git**, SVN, RTC
 * *Methodologies*: **Scrum**, **Kanban**
-* *Other*: **IntelliJ, Jenkins, Ansible,**, Haskell, **Ubuntu**, Red Hat, ActiveMQ, Glassfish, Tomcat, WID, WPS
+* *IAC/Cloud/DevOps*: **AWS**, **Terraform**, Pulumi, Ansible, Chef, **Jenkins**
+* *Other*: **IntelliJ**, Haskell, **Ubuntu**, Red Hat, ActiveMQ, Glassfish, Tomcat, WID, WPS
 
 ##### Language proficiency
 * *Mother tongue:* Finnish
@@ -110,6 +116,11 @@ permalink: /resume/
 * [https://github.com/Xantier/nerd-stack](https://github.com/Xantier/nerd-stack)
 * [https://github.com/Xantier/prometheus-db-exporter](https://github.com/Xantier/prometheus-db-exporter)
 * [https://github.com/Xantier/bound-ttr](https://github.com/Xantier/bound-ttr)
+* [https://github.com/Xantier/differentiator](https://github.com/Xantier/differentiator)
+
+##### Other
+* Published course on full stack Kotlin development (Spring, React): https://www.packtpub.com/product/full-stack-kotlin-development-video/9781788478427
+* Ran Kotlin Dublin meetup 2018-2019
 
 #### Contact
 * Web: http://jussi.hallila.com
