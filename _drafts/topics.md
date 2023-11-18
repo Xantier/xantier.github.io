@@ -27,3 +27,4 @@
 * Trampolining
 * 10 years of experience or 1 year of experience 10 times 
 * Securing at edge
+* Startups either fail, or live long enough to be embarrassed by their code
