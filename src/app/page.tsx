@@ -172,7 +172,7 @@ function Resume() {
     },
     {
       company: 'Roadie',
-      title: 'Software Engineer',
+      title: 'Founding Engineer',
       start: '2021',
       end: '2024',
     },

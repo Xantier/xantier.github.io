@@ -166,6 +166,7 @@ const experience = [
     title: 'Head of Engineering (since 2024)',
     period: '2021 – present',
     highlights: [
+      'Joined in 2021 as employee #5, one of the founding engineers, and have led engineering since 2024.',
       'Lead engineering for Roadie’s developer platform built on Backstage.',
       'Shipped openroadie, a live, permissioned, agent-ready graph of services, teams and dependencies.',
       'Built roadie-agent, the library customers use to extend Roadie from inside their own networks.',
