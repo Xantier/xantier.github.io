@@ -83,7 +83,8 @@ export default function About() {
               boundaries between systems as much as the features on top.
             </p>
             <p>
-              Today I work at Roadie on developer platforms. Outside work I build
+              Today I work at Roadie on developer platforms. In 2025 I built ctxpack,
+              one of the early MCP gateways. Now I build
               Viberglass, an open-source platform for running coding agents
               against real tickets, and I spend more time than is reasonable
               measuring how fast large open models run on hardware I already
