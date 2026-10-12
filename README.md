@@ -10,7 +10,7 @@ npm run build   # static export in out/
 ```
 
 - Articles live in `src/app/articles/<slug>/page.mdx`. Unpublished drafts live in `drafts/`.
-- `scripts/migrate-jekyll.py` was a one-off migration from the old Jekyll site, kept in `legacy/`.
+- `scripts/migrate-jekyll.py` was a one-off migration from the old Jekyll site. The Jekyll sources were removed afterwards; they are in git history before commit `4031cf1`.
 - Old post URLs (`/2019/04/20/<slug>.html`) redirect to `/articles/<slug>/` through static stubs in `public/`.
 
 ## License
