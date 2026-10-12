@@ -1,0 +1,128 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Jussi Hallila',
+  date: '2026-10-12',
+  title: 'For big MoE models, the GPU is a cache',
+  description:
+    'A 125B mixture-of-experts model runs at 40–48 tokens per second on a 2019 desktop with a 16 GB graphics card. The reason is not the GPU. It is three bandwidths, and you can predict them before you buy anything.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default function Layout({ children }) {
+  return <ArticleLayout article={article}>{children}</ArticleLayout>
+}
+
+The usual advice for running a large language model at home is to buy as much VRAM as you can afford. For a dense model, that advice is right: every token reads every weight, and the weights had better be on the card. For a sparse mixture-of-experts model it is the wrong mental model, and following it wastes money.
+
+I wanted to run Qwen3.8-Flash-Next, a 125B-parameter MoE that activates about 6B parameters per token, on hardware I could justify for a home server. I priced four builds, predicted how fast each would be from a simple bandwidth model, and then built the cheapest one: the NAS that was already in my closet, plus €200 of RAM and a 16 GB graphics card. It answers at **40–48 tokens per second** and reads long prompts at **about 950 tokens per second**.
+
+This post is about the model I used to make that prediction, where it was right, and where it was wrong. The short version: **for a large MoE, the GPU is a cache, system RAM holds the model, and speed is set by three bandwidths, not by the size of the card.**
+
+## The claim that started it
+
+The engine I used is [Strata](https://github.com/Niko1221/Strata), a purpose-built inference engine for this one model. Its author posted that you could "buy old cheap DDR3 machine with 128GB or 64GB RAM, connect 8GB+ GPU and run Qwen3.8-Flash-Next at 70tps+" ([X, checked 2 Oct 2026](https://x.com/coldniko/status/2105657680303948063)). Nobody had published a measurement of that. Taking it at face value assumes that RAM is RAM, that once the model fits, it runs. That assumption is the one worth testing.
+
+## How a MoE engine actually uses your hardware
+
+Each layer of this model has 512 experts, 24,576 in total, and a router picks a handful of them for every token. Strata keeps **all** experts in system RAM and keeps the most frequently used ones in VRAM as well. On my 16 GB card it caches **7,592 experts in 10.2 GB of VRAM**. Then, per token:
+
+- If a chosen expert is in VRAM, the GPU computes it. In my runs **74–92% of expert reads hit the cache**.
+- If it is not, the **CPU computes it straight from system RAM**. That is the slow path, and its speed is set by RAM bandwidth and core count.
+- When reading a long prompt, the engine instead **streams experts over PCIe** to the GPU in batches, so prompt reading is set mostly by the PCIe link.
+
+That gives three bandwidths that matter, and they map cleanly onto hardware choices:
+
+| What you are buying | Bandwidth it sets | What it changes |
+| --- | --- | --- |
+| VRAM **capacity** | how many experts are cached (about 700 per GB) | how often the CPU slow path runs |
+| VRAM bandwidth | the GPU's share of each token | output speed, modestly |
+| System RAM bandwidth and CPU cores | the speed of cache misses | output speed, a lot |
+| PCIe generation and lane count | how fast experts stream in | prompt reading |
+
+The table has a consequence that surprised me: **more VRAM matters more than a faster GPU**, and an older PCIe 3.0 board costs you prompt-reading speed but much less output speed. Strata's own documentation says the first part outright.
+
+## Four builds, predicted before buying
+
+I priced four options in early October 2026, which happened to be the worst RAM market in years. DDR4 ran **3–5× the price of DDR3 per GB** on the used market, and 64 GB of DDR5 laptop memory cost more than the mini PC it went into (price trackers checked 2–5 Oct 2026). For each one I estimated output and prompt-reading speed from the table above, anchored on published measurements of similar machines.
+
+| Build | Memory | GPU link | Predicted output | Predicted prompt reading |
+| --- | --- | --- | ---: | ---: |
+| Used X99 board, 18-core Haswell Xeon | DDR3, quad channel (~60 GB/s) | PCIe 3.0 x16 | 35–55 tok/s | 700–1,200 tok/s |
+| Mini PC with an OCuLink eGPU | DDR5, dual channel | PCIe 4.0 x4 | 45–65 tok/s | 400–800 tok/s |
+| Mini-ITX board with a 16-core laptop CPU | DDR5, dual channel (~83 GB/s) | PCIe 5.0 x16 | 60–85 tok/s | 1,500–2,100 tok/s |
+| **My existing NAS: Ryzen 5 3600, B450** | DDR4-2400, dual channel (~38 GB/s) | PCIe 3.0 x16 | **36–46 tok/s** | **1,000–1,500 tok/s** |
+
+The DDR3 build looks fine on paper, but it hides a trap the bandwidth table does not show: Strata's normal CPU path needs **AVX2**, and most cheap DDR3 Xeons predate it; without it the engine falls back to an experimental and much slower path. That alone rules out the "old cheap DDR3 machine" in most forms.
+
+The NAS won for a reason unrelated to speed. A community member had already benchmarked Strata on **the same CPU, the same PCIe 3.0 x16 link and a 16 GB card**, a Tesla V100, and published 41–52 tok/s output and 1,200–1,500 tok/s prompt reading ([Strata-V100](https://github.com/jmnargi/Strata-V100), checked 5 Oct 2026). A near-identical reference point is worth more than any estimate. The only differences were my slower RAM (DDR4-2400 instead of 3200, which I expected to cost 10–15% of output speed) and the card.
+
+## Choosing the card
+
+The same reasoning decided the GPU. On this board every card runs at PCIe 3.0, so a card's own PCIe 5.0 link is wasted, and an **x8 card loses half its prompt-reading bandwidth**. What remains is VRAM capacity and VRAM bandwidth. The RX 9070 and the RTX 5060 Ti both have 16 GB, but the 9070 has 640 GB/s against 448 GB/s and a full x16 link, so it should be the faster card here once the software support is equal. I bought the 9070.
+
+Two practical findings did not come from the bandwidth model at all. The 450 W power supply had only **one** PCIe power connector, and both candidate cards need two. And the card needs **Linux 6.12 or newer**: on the NAS's old 6.1 kernel it hung at boot until I upgraded the operating system.
+
+## What I measured
+
+I measured with [BetterBench](https://github.com/GGZ14/BetterBench) 0.6.0 in its quick mode (five measured passes per task category) against Strata's OpenAI-compatible API, from another machine on the LAN.
+
+| | Predicted | **Measured (IQ2_XS quantisation)** |
+| --- | ---: | ---: |
+| Output speed, weighted across eight task types | 36–46 tok/s | **43.7 tok/s** (per category 41.5–46.0) |
+| Output speed, one 600-token answer | | 48.7 tok/s |
+| Prompt reading, 6K tokens | 1,000–1,500 tok/s | 870 tok/s |
+| Prompt reading, 24K tokens | | 966 tok/s |
+| Prompt reading, 47K tokens | | 951 tok/s |
+| Time to first token, short prompt | | 1.8 s |
+
+Output speed landed at the top of the predicted range. Prompt reading landed **below** it, by roughly 10–30%. My guess is that the Strata-V100 measurements I anchored on used an NVIDIA card, whose prompt path is the more mature one, and that the prediction should have included a discount for the AMD backend. I have not tested that guess.
+
+Two things the bandwidth model said nothing about showed up clearly in the data:
+
+- **Every request pays about 1.8 seconds before the first token**, even for a 1,500-token prompt, which is why short prompts read at only 385 tok/s. Another Strata user has [reported the same fixed per-request cost](https://github.com/Niko1221/Strata/issues/392). For an agent making many small tool calls, that fixed cost matters more than throughput.
+- **Concurrency only queues.** At 1, 2, 4 and 8 parallel requests, total throughput stayed flat at about 35 tok/s while time to first token grew from 2 s to 77 s. That is Strata's default of serving one request at a time, not a hardware limit.
+
+## Quality costs bandwidth
+
+The quantisation choice is the same trade-off in another form. A higher-precision quantisation has bigger experts, so each cache miss moves more bytes. The two I compared are from ISTA-DASLab's GSQ-RCO set, whose published task scores (AIME25, GPQA-Diamond and LiveCodeBench v6) put IQ2_XS at **89.2** and IQ3_S at **93.3**, against **93.1** for the unquantised model ([model card](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF), checked 9 Oct 2026). On my box IQ3_S costs:
+
+| | IQ2_XS | IQ3_S |
+| --- | ---: | ---: |
+| Output speed | 43.7 tok/s | 40.4 tok/s (−8%) |
+| Time to first token | 1.8 s | 2.5 s |
+| Experts held in RAM | ~35.5 GB | ~50 GB |
+
+Eight percent for a model that matches the unquantised one on those three tasks is an easy trade, so IQ3_S is now the default. Two caveats belong next to those scores rather than in a footnote. AIME25 and GPQA-Diamond are close to saturated for current models and were published before this model was trained, so they can hide quantisation damage. And I did not run them myself; I am relying on the quantiser's own numbers. A fine-tune of the same model publishes KL divergence for the same quantisation types, and it ranks them the same way, which is the most I can say without the unquantised model to compare against.
+
+## Running it next to a NAS
+
+Two things made it safe to run a 50 GB model next to file shares and Nextcloud on a 64 GB machine.
+
+The first is that **context memory is tiny for this architecture**. Only 12 of the model's 48 layers use regular attention, with two key-value heads of 256 dimensions each; the other 36 use linear attention with a fixed-size state. At 8-bit that is about **12 KB per token**, so a 128K context costs about 1.6 GB. A dense model of similar size would need an order of magnitude more.
+
+The second is **deciding in advance what dies first**. The service runs with a memory cap and a high out-of-memory score, so if memory runs out the kernel kills the model, which restarts by itself about a minute later, and not Samba or SSH. Under the full benchmark the IQ3_S model used 47.7 GB of its own memory and caused zero out-of-memory events.
+
+## What I did not test
+
+- One machine, one card, one engine. I did not build the other three options, so their predictions remain predictions.
+- Five passes per category, not the twenty BetterBench recommends for tail latencies. Run-to-run variation was 3–13%, so the medians are usable; the "worst case" columns are not.
+- No intelligence benchmarks of my own. The quality numbers are the quantiser's.
+- Only the AMD backend. On NVIDIA, prompt reading would probably be faster.
+- No 24 GB card. By the table above it should help more than any other single upgrade, since it would cache about 5,600 more experts.
+
+## The model, generalised
+
+If you are sizing hardware for a large sparse MoE, ask three questions in this order. **How much of the model will the cache hold?** That is VRAM capacity divided by expert size, and it sets how often you fall back to the slow path. **How fast is the slow path?** That is system RAM bandwidth and cores. **How fast can you refill the cache?** That is the PCIe link, and it mostly sets prompt reading. A fast GPU with little VRAM on a slow link answers all three badly. An old desktop with a mid-range card and a full x16 slot answers them well enough.
+
+The single most useful input to my prediction was someone else's published measurement on similar hardware. It put my output speed inside the predicted range before I bought anything. If you run one of these builds, publish the numbers.
+
+{/* TODO before publishing:
+  - add actual prices paid for the RX 9070 and the PSU, and the PSU model
+  - link the artifacts repo or gist: BetterBench results.json/html for IQ2_XS and IQ3_S, Strata configs without the API key, the systemd unit and strata-switch script
+  - versions box: Strata fb58e0d (2026-10-08), Linux 7.2.6, linux-firmware 20260810, ROCm 7.10.0a20251120 wheels, Debian 13.7, BetterBench 0.6.0
+*/}

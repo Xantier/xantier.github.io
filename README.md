@@ -1,42 +1,23 @@
-# Spotlight
+# jussi.hallila.com
 
-Spotlight is a [Tailwind Plus](https://tailwindcss.com/plus) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
-
-## Getting started
-
-To get started with this template, first install the npm dependencies:
+Source for my personal site, built with Next.js and MDX and deployed to GitHub Pages by
+`.github/workflows/deploy.yml`.
 
 ```bash
-npm install
+npm ci
+npm run dev     # http://localhost:3000
+npm run build   # static export in out/
 ```
 
-Next, create a `.env.local` file in the root of your project and set the `NEXT_PUBLIC_SITE_URL` variable to your site's public URL:
-
-```
-NEXT_PUBLIC_SITE_URL=https://example.com
-```
-
-Next, run the development server:
-
-```bash
-npm run dev
-```
-
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
-
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+- Articles live in `src/app/articles/<slug>/page.mdx`. Unpublished drafts live in `drafts/`.
+- `scripts/migrate-jekyll.py` was a one-off migration from the old Jekyll site, kept in `legacy/`.
+- Old post URLs (`/2019/04/20/<slug>.html`) redirect to `/articles/<slug>/` through static stubs in `public/`.
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license).
+The written content is © Jussi Hallila, all rights reserved.
 
-## Learn more
-
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [MDX](https://mdxjs.com) - the MDX documentation
+The site's code is based on [Spotlight](https://tailwindcss.com/plus/templates/spotlight), a commercial
+template licensed under the [Tailwind Plus license](https://tailwindcss.com/plus/license). This
+repository is therefore **not** released under an open-source license, and forking it as a base for
+your own site is not permitted by the template's license.
