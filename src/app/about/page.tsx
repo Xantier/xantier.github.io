@@ -139,7 +139,7 @@ export default function About() {
 const experience = [
   {
     company: 'Roadie',
-    title: 'Head of Engineering',
+    title: 'Head of Engineering (since 2024)',
     period: '2021 – present',
     highlights: [
       'Lead engineering for Roadie’s developer platform built on Backstage.',

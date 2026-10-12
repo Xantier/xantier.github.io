@@ -143,8 +143,14 @@ function Resume() {
     {
       company: 'Roadie',
       title: 'Head of Engineering',
-      start: '2021',
+      start: '2024',
       end: 'Present',
+    },
+    {
+      company: 'Roadie',
+      title: 'Software Engineer',
+      start: '2021',
+      end: '2024',
     },
     {
       company: 'Ilities',
@@ -192,7 +198,7 @@ function Resume() {
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role) => (
-          <Role key={role.company} role={role} />
+          <Role key={`${role.company}-${role.start}`} role={role} />
         ))}
       </ol>
       <Button
