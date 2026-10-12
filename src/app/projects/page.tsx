@@ -1,49 +1,57 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import { GitHubIcon } from '@/components/SocialIcons'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Viberglass',
+    year: '2026',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'An open-source platform for running coding agents against real tickets: research, planning and execution phases, pluggable harnesses, and model endpoints that can point at your own hardware.',
+    link: { href: 'https://github.com/Ilities/viberglass', label: 'github.com' },
   },
   {
-    name: 'Animaginary',
+    name: 'Try-Catch',
+    year: '2017',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'A test utility that automates the laborious API-call-plus-database-check loop of manual testing. React, Ratpack and Kotlin.',
+    link: { href: 'https://github.com/Xantier/trycatch', label: 'github.com' },
   },
   {
-    name: 'HelioStream',
+    name: 'prometheus-db-exporter',
+    year: '2017',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'Exports SQL query results as Prometheus metrics, so business numbers can sit next to system metrics. Kotlin and Spring Boot.',
+    link: {
+      href: 'https://github.com/Xantier/prometheus-db-exporter',
+      label: 'github.com',
+    },
   },
   {
-    name: 'cosmOS',
+    name: 'bound-ttr',
+    year: '2017',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+      'A boundary-testing runner that combines Postman collections with database assertions.',
+    link: { href: 'https://github.com/Xantier/bound-ttr', label: 'github.com' },
   },
   {
-    name: 'OpenShuttle',
+    name: 'hubot-dublin-luas',
+    year: '2015',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'Hubot scripts for Dublin’s LUAS tram times, for a chat-ops team that needed to know when to leave.',
+    link: {
+      href: 'https://github.com/Xantier/hubot-dublin-luas',
+      label: 'github.com',
+    },
+  },
+  {
+    name: 'NERD stack',
+    year: '2014',
+    description:
+      'A seed application for isomorphic Node.js and React development, from back when that was a novel idea.',
+    link: { href: 'https://github.com/Xantier/nerd-stack', label: 'github.com' },
   },
 ]
 
@@ -60,14 +68,14 @@ function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Things I’ve made trying to put my dent in the universe.',
+  description: 'Open-source things I have built, newest first.',
 }
 
 export default function Projects() {
   return (
     <SimpleLayout
-      title="Things I’ve made trying to put my dent in the universe."
-      intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+      title="Things I’ve built, mostly in the open."
+      intro="Viberglass is where my time goes now. The rest are older open-source projects that solved a problem I had at the time, kept here because some of them still get the odd star."
     >
       <ul
         role="list"
@@ -76,16 +84,14 @@ export default function Projects() {
         {projects.map((project) => (
           <Card as="li" key={project.name}>
             <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image
-                src={project.logo}
-                alt=""
-                className="h-8 w-8"
-                unoptimized
-              />
+              <GitHubIcon className="h-7 w-7 fill-zinc-700 dark:fill-zinc-300" />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
               <Card.Link href={project.link.href}>{project.name}</Card.Link>
             </h2>
+            <p className="relative z-10 mt-1 text-xs text-zinc-400 dark:text-zinc-500">
+              {project.year}
+            </p>
             <Card.Description>{project.description}</Card.Description>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
               <LinkIcon className="h-6 w-6 flex-none" />
