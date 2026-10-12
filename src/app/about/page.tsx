@@ -4,6 +4,7 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
+import { Linkify, TermLink, links } from '@/components/Linkify'
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -89,14 +90,12 @@ export default function About() {
               boundaries between systems as much as the features on top.
             </p>
             <p>
-              Today I’m Head of Engineering at Roadie. Alongside that I run{' '}
-              <Link href="https://ilities.dev" className="underline">
-                Ilities
-              </Link>
-              , a small consultancy for codebase rescue, architecture reviews
+              Today I’m Head of Engineering at <TermLink term="Roadie" />.
+              Alongside that I run <TermLink term="Ilities" />, a small consultancy for codebase rescue, architecture reviews
               and the structure that makes AI tools useful instead of noisy.
-              In 2025 I built ctxpack there, one of the early MCP gateways.
-              These days I build Viberglass, an open-source workspace for teams
+              In 2025 I built <TermLink term="ctxpack" /> there, one of the
+              early MCP gateways. These days I build{' '}
+              <TermLink term="Viberglass" />, an open-source workspace for teams
               and their coding agents, and spend more time than is reasonable
               measuring how fast large open models run on hardware I already
               own.
@@ -263,11 +262,18 @@ function Experience() {
             </p>
             <div className="md:col-span-3">
               <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                {role.title}, {role.company}
+                {role.title},{' '}
+                {role.company in links ? (
+                  <TermLink term={role.company} />
+                ) : (
+                  role.company
+                )}
               </h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
                 {role.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+                  <li key={highlight}>
+                    <Linkify text={highlight} />
+                  </li>
                 ))}
               </ul>
             </div>

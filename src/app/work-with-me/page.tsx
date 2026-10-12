@@ -2,6 +2,7 @@ import { type Metadata } from 'next'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
+import { TermLink } from '@/components/Linkify'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
 export const metadata: Metadata = {
@@ -37,8 +38,15 @@ export default function WorkWithMe() {
   return (
     <SimpleLayout
       title="Work with me."
-      intro="Alongside my role at Roadie I take on a small number of consulting engagements through Ilities. I untangle codebases, review architecture, and set up the structure that makes AI tools useful instead of noisy."
+      intro="I untangle codebases, review architecture, and set up the structure that makes AI tools useful instead of noisy."
     >
+      <p className="-mt-8 mb-16 max-w-2xl text-base text-zinc-600 sm:-mt-12 dark:text-zinc-400">
+        Alongside my role at <TermLink term="Roadie" /> I take on a small
+        number of consulting engagements through <TermLink term="Ilities" />.
+        I also built <TermLink term="ctxpack" />, one of the early{' '}
+        <TermLink term="MCP" /> gateways, so the MCP work below is not
+        theoretical.
+      </p>
       <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
         {services.map((service) => (
           <Card as="li" key={service.title}>

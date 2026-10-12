@@ -1,6 +1,6 @@
 import { type Metadata } from 'next'
-import Link from 'next/link'
 
+import { TermLink } from '@/components/Linkify'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
@@ -34,15 +34,16 @@ export default function Now() {
       <div className="space-y-20">
         <NowSection title="At work">
           <p>
-            Leading engineering at Roadie. Most of my attention goes to making
-            the catalog useful to agents as well as people: openroadie, a live
-            and permissioned graph of services, teams and dependencies, is the
-            centre of that.
+            Leading engineering at <TermLink term="Roadie" />. Most of my
+            attention goes to making the catalog useful to agents as well as
+            people: <TermLink term="openroadie" />, a live and permissioned
+            graph of services, teams and dependencies, is the centre of that.
           </p>
         </NowSection>
         <NowSection title="Building">
           <p>
-            Viberglass, an open-source workspace where a team and its coding
+            <TermLink term="Viberglass" />, an open-source workspace where a
+            team and its coding
             agents work on the same tasks. The current focus is evaluation:
             grading agent runs against real ticket outcomes, measuring
             reliability over repeated runs rather than single passes, and
@@ -58,12 +59,9 @@ export default function Now() {
         </NowSection>
         <NowSection title="Running at home">
           <p>
-            A 125B-parameter model on my NAS, at 40–48 tokens per second. The
-            details and measurements are on the{' '}
-            <Link href="/lab" className="underline">
-              Lab
-            </Link>{' '}
-            page.
+            <TermLink term="Qwen3.8-Flash-Next" />, a 125B-parameter model, on
+            my NAS at 40–48 tokens per second, served by{' '}
+            <TermLink term="Strata" /> next to my file shares.
           </p>
         </NowSection>
         <NowSection title="Writing">

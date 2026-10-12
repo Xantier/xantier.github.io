@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { TermLink } from '@/components/Linkify'
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -248,13 +249,12 @@ export default async function Home() {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Jussi, a Finnish software engineer based in Arnhem, the
-            Netherlands. I’m Head of Engineering at Roadie, and through{' '}
-            <Link href="https://ilities.dev" className="underline">
-              Ilities
-            </Link>{' '}
+            Netherlands. I’m Head of Engineering at <TermLink term="Roadie" />,
+            and through <TermLink term="Ilities" />{' '}
             I help teams untangle codebases and set up the structure that makes
-            AI tools useful instead of noisy. In my own time I build Viberglass,
-            an open-source workspace for teams and their coding agents.
+            AI tools useful instead of noisy. In my own time I build{' '}
+            <TermLink term="Viberglass" />, an open-source workspace for teams
+            and their coding agents.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
