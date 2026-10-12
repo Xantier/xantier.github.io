@@ -126,6 +126,146 @@ export default function About() {
           </ul>
         </div>
       </div>
+      <Experience />
     </Container>
+  )
+}
+
+const experience = [
+  {
+    company: 'Roadie',
+    title: 'Software Engineer',
+    period: '2021 – present',
+    highlights: [
+      'Building Roadie’s developer platform on Backstage, including openroadie, a live, permissioned, agent-ready graph of services, teams and dependencies.',
+      'Built roadie-agent, the library customers use to extend Roadie from inside their own networks.',
+    ],
+  },
+  {
+    company: 'ctxpack (own product)',
+    title: 'Founder and engineer',
+    period: '2025',
+    highlights: [
+      'Built one of the early MCP gateways: context packs of tools, prompts and resources, deployed to Claude, ChatGPT or any MCP client over OAuth 2.1.',
+    ],
+  },
+  {
+    company: 'Visma Labs',
+    title: 'Software Architect',
+    period: '2019 – 2021',
+    highlights: [
+      'Planned and led the migration from a monolith to a modular monolith and microservices.',
+      'Moved workloads from VMs to containers and owned the frontend and backend build pipelines.',
+    ],
+  },
+  {
+    company: 'VSWare',
+    title: 'Head of Frontend Engineering',
+    period: '2017 – 2019',
+    highlights: [
+      'Led customer-facing development and user experience for a school administration platform, managing a team of 18 developers.',
+      'Architected the migration from a jQuery/JSP frontend to a modular Vue.js single-page app.',
+    ],
+  },
+  {
+    company: 'Brandtone',
+    title: 'Senior Software Engineer',
+    period: '2015 – 2017',
+    highlights: [
+      'Led development of the core capabilities of the company’s largest product, a mobile marketing platform.',
+      'Introduced DevOps practice: Ansible, immutable infrastructure, chat-ops and an automated Jenkins deployment pipeline.',
+      'Modernised the frontend with React, Webpack and the Node.js toolchain.',
+    ],
+  },
+  {
+    company: 'Liberty IT',
+    title: 'Software Engineer',
+    period: '2014 – 2015',
+    highlights: [
+      'Built SOA web services that calculate insurance rates.',
+    ],
+  },
+  {
+    company: 'IBM',
+    title: 'BI & Metrics Software Developer',
+    period: '2011 – 2014',
+    highlights: [
+      'Built business intelligence solutions for IBM delivery centres across EMEA and the US.',
+      'Introduced continuous integration, automated testing and Scrum to the team.',
+    ],
+  },
+  {
+    company: 'CERN',
+    title: 'Web Developer and Database Administrator',
+    period: '2009',
+    highlights: [
+      'Designed and built the database and web frontend for the TOTEM experiment.',
+    ],
+  },
+]
+
+function Experience() {
+  return (
+    <section className="mt-24 border-t border-zinc-100 pt-16 sm:mt-32 dark:border-zinc-700/40">
+      <div className="flex flex-wrap items-baseline justify-between gap-4">
+        <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Experience
+        </h2>
+        <Link
+          href="https://www.linkedin.com/in/jussihallila"
+          className="text-sm font-medium text-teal-500 hover:text-teal-600 dark:text-teal-400 dark:hover:text-teal-300"
+        >
+          Full CV on LinkedIn →
+        </Link>
+      </div>
+      <ol className="mt-10 space-y-12">
+        {experience.map((role) => (
+          <li
+            key={role.company}
+            className="grid grid-cols-1 gap-2 md:grid-cols-4 md:gap-8"
+          >
+            <p className="text-sm text-zinc-400 dark:text-zinc-500">
+              {role.period}
+            </p>
+            <div className="md:col-span-3">
+              <h3 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                {role.title}, {role.company}
+              </h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
+                {role.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div>
+          <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+            Education
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li>
+              Bachelor of Software Engineering, Lapland University of Applied
+              Sciences (2006 – 2011). Thesis graded 5/5.
+            </li>
+            <li>
+              Exchange studies at Missouri State University (2008) and Shanghai
+              University (2009).
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="text-base font-semibold text-zinc-800 dark:text-zinc-100">
+            Certifications
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li>AWS Certified Solutions Architect – Professional (2019)</li>
+            <li>AWS Certified Solutions Architect – Associate (2019)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   )
 }
