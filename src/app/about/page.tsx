@@ -83,8 +83,10 @@ export default function About() {
               boundaries between systems as much as the features on top.
             </p>
             <p>
-              Today I work at Roadie on developer platforms. In 2025 I built ctxpack,
-              one of the early MCP gateways. Now I build
+              Today I’m Head of Engineering at Roadie. Alongside that I run
+              Ilities, a small consultancy for codebase rescue, architecture
+              reviews and AI-ready engineering practices. In 2025 I built
+              ctxpack there, one of the early MCP gateways, and now I build
               Viberglass, an open-source platform for running coding agents
               against real tickets, and I spend more time than is reasonable
               measuring how fast large open models run on hardware I already
@@ -134,19 +136,22 @@ export default function About() {
 const experience = [
   {
     company: 'Roadie',
-    title: 'Software Engineer',
+    title: 'Head of Engineering',
     period: '2021 – present',
     highlights: [
-      'Building Roadie’s developer platform on Backstage, including openroadie, a live, permissioned, agent-ready graph of services, teams and dependencies.',
+      'Lead engineering for Roadie’s developer platform built on Backstage.',
+      'Shipped openroadie, a live, permissioned, agent-ready graph of services, teams and dependencies.',
       'Built roadie-agent, the library customers use to extend Roadie from inside their own networks.',
     ],
   },
   {
-    company: 'ctxpack (own product)',
-    title: 'Founder and engineer',
-    period: '2025',
+    company: 'Ilities',
+    title: 'Independent consultant',
+    period: '2018 – present',
     highlights: [
-      'Built one of the early MCP gateways: context packs of tools, prompts and resources, deployed to Claude, ChatGPT or any MCP client over OAuth 2.1.',
+      'Codebase rescue, architecture reviews and migrations that modernise legacy systems without full rewrites.',
+      'Built ctxpack (2025), one of the early MCP gateways: context packs of tools, prompts and resources, deployed to Claude, ChatGPT or any MCP client over OAuth 2.1.',
+      'Building Viberglass, an open-source workspace for teams and coding agents, and multi-agent orchestration for clients.',
     ],
   },
   {

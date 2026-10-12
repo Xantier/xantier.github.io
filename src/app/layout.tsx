@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: 'Jussi Hallila - Software engineer building agent platforms',
   },
   description:
-    'I’m Jussi, a Finnish software engineer based in Arnhem, the Netherlands. I build developer platforms, and lately the infrastructure that coding agents and self-hosted models run on.',
+    'I’m Jussi, Head of Engineering at Roadie and the consultant behind Ilities. I build developer platforms, and lately the infrastructure that coding agents and self-hosted models run on.',
   alternates: {
     types: {
       'application/rss+xml': '/feed.xml',

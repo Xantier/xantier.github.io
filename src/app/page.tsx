@@ -142,8 +142,14 @@ function Resume() {
   let resume: Array<Role> = [
     {
       company: 'Roadie',
-      title: 'Software Engineer',
+      title: 'Head of Engineering',
       start: '2021',
+      end: 'Present',
+    },
+    {
+      company: 'Ilities',
+      title: 'Independent consultant',
+      start: '2018',
       end: 'Present',
     },
     {
@@ -213,10 +219,13 @@ export default async function Home() {
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Jussi, a Finnish software engineer based in Arnhem, the
-            Netherlands. I work on developer platforms at Roadie. In my own time
-            I build Viberglass, an open-source platform for running coding
-            agents against real tickets, and I run large open models on
-            hardware I can actually afford.
+            Netherlands. I’m Head of Engineering at Roadie, and through{' '}
+            <Link href="https://ilities.dev" className="underline">
+              Ilities
+            </Link>{' '}
+            I help teams untangle codebases and set up the structure that makes
+            AI tools useful instead of noisy. In my own time I build Viberglass,
+            an open-source workspace for teams and their coding agents.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink
