@@ -83,12 +83,15 @@ export default function About() {
               boundaries between systems as much as the features on top.
             </p>
             <p>
-              Today I’m Head of Engineering at Roadie. Alongside that I run
-              Ilities, a small consultancy for codebase rescue, architecture
-              reviews and AI-ready engineering practices. In 2025 I built
-              ctxpack there, one of the early MCP gateways, and now I build
-              Viberglass, an open-source platform for running coding agents
-              against real tickets, and I spend more time than is reasonable
+              Today I’m Head of Engineering at Roadie. Alongside that I run{' '}
+              <Link href="https://ilities.dev" className="underline">
+                Ilities
+              </Link>
+              , a small consultancy for codebase rescue, architecture reviews
+              and the structure that makes AI tools useful instead of noisy.
+              In 2025 I built ctxpack there, one of the early MCP gateways.
+              These days I build Viberglass, an open-source workspace for teams
+              and their coding agents, and spend more time than is reasonable
               measuring how fast large open models run on hardware I already
               own.
             </p>
