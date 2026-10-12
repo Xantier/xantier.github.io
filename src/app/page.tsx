@@ -3,7 +3,13 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  MediumIcon,
+  NpmIcon,
+  XIcon,
+} from '@/components/SocialIcons'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -93,6 +99,23 @@ function Subscribe() {
       </p>
       <Button href="/feed.xml" variant="secondary" className="mt-6 w-full">
         Subscribe via RSS
+      </Button>
+    </div>
+  )
+}
+
+function WorkWithMe() {
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        Work with me
+      </h2>
+      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+        Codebase rescue, architecture reviews and AI-ready engineering
+        practices, through Ilities.
+      </p>
+      <Button href="/work-with-me" variant="secondary" className="mt-6 w-full">
+        How I can help
       </Button>
     </div>
   )
@@ -249,6 +272,16 @@ export default async function Home() {
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
             />
+            <SocialLink
+              href="https://medium.com/@xantier"
+              aria-label="Read on Medium"
+              icon={MediumIcon}
+            />
+            <SocialLink
+              href="https://www.npmjs.com/~xantier"
+              aria-label="Packages on npm"
+              icon={NpmIcon}
+            />
           </div>
         </div>
       </Container>
@@ -261,6 +294,7 @@ export default async function Home() {
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Subscribe />
+            <WorkWithMe />
             <Resume />
           </div>
         </div>

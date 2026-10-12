@@ -4,7 +4,13 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon, XIcon } from '@/components/SocialIcons'
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  MediumIcon,
+  NpmIcon,
+  XIcon,
+} from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
 function SocialLink({
@@ -98,7 +104,12 @@ export default function About() {
             <p>
               This site started in 2016 as notes to myself on JVM and frontend
               work. The older articles are still here; some of them have aged
-              better than others.
+              better than others. If you want help with a codebase or an agent
+              setup, see{' '}
+              <Link href="/work-with-me" className="underline">
+                how I work with teams
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -120,6 +131,20 @@ export default function About() {
               className="mt-4"
             >
               Follow on LinkedIn
+            </SocialLink>
+            <SocialLink
+              href="https://medium.com/@xantier"
+              icon={MediumIcon}
+              className="mt-4"
+            >
+              Read on Medium
+            </SocialLink>
+            <SocialLink
+              href="https://www.npmjs.com/~xantier"
+              icon={NpmIcon}
+              className="mt-4"
+            >
+              Packages on npm
             </SocialLink>
             <SocialLink
               href="mailto:jussi@hallila.com"
@@ -145,6 +170,7 @@ const experience = [
       'Lead engineering for Roadie’s developer platform built on Backstage.',
       'Shipped openroadie, a live, permissioned, agent-ready graph of services, teams and dependencies.',
       'Built roadie-agent, the library customers use to extend Roadie from inside their own networks.',
+      'Co-maintain 50+ open-source Backstage plugins and libraries on npm, with around 960,000 downloads a month (October 2026).',
     ],
   },
   {
