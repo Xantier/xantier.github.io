@@ -1,0 +1,98 @@
+import {ArticleLayout} from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Jussi Hallila',
+  date: '2026-10-12',
+  title: 'Hunting for the frontier models on local boxes',
+  description:
+    'Setting up a 125B MoE model to run at 45–60 tokens per second on a 2019 desktop with a 16 GB graphics card. Experiments with Strata and Qwen3.8-flash-next. Running Claude Opus 4.7 at home.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default function Layout({children}) {
+  return <ArticleLayout article={article}>{children}</ArticleLayout>
+}
+
+The advice you hear most often about running large language models at home is to buy as much fast VRAM as you can afford. For a dense model that advice is probably correct, since every token reads every weight and the weights had better live on the card. With the current prices of GPUs though, that seems it's going to cost an arm and a leg for the initial investment, while nibbling along your tinkering budget in electricity costs when actually running the hardware. Mixture-of-experts models kinda changed that and they started showing promise that even a lesser, more attainable, hardware should at some point be able to run models well enough to be enjoyable to work with. I've been putting on and taking off my buying pants for a better part of a year now, without ever actually pulling the trigger. Amazon's and Aliexpress' algorithms know very well that I wanted to buy a GPU. What finally pushed me over the line was Qwen3.8-Flash-Next and the promise of a brighter future that it brings.
+
+What I wanted was to run Qwen3.8-Flash-Next, a 125B-parameter MoE with 6B active parameters per token, on hardware I could justify to myself (and more importantly, to the missus) as a home server purchase. There are few options that I played around with, including getting more obscure older hardware as well as newer unified memory boxes but eventually I ended up reusing a lot of the hardware I already had running in the "server room" (closet). The want here was to get as fast of a model runner box set up as cheaply as possible while the end result needed to be good enough to not frustrate me and the model it should run would need to be good enough to actually do something with. Qwen3.8-Flash-Next scores something similar to the ancient (~6 months old) Claude Opus 4.6/4.7 model line according to benchmarks, which is good enough for any competent engineer to build massive project.
+
+I used Claude Code to estimate the number I would likely see to figure out what to do. Eventually what I landed on was to pay 200€ (insane) for 64GB of DDR4-2400 (slow) RAM and purchase an AMD 9070 to go along with it. Nothing else was luckily needed. The end result pumps out about 45-60 tokens per second depending on the type of task and chews through long prompts at about 1450 tokens per second, which for a 125B model on a 2019 desktop feels almost rude.
+
+## But Why?
+
+The engine I used is [Strata](https://github.com/Niko1221/Strata), which is a specialized inference engine purpose-built for this specific model. Its author posted that you could "buy old cheap DDR3 machine with 128GB or 64GB RAM, connect 8GB+ GPU and run Qwen3.8-Flash-Next at 70tps+" ([X, checked 2 Oct 2026](https://x.com/coldniko/status/2105657680303948063)). Since this model is the `-next` version of the Qwen family, it means that we can expect the next iterations to use this same architecture. If they do, we should be able to get good speeds with improved model intelligence quite cheaply. If the claim of Strata's speed was actually working and the model wasn't massively lobotomized. The tweet hinted that RAM is RAM and once the model fits, it runs. That hint was something that I wanted to test out as well. GPUs are super expensive, especially big enough ones for big models, and if we can reach at least somewhat decent speeds with just normal RAM, then it's probably a worthy time to jump on this train.
+
+
+## The way a MoE engine uses your hardware
+
+Each layer of this model has 512 experts, 24,576 of them in total, and a router picks a handful per token. Strata keeps all of them in system RAM and additionally caches the most frequently used ones in VRAM. On my 16 GB card it ends up holding 7,592 experts in 10.2 GB of VRAM. It maybe worth trying to push that number up a little bit which is something I will experiment over the next weekends. If the expert the router picked happens to be in VRAM, the GPU computes it. Strata provides a nice dashboard that showed that in my runs 74–92% of expert reads hit the cache. If the expert is not in VRAM, the CPU computes it straight out of system RAM, which is the slow path, and its speed is governed by RAM bandwidth and core count. And while reading a long prompt the engine streams experts over PCIe to the GPU in batches, which means prompt reading is mostly bounded by the PCIe link.
+
+With that information I started looking for hardware to buy. VRAM capacity determines how many experts get cached (about 700 per GB), the rest get run on CPU slow path. VRAM bandwidth has a modest say in output speed, since it only covers the GPU's share of each token. Though the computing power of the graphics card still plays a role. The better the card, the faster the experts are. System RAM bandwidth and CPU cores affect the speed of the cache misses which is somewhat of a problem on my old machine but still workable. I wasn't quite understanding why Strata's docs said that more VRAM matters more than a faster GPU, and an older PCIe 3.0 board mostly costs you prompt-reading speed, not output speed. It did end up being the case on my machine as well.
+
+So basically what I ended up comparing (or told Claude to compare) was:
+
+- How much VRAM does the card have?
+- How much RAM does the system have?
+- How fast is the GPU?
+- How fast is the PCIe link?
+
+
+## What the base build ended up being
+
+I priced few options in early October 2026 which is probably not the peak but definitely not the cheapest time to buy any hardware. DDR4 was about 3–5× the price of DDR3 per GB on the used market, and 64 GB of DDR5 memory cost more than the rest of the machine was supposed to go into. I wanted to make an informed decision so I let Claude do some thinking about the estimated boxes, without a GPU. I was toying around with a mini PC with an OCuLink eGPU or a PCIE slot on the motherboard but the price/performance uplift didn't end up being worth it. So, the old Ryzen 5 3600 on B450 it was. The other reason a NAS won was that a community member had already benchmarked Strata on the same CPU, the same PCIe 3.0 x16 link, and a 16 GB card (a Tesla V100). They were reporting 41–52 tok/s output and 1,200–1,500 tok/s prompt reading with ([Strata-V100](https://github.com/jmnargi/Strata-V100), checked 5 Oct 2026). The only meaningful differences were my slower RAM (DDR4-2400 instead of 3200) and the card itself.
+
+I don't think the original post of DDR3 machine running the model at those speeds will work out unless you get lucky with the hardware. Strata's normal CPU path needs AVX2 and most cheap DDR3-era Xeons predate AVX2. Without it the engine falls back to an experimental path that is much slower.
+
+
+## Choosing the graphics card
+
+I also min-maxed the GPU choice, partialy based on the other hardware I had lying around. On this board every card runs at PCIe 3.0, so a card's own shiny PCIe 5.0 link is useless and an x8 card loses half its prompt-reading bandwidth for nothing. So actually the good old VRAM capacity and VRAM bandwidth were the things that I needed to think about. The RX 9070 and the RTX 5060 Ti both carry 16 GB, but the 9070 has 640 GB/s against 448 GB/s plus a full x16 link, so on paper it should be the faster card here once the software support is equal. This made me then purchase that 9070.
+
+There were some issues with the box while setting up since I've been running the machine since the pandemic. It still had an old kernel and my OpenMediaVault version was a handful of versions too old. After upgrading those, things were actually quite simple. I would assume that a fresh install of any Linux will make this work out of the box with this hardware.
+
+## The speed numbers
+
+I pointed [BetterBench](https://github.com/GGZ14/BetterBench) 0.6.0, quick mode, at [Strata](https://github.com/Niko1221/Strata) serving Qwen3.8-Flash-Next over its OpenAI-compatible API. The benchmark was run from another machine on the LAN so the benchmarking wouldn't eat into the box doing the work.
+
+|                                                |       Predicted |       **Measured (IQ3_S quantisation)** |
+|------------------------------------------------|----------------:|----------------------------------------:|
+| Output speed, weighted across eight task types |     36–46 tok/s | **50.6 tok/s** (per category 44.8–59.9) |
+| Prompt reading, 8K tokens                      | 1000–1500 tok/s |                              1252 tok/s |
+| Prompt reading, 16K tokens                     |                 |                              1415 tok/s |
+| Prompt reading, 32K tokens                     |                 |                              1396 tok/s |
+| Prompt reading, 64K tokens                     |                 |                              1598 tok/s |
+| Time to first token, short prompt              |                 |                                   2.2 s |
+
+Output speed landed at the top of the predicted range which is quite nice. Prompt reading landed below it initially but upgrading Strata and enabling something called `STRATA_HIP_WMMA` (no idea what this does) increased that with about 75%.
+
+The measurements kinda showed a bottleneck of the setup as well. Every request pays about 2.2 seconds before the first token, even for smaller prompts. That's why a prompt with a length of 1.5k was still only read at a speed of 407 tok/s. There is an [issue open](https://github.com/Niko1221/Strata/issues/392) on this on the Strata repo so maybe it will be modified in the future. Unknown if that's possible. The problem with that is that if we are running an agent that makes lots of small tool calls, the little delay adds up to a lot.
+
+The full BetterBench report is below, or [open it on its own page](/static/frontier-models-on-local-boxes/betterbench-iq3s.html).
+
+<iframe src="/static/frontier-models-on-local-boxes/betterbench-iq3s.html" title="BetterBench results for Qwen3.8-Flash-Next IQ3_S on Strata" width="100%" height="1000" loading="lazy" style={{border: 0}}></iframe>
+
+## The quality numbers
+
+The quantisation of the model of course affects the quality of the model. I was a little bit worried before my runs that IQ2 and IQ3 names seem very very small. Usually reading /r/localllama people are saying that anything below Q6 is pretty much unusable on smaller models. This quantisation is done to better the speeds so there is a tradeoff of finding the best model version for my hardware. Not really having run local models in anger earlier, I can now finally understand why people are flipping between models so often. The problem is that a higher-precision quant has bigger experts, so every cache miss moves more bytes.
+
+The two I compared are from ISTA-DASLab's GSQ-RCO set, whose published task scores on AIME25, GPQA-Diamond and LiveCodeBench v6 put IQ2_XS at 89.2 and IQ3_S at 93.3, against 93.1 for the unquantised model ([model card](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF), checked 9 Oct 2026). I eventually landed on IQ3_S which should be the biggest that I can stably run on my box. I didn't test bigger ones yet though so maybe there's a way forward. Experts kept in RAM difference between IQ2_XS and IQ3_S is ~35.5GB vs ~50GB. 50GB is kinda getting close to the limit since I'm running few other services on the box also and some RAM is needed for caching and context.
+
+
+The quality numbers have a bit of a footnote as well though. I believe AIME25 and GPQA-Diamond are close to saturated these days and were published before this model was trained, so they can hide quantisation damage. I did run `tool-eval-bench` on this machine myself and ended up getting number 93.2/100 over a handful of runs. The unquantised model should hit 95, so IQ3_S is not far off.
+
+## How the box is faring
+
+After running benchmarks for a full day, I checked the closet and the machine itself was running a bit hot but nothing out of the ordinary. The noise levels are quite low as well and don't really differ from previous setup where I was running an ancient Nvidia Geforce 9500GS. That card was plugged in to just to be able to boot the machine since the motherboard/CPU combo needs some kind of display out to actually do anything. Running a 50 GB model next to file shares and Nextcloud on a 64 GB machine turned out to be safer than I was expecting.
+
+The amount of memory used for context is very tiny for this thing. Only a bunch of the model's layers use regular attention. Most of those use linear attention with a fixed-size state. That means that for my testing a full 128K context takes roughly 1.6 GB. I guess this is one of the things why qwen3.8-flash-next fits so well also for "normal" hardware since different setup would need an order of magnitude more to do the same. Under the full benchmark the IQ3_S model used 47.7 GB of its own memory and caused zero out-of-memory events so nothing really didn't explode when I was testing this out.
+
+I did end up putting in some guardrails for the LLM since it isn't the main thing why this machine was setup in the first place. The service runs with a memory cap and a high out-of-memory score, so if memory runs out, the kernel kills the model. The model restarts by itself about a minute later so I don't have to manually go clicking buttons. This leaves my Samba shares up and running and our backed up photos available to be carouselled on screensavers.
+
+The NAS still does its day job. It serves files, it runs Nextcloud, and our photos are as safe as ever. The only difference is that now I'm exposing a web UI to allow the box to answer some questions and I have few more persistent agents probing the machine to do something.
+
+In the end, based on some of the coding tasks I've handed to the box, I think I have achieved what I initially wanted. Hitting the quality of ~6 month old frontier models with a speed that doesn't make me rip my hair out.
