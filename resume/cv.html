@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jussi Hallila - CV</title>
+<style>
+  @font-face { font-family: "Josefin Sans"; font-weight: 400; font-style: normal; src: url("fonts/JosefinSans-400.ttf"); }
+  @font-face { font-family: "Josefin Sans"; font-weight: 500; font-style: normal; src: url("fonts/JosefinSans-500.ttf"); }
+  @font-face { font-family: "Josefin Sans"; font-weight: 600; font-style: normal; src: url("fonts/JosefinSans-600.ttf"); }
+  @font-face { font-family: "Josefin Sans"; font-weight: 700; font-style: normal; src: url("fonts/JosefinSans-700.ttf"); }
+  @font-face { font-family: "Josefin Sans"; font-weight: 400; font-style: italic; src: url("fonts/JosefinSans-400-italic.ttf"); }
+  @page { size: A4; margin: 13mm 14mm 13mm 0; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Josefin Sans", "Noto Sans", sans-serif;
+    font-size: 9.8pt;
+    line-height: 1.38;
+    color: #1f1f1f;
+    margin: 0;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-color: #a3a3a3; text-underline-offset: 1.5px; }
+  header a { text-decoration: none; }
+
+  /* grey band down the left edge of every page */
+  .band { position: fixed; top: -13mm; bottom: -13mm; left: 0; width: 9mm; background: #d9d9d9; }
+
+  header { text-align: center; margin: 0 0 4mm 14mm; padding-bottom: 3mm; border-bottom: 1px solid #c8c8c8; }
+  h1 { font-size: 25pt; font-weight: 500; margin: 0; letter-spacing: 0.5px; }
+  .tagline { font-size: 12pt; margin: 1px 0 3px; }
+  .contact { font-size: 10pt; font-weight: 500; }
+  .contact span + span::before { content: "  ||  "; white-space: pre; }
+
+  .layout { display: grid; grid-template-columns: 55mm 1fr; column-gap: 6mm; margin-left: 14mm; }
+  main { grid-column: 2; grid-row: 1; }
+  aside { grid-column: 1; grid-row: 1; font-size: 9.2pt; }
+
+  main h2 {
+    background: #e3e3e3; font-size: 10.5pt; font-weight: 600; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 2mm 3mm 1.4mm; margin: 0 0 2.5mm;
+  }
+  main h2:not(:first-child) { margin-top: 4mm; }
+  aside h2 {
+    font-size: 9.8pt; font-weight: 700; margin: 0 0 1.5mm; padding-top: 3mm;
+    border-top: 1px solid #c8c8c8;
+  }
+  aside h2:first-child { border-top: 0; padding-top: 0; }
+  aside section { margin-bottom: 3mm; }
+  aside p { margin: 0 0 1.5mm; }
+  aside .label { font-weight: 600; }
+
+  p { margin: 0 0 2mm; }
+  .company { font-size: 11.5pt; font-weight: 600; margin: 2.5mm 0 0.5mm; break-after: avoid; }
+  .role { font-style: italic; margin: 1.5mm 0 0.5mm; break-after: avoid; }
+  ul { margin: 0 0 1mm; padding-left: 4mm; }
+  li { margin-bottom: 0.8mm; break-inside: avoid; }
+  b { font-weight: 600; }
+  aside .next-page { break-before: page; }
+  aside .next-page h2 { border-top: 0; padding-top: 0; }
+</style>
+</head>
+<body>
+<div class="band"></div>
+
+<header>
+  <h1>Jussi Hallila</h1>
+  <div class="tagline">Agent Platform Engineer &middot; Head of Engineering</div>
+  <div class="contact">
+    <span>+31 6 1022 3417</span>
+    <span><a href="mailto:jussi@hallila.com">jussi@hallila.com</a></span>
+    <span><a href="https://jussi.hallila.com">jussi.hallila.com</a></span>
+  </div>
+</header>
+
+<div class="layout">
+<main>
+  <h2>Profile</h2>
+  <p>
+    Software engineer with 15 years of production experience, from hands-on development to leading
+    engineering at Roadie, where I joined as a founding engineer in 2021. I work best on platforms that
+    other engineers build on, and I care as much about build pipelines, deployment and the boundaries
+    between systems as about the features on top. My focus now is measuring and containing AI agents:
+    grading their work against real outcomes, and keeping credentials and untrusted input away from the
+    model. I am looking for a staff or principal IC role on an agent platform, where my leadership
+    background helps set the quality bar for the teams building on it.
+  </p>
+
+  <h2>Work experience</h2>
+
+  <div class="company"><a href="https://roadie.io">Roadie</a>, remote &nbsp;|&nbsp; 2021 - present</div>
+  <div class="role">Head of Engineering | 2024 - present</div>
+  <ul>
+    <li>Lead engineering for Roadie, a SaaS developer platform built on Backstage.</li>
+    <li>Shipped <a href="https://github.com/RoadieHQ/openroadie">openroadie</a>, a self-hosted context store and agent control platform: JSONata-based ingestion
+      workflows, a catalog datastore with inferred JSON schemas and a rules-driven relationship graph, and
+      an MCP server that exposes the graph and its write actions to agents.</li>
+    <li>Set the direction for Roadie's AI work as a series of small, timeboxed bets, each measured for
+      feasibility and infrastructure cost before committing a team to it.</li>
+  </ul>
+  <div class="role">Founding Engineer (employee #5) | 2021 - 2024</div>
+  <ul>
+    <li>Built the Roadie product with the founding team: a multi-tenant SaaS platform hosting Backstage for
+      customers on AWS and Kubernetes. It has held four nines of uptime or better every year since December 2021.</li>
+    <li>Designed and built Tech Insights for the Backstage open-source project, from the RFC to the initial
+      implementation: data sources that collect facts, checks over those facts, and scorecards that combine
+      checks across a catalog. Then built Roadie's product on top of it.</li>
+    <li>Profiled and tuned the backend and catalog for tenants with over 100,000 entities.</li>
+    <li>Built <a href="https://github.com/RoadieHQ/roadie-agent">roadie-agent</a>, the library customers use to extend Roadie from inside their own networks.</li>
+    <li>Co-maintain 50+ open-source Backstage plugins and libraries on npm, around 960,000 downloads a month.</li>
+  </ul>
+
+  <div class="company">Visma Labs, Dublin, Ireland &nbsp;|&nbsp; 2019 - 2021</div>
+  <div class="role">Software Architect</div>
+  <ul>
+    <li>Planned and led the migration from a monolith to a modular monolith and microservices.</li>
+    <li>Moved workloads from VMs to containers and owned the frontend and backend build pipelines.</li>
+    <li>Advised development teams on technical approach, architecture guidelines and process.</li>
+  </ul>
+
+  <div class="company">VSWare, Dublin, Ireland &nbsp;|&nbsp; 2017 - 2019</div>
+  <div class="role">Head of Frontend Engineering</div>
+  <ul>
+    <li>Led customer-facing development and user experience for a school administration platform, managing
+      a team of 18 developers.</li>
+    <li>Architected the migration from a jQuery/JSP frontend to a modular Vue.js single-page app.</li>
+  </ul>
+
+  <div class="company">Brandtone, Dublin, Ireland &nbsp;|&nbsp; 2015 - 2017</div>
+  <div class="role">Senior Software Engineer</div>
+  <ul>
+    <li>Led development of the core capabilities of the company's largest product, a mobile marketing platform.</li>
+    <li>Introduced DevOps practice: Ansible, configuration in source control, chat-ops and an automated Jenkins
+      deployment pipeline. Built the automated testing setup and its infrastructure.</li>
+    <li>Moved the frontend to React, Webpack and the Node.js toolchain.</li>
+  </ul>
+
+  <div class="company">Earlier roles &nbsp;|&nbsp; 2009 - 2015</div>
+  <ul>
+    <li><b>Liberty IT</b>, Dublin, Software Engineer (2014 - 2015): SOA web services that calculate insurance rates.</li>
+    <li><b>Unique Digital</b>, Dublin, Software Developer (2014): Vaadin views and UI components for cinema
+      software, with cross-browser multimedia support.</li>
+    <li><b>IBM</b>, Dublin, BI Software Developer (2011 - 2014): business intelligence for IBM delivery centres
+      in EMEA and the US on Java, Spring and Spring Batch. Introduced continuous integration and automated testing.</li>
+    <li><b>CERN</b>, Geneva, Web Developer and DBA (2009): database and web frontend for the TOTEM experiment.</li>
+  </ul>
+
+  <h2>Projects</h2>
+  <ul>
+    <li><b><a href="https://viberglass.io">Viberglass</a></b> (2026, AGPL-3.0, <a href="https://github.com/Ilities/viberglass">github.com/Ilities/viberglass</a>): open-source, self-hosted workspace where people and
+      coding agents work on the same tasks. An agent plans the change, asks the right person when it is unsure,
+      and opens a pull request once the team has reviewed the plan. Runs eight coding agent CLIs, including
+      Claude Code and Codex, on Docker, Kubernetes, ECS Fargate or Lambda, and can start and scale to zero a
+      vLLM GPU container for self-hosted models. Integrates with Slack, GitHub, Jira and Shortcut. TypeScript
+      monorepo, Helm chart and Pulumi stacks.</li>
+    <li><b><a href="https://github.com/RoadieHQ/openroadie">openroadie</a></b> (2026, built at Roadie): a self-hosted
+      context store and agent control platform. Keeps a live, permissioned graph of services, teams and
+      dependencies that agents query and act on over MCP.</li>
+    <li><b><a href="https://ctxpack.com">ctxpack</a></b> (2025): an early MCP gateway. Bundles tools, prompts and resources into context
+      packs and deploys them to Claude, ChatGPT or any MCP client over OAuth 2.1.</li>
+    <li><b><a href="https://github.com/Ilities/local-ctx">local-ctx</a></b> (2025): exposes local stdio MCP servers as OAuth-secured endpoints for web clients.</li>
+    <li><b><a href="https://github.com/Xantier/nerd-stack">NERD stack</a></b> (2015): a Node.js, Express, React and database application
+      skeleton with server-side rendered React, from before isomorphic React was common.</li>
+  </ul>
+</main>
+
+<aside>
+  <section>
+    <h2>Contact</h2>
+    <p>Arnhem, the Netherlands</p>
+    <p><a href="mailto:jussi@hallila.com">jussi@hallila.com</a></p>
+    <p><a href="https://www.linkedin.com/in/jussihallila">linkedin.com/in/jussihallila</a></p>
+    <p><a href="https://github.com/Xantier">github.com/Xantier</a></p>
+    <p><a href="https://github.com/Ilities">github.com/Ilities</a></p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <p class="label">Agents and AI</p>
+    <p>MCP servers, clients and OAuth 2.1, Vercel AI SDK, Amazon Bedrock, Claude Code, Codex, agent orchestration</p>
+    <p class="label">Languages</p>
+    <p>TypeScript, Node.js, Java, Kotlin, SQL</p>
+    <p class="label">Cloud and infrastructure</p>
+    <p>Kubernetes, AWS (ECS Fargate, Lambda, RDS, S3, KMS, SSM, VPC), Pulumi, Terraform, Docker</p>
+    <p class="label">Data</p>
+    <p>PostgreSQL, Kysely, MySQL, Oracle</p>
+    <p class="label">Frontend</p>
+    <p>React, Backstage, Vite, Vue.js</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <p><span class="label">Lapland University of Applied Sciences</span>, 2006 - 2011<br>
+      <i>Bachelor of Software Engineering</i></p>
+    <p>Thesis: an automated poker player in C++ and the security of online poker. Grade 5/5.</p>
+    <p>Nokia Siemens Networks scholarship (2007)</p>
+    <p><span class="label">Exchange studies</span><br>
+      Missouri State University, 2008<br>Shanghai University, 2009</p>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <p>AWS Solutions Architect Professional, 2019</p>
+    <p>AWS Solutions Architect Associate, 2019</p>
+  </section>
+
+  <section class="next-page">
+    <h2>Talks and writing</h2>
+    <p><a href="https://backstageconna22.sched.com/speaker/jussi5">"What is This Tech Insights Anyways?"</a>, BackstageCon North America 2022, Detroit, co-located with
+      KubeCon. With Irma Solakovic.</p>
+    <p><a href="https://www.packtpub.com/product/full-stack-kotlin-development-video/9781788478427">Full-stack Kotlin development</a>, video course, Packt (2017)</p>
+    <p>Ran the Kotlin meetup in Dublin, 2017 - 2018</p>
+    <p>Technical blog at <a href="https://jussi.hallila.com">jussi.hallila.com</a> since 2016</p>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <p>Finnish (native), English (fluent), Dutch (B1+)</p>
+  </section>
+</aside>
+</div>
+
+</body>
+</html>

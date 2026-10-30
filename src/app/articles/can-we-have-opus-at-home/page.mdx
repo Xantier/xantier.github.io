@@ -1,0 +1,146 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { ResultsGrid } from '@/components/ResultsGrid'
+
+export const article = {
+  author: 'Jussi Hallila',
+  date: '2026-10-28',
+  title: 'Can we have Opus at home?',
+  description:
+    'Testing a quantised Qwen3.8-Flash-Next on my home server against hosted models, including Claude Opus 4.6 and 4.7, on coding tasks, a report and a presentation.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default function Layout({children}) {
+  return <ArticleLayout article={article}>{children}</ArticleLayout>
+}
+
+> "Can we have Opus?"
+>
+> "We have Opus at home."
+
+The landscape of software engineering changed some time in November-December 2025 when Anthropic either released a new checkpoint of their Opus model or Claude Code suddenly got good enough to wrap the tool calls into a good enough loop to start doing proper software engineering work. There is a clear turning point around that time frame, but I'm not sure when it happened. I jumped on that train during the Christmas break and haven't really looked back since. Like with most engineers, typing actual code has diminished over the last months to pretty much nothingness and has been replaced with architectural reviews, functionality reviews, product thinking and managing different harnesses and tooling around those. I think the next stage on this trajectory is local models reaching somewhat decent enough quality that paying for tokens isn't the only way to work with LLMs anymore. Naturally, hardware prices caveat, of course, plays a role, but sanely budgeted developer machines are getting very close to reality.
+
+I've been telling people for a while now that a competent engineer can nowadays do full-on work with only a local machine running local models, without real evidence, just a gut feeling. I wanted to test how much I was actually lying when I was excitedly jumping on that hype train. I ran some experiments to see what the actual quality of my local model is compared to current hosted local models and flagships from the past. The Qwen3.8-Flash-Next running on my home server tied Claude Opus 4.7 on my benchmarks/checks on coding and data tasks they both ran, and scored higher on some presentation tasks that needed to do more thorough research. If we wind back the clock to 6 months ago, Opus 4.6/4.7 was good and it already felt like there was no urgent _need_ to make it better.
+
+
+"Caturra" is my runner for [Qwen3.8-Flash-Next at IQ3_S quantisation](/articles/frontier-models-on-local-boxes), served by Strata on a Ryzen 5 3600 with 64 GB of DDR4-2400 and an RX 9070 with 16 GB of VRAM. It generates roughly 45 to 60 tokens per second. I pay for the hardware and electricity, with no API charge per token.
+
+I ran the comparison in [Viberglass](https://github.com/Ilities/viberglass), the self-hosted workspace I have been building for people and coding agents to work on shared tasks. It supports several agent CLIs through harness plugins. Every model here used OpenCode, with tasks in my own repositories and a document workspace.
+
+The other models were DeepSeek 4.1 Flash, GPT-6 Luna, Claude Haiku 5.5 and MiMo 2.6 Flash.
+
+The models I most wanted in the comparison were Claude Opus 4.6 and 4.7, released in February and April this year. My gut feel after a few weeks with Qwen3.8-Flash-Next is that it works at roughly their level, and the benchmarks point the same way. What I wanted to find out is whether I can say with a straight face that a cheap box in my closet runs a model that was the frontier six to nine months ago. Their first runs failed because my API account had run out of credit, and running every task through the Claude API at Opus prices would cost me more than I paid for the memory on the box in my closet. So I put 25 dollars in and ran Opus on the tasks it could afford: the report, the presentation and local-ctx on both, and ArgoCD on Opus 4.7. The rest of the comparison is against today's cheaper hosted models.
+
+## Tasks and grading
+
+The tasks cover three repositories and a document workspace:
+
+| Task                                               | Where                                                                                        | What it tests                                                                                      |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Add DeepSeek Harness                               | Viberglass                                                                                   | Integrate a new coding agent, checking its API format and runtime behaviour                        |
+| Reject harness settings the runner form can't show | Viberglass                                                                                   | A small validation in the catalog generator                                                        |
+| Asana as an issue tracker                          | Viberglass                                                                                   | A new integration whose webhooks work differently from every tracker Viberglass already supports   |
+| OAuth that follows the MCP authorization spec      | [local-ctx](https://github.com/Ilities/local-ctx)                                            | Audience validation and per-endpoint protected resource metadata (RFC 9728), from a spec           |
+| Per-instance ArgoCD app namespaces                 | a copy of Roadie's [Backstage plugins](https://github.com/RoadieHQ/roadie-backstage-plugins) | An [open issue](https://github.com/RoadieHQ/roadie-backstage-plugins/issues/2317) filed in October |
+| A pull request report                              | a Viberglass Files space                                                                     | Download two CSVs, answer four questions in an HTML page with a chart, no internet in the preview  |
+| An MCP authorization briefing                      | the same Files space                                                                         | A researched slide deck about spec revision 2025-06-18, with a source on every slide               |
+
+The DeepSeek Harness checklist came from reviewing the submitted implementations. For the other tasks, the task texts, hidden tests and checklists were frozen before I shipped the task to a model. The code tasks were graded by tests that I kept separated from the models and if there was a failure, I read and inspected to code to see why did that happen. The report itself is just an amalgamation of all these checks and numbes to get somewhat human-readable result listing. .
+
+
+## Results
+
+The harness integration has a separate checklist below this score table.
+
+| Task                                  | Caturra | DeepSeek 4.1 Flash | Claude Haiku 5.5 | GPT-6 Luna | Claude Opus 4.6 | Claude Opus 4.7 |
+|---------------------------------------|---------|--------------------|------------------|------------|-----------------|-----------------|
+| Settings validation, hidden checks    | 14/14   | 14/14              | 14/14            | 14/14      | –               | –               |
+| Asana, rank after reading the code    | 3rd     | 1st                | 2nd              | 4th        | –               | –               |
+| local-ctx OAuth, hidden tests         | 16/16   | 16/16              | 16/16            | 14/16      | 16/16           | 16/16           |
+| ArgoCD namespaces, hidden tests       | 14/14   | 13/14              | 14/14            | 14/14      | –               | 14/14           |
+| Report, questions right / wrong facts | 4/4, 0  | 4/4, 1             | 4/4, 0           | 3/4, 0     | 4/4, 0          | 4/4, 0          |
+| Presentation, rank of six             | 1st     | 5th                | 4th              | 2nd        | 6th             | 3rd             |
+
+– means that the test was not run. The Opus runs stopped when the 25 dollars did. Not worth pushing money to Anthropic's older models.
+
+<ResultsGrid />
+
+### DeepSeek Harness
+
+| Area            | Check                                                   | Claude Haiku 5.5 | GPT-6 Luna | MiMo 2.6 Flash | DeepSeek 4.1 Flash | Caturra |
+|-----------------|---------------------------------------------------------|------------------|------------|----------------|--------------------|---------|
+| Plumbing        | Package, registration, catalogs, Dockerfiles            | ✓               | ✓         | ✓             | ✓                 | ✓      |
+| Plumbing        | DeepSeek keys default to the new harness, OpenCode kept | ✓               | ✓         | ✓             | ✓                 | ✓      |
+| Plumbing        | Docs, logo, smoke-suite entry                           | ✓               | ✓         | ✓             | ✓                 | ✓      |
+| Facts about dsh | Custom endpoints declared as Anthropic Messages         | ✗               | ✗         | ✗             | ✓                 | ✗      |
+| Facts about dsh | Model ids exist                                         | ✓               | ✗         | ✗             | ✓                 | ✓      |
+| Facts about dsh | Session state archived, credentials excluded            | ✓               | ✗         | ✓             | ✓                 | ✓      |
+| Facts about dsh | Adapter runtime matches the installed dsh               | ✗               | ✗         | ✗             | ✓                 | ✓      |
+| Platform wiring | Workspace model endpoint run gets its key               | ✗               | ✗         | ✗             | ✓                 | ✓      |
+| Platform wiring | Permission mode survives the environment filter         | ✓               | ✓         | ✓             | ✗                 | ✗      |
+| Platform wiring | Model choices render on the runner form                 | ✓               | ✗         | ✓             | ✗                 | ✗      |
+| Verification    | Ran the full unit suite                                 | –                | –          | ✓             | ✓                 | ✓      |
+| Verification    | Ran the real `dsh`                                      | –                | –          | –              | ✓                 | –       |
+| Honesty         | PR description makes no false claims                    | ✓               | ✗         | ✗             | ✓                 | ✗      |
+
+Every model completed the integration steps documented in the repository. Only DeepSeek got the wire format right, and it was also the only model that ran `dsh` against a local mock. This run cannot tell me whether that came from testing or prior knowledge of its own vendor's agent.
+
+### Settings validation, OAuth and ArgoCD
+
+Everyone passed settings validation. ArgoCD and local-ctx had similar scores, with failures in two implementations. GPT-6 Luna served the OAuth metadata at `/memory/.well-known/oauth-protected-resource` instead of the RFC 9728 location `/.well-known/oauth-protected-resource/memory`, and DeepSeek let an annotation for an ArgoCD instance that isn't configured leak its namespace into the API requests.
+
+### Asana
+
+The Asana implementations differed more. It is a bigger feature and ate a lot of tokens and time. Supporting Asana webhooks required changes to Viberglass core itself so the platform needed some changing and thus more context reading was needed. Haiku and Caturra asked whether those platform changes were in scope which is the sane thing to do. I did ask them to implement those. DeepSeek and Luna changed the platform without asking.
+
+### Pull request report
+
+Every model got the report's counts right, but some got other figures wrong. Caturra, Haiku and both Opus models made no mistakes. Haiku added a column of files and pull requests per area, and Caturra drew its chart with an inline script that works without a network. DeepSeek wrote that the slowest merge took 15.6 days when it took 15.6 hours, and Luna got the median wrong. It's weird that simple math things on a simple task still seems to cause problems to current models.
+
+### MCP authorization presentation
+
+On the MCP Auth presentation task Caturra scored highest for accuracy, with all 13 facts on the checklist right and nothing from the later revision. That was the hidden tricky bit of this task, since official MCP pages were updated inline and the spec changes thus changed after the fact. That was quite a surprise to me but it does make me happy. A lot of the work as a tech lead is to produce these kinds of and having correct information on those allows me to focus on the content instead of rewriting the facts manually.
+
+## Against Opus
+
+So can we have Opus at home? Yeah, pretty much. I'd say Qwen3.8-Flash-Next is around Opus 4.7/4.8 (I didn't like Opus 4.8 and didn't use it after initial experiments. I jumped to 5 from 4.7 directly).
+
+| Task                                             | Caturra  | Claude Opus 4.6 | Claude Opus 4.7 |
+|--------------------------------------------------|----------|-----------------|-----------------|
+| local-ctx OAuth, hidden tests                    | 16/16    | 16/16           | 16/16           |
+| ArgoCD namespaces, hidden tests                  | 14/14    | –               | 14/14           |
+| Report, questions right / wrong facts            | 4/4, 0   | 4/4, 0          | 4/4, 0          |
+| Presentation, facts right / later-revision items | 13/13, 0 | 10/13, 3        | 11/13, 2        |
+
+## Run time and cost
+
+One of the reasons to run models locally is cost. Privacy being the first one of course. The results on that were quite encouraging with my hardware. Currently the subsidized subscription prices are still cheaper but if you need to use the API rates, it is definitely better to start hoarding hardware. Below are the task run times per model:
+
+| Task                | Caturra | DeepSeek 4.1 Flash | Claude Haiku 5.5 | GPT-6 Luna | Claude Opus 4.6 | Claude Opus 4.7 |
+|---------------------|---------|--------------------|------------------|------------|-----------------|-----------------|
+| Settings validation | 27.7    | 6.1                | 10.3             | 16.6       | –               | –               |
+| Asana               | 60.1    | 17.1               | 44.0             | 27.6       | –               | –               |
+| local-ctx OAuth     | 8.3     | 8.6                | 20.3             | 5.9        | 8.8             | 12.0            |
+| ArgoCD namespaces   | 64.0    | 10.2               | 30.4             | 4.0        | –               | 14.7            |
+| Report              | 4.1     | 1.2                | 0.9              | 1.7        | 3.2             | 2.4             |
+| Presentation        | 11.3    | 18.7               | 1.7              | 3.2        | 4.7             | 4.3             |
+| Total               | 175     | 62                 | 108              | 59         |                 |                 |
+
+Caturra took the most total run time: 175 minutes for the six timed tasks, compared with 59 for Luna, 62 for DeepSeek and 108 for Haiku.
+
+How much did it actually cost then?
+
+The Opus runs cost about 17 dollars for eight runs, one of them being a stalled ArgoCD run (the container ran out of memory). The reports and presentations were about a dollar each and each code task was between 3.50 and 6 dollars.
+
+Caturra's cost is electricity. Home Assistant reads our whole-house meter about once a second, and while Caturra was working the house drew about 240 W more than in the idle stretches around each run. The box runs all day (shut of at night) as a NAS anyway, so that extra is the cost of the model work. The six timed tasks come to about 0.70 kWh, roughly 23 cents at our Vattenfall rate of about 33 cents per kWh. The four tasks Opus also ran took about 0.35 kWh, around 12 cents, against Opus's 17 dollars.
+
+
+## What does this actually mean?
+
+There are few caveats worth mentioning that do affect these numbers. These results come from one completed comparison per model per task. Caturra had extra Asana attempts after its setup failures, and some agents received scope clarification during the task. The worker sizes differed, as described above. This is too little evidence for a reliable model ranking but it start to validify my assumptions that we can indeed have Opus at home. Caturra can also only run one task at a time. I can leave it working while I do something else, but waiting 64 minutes for the ArgoCD change would be harder to accept if I needed it before I could continue.
+
+But yes, I believe I'm not lying too much when I say that currently, with about 1200 euros (two weeks ago, nowadays closer to 1.5k I guess. Prices are climbing fast) we can run a frontier model from half-a-year ago quite nicely at home. And that is already a model that can do real work.
