@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cv:pdf": "cd resume && google-chrome --headless --disable-gpu --no-pdf-header-footer --print-to-pdf=../public/static/resume/CV_Jussi_Hallila_2026.pdf \"file://$PWD/cv.html\""
   },
   "type": "module",
   "browserslist": "defaults, not ie <= 11",
